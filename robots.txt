@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /logs/
+Disallow: /data/
+Disallow: /reports/
+
+Sitemap: https://mtellezdominguez.github.io/apex-site/sitemap.xml
