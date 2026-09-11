@@ -42,34 +42,4 @@
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
-  <url>
-    <loc>https://mtellezdominguez.github.io/apex-site/mejores-electrodomesticos-hogar-amazon-espana/</loc>
-    <lastmod>2026-09-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://mtellezdominguez.github.io/apex-site/mejores-gadgets-hogar-inteligente-amazon/</loc>
-    <lastmod>2026-09-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://mtellezdominguez.github.io/apex-site/mejores-herramientas-electricas-precio-calidad/</loc>
-    <lastmod>2026-09-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://mtellezdominguez.github.io/apex-site/mejores-herramientas-jardineria-amazon-espana/</loc>
-    <lastmod>2026-09-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://mtellezdominguez.github.io/apex-site/mejores-maquinas-ejercicio-gimnasio-casa/</loc>
-    <lastmod>2026-09-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
 </urlset>
