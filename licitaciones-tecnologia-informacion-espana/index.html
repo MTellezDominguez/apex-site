@@ -6,173 +6,415 @@
   <title>Licitaciones de Tecnología e Informática en España | Contratos Públicos 2025</title>
   <meta name="description" content="Contratos públicos TI publicados en la Plataforma de Contratación del Estado">
   <link rel="canonical" href="https://mtellezdominguez.github.io/apex-site/licitaciones-tecnologia-informacion-espana/">
-  <style>
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:system-ui,sans-serif;color:#1a1a1a;line-height:1.6;max-width:860px;margin:0 auto;padding:1.5rem 1rem}
-    h1{font-size:1.8rem;margin-bottom:.5rem}
-    h2{font-size:1.2rem;margin:1.5rem 0 .5rem;color:#333}
-    .meta{color:#666;font-size:.9rem;margin-bottom:1.5rem}
-    .stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1rem;margin:1.5rem 0}
-    .stat{background:#f5f5f5;border-radius:8px;padding:1rem;text-align:center}
-    .stat strong{display:block;font-size:1.6rem;color:#0057b7}
-    .stat span{font-size:.8rem;color:#555}
-    table{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.9rem}
-    th{background:#0057b7;color:#fff;padding:.5rem .75rem;text-align:left}
-    td{padding:.5rem .75rem;border-bottom:1px solid #eee}
-    tr:hover td{background:#f9f9f9}
-    .tag{display:inline-block;background:#e8f0fe;color:#1a56db;font-size:.75rem;padding:2px 8px;border-radius:4px;margin:2px}
-    footer{margin-top:3rem;padding-top:1rem;border-top:1px solid #eee;font-size:.8rem;color:#888}
-    a{color:#0057b7}
-  </style>
-  <!-- SEO técnico -->
-  <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+  <link rel="sitemap" type="application/xml" href="/apex-site/sitemap.xml">
   <meta property="og:title" content="Licitaciones de Tecnología e Informática en España | Contratos Públicos 2025">
   <meta property="og:description" content="Contratos públicos TI publicados en la Plataforma de Contratación del Estado">
   <meta property="og:url" content="https://mtellezdominguez.github.io/apex-site/licitaciones-tecnologia-informacion-espana/">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_ES">
   <meta name="robots" content="index, follow">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --azul:      #1a56db;
+      --azul-dark: #1e429f;
+      --verde:     #057a55;
+      --naranja:   #c27803;
+      --rojo:      #c81e1e;
+      --gris:      #6b7280;
+      --borde:     #e5e7eb;
+      --fondo:     #f9fafb;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      color: #111827;
+      background: var(--fondo);
+      line-height: 1.6;
+    }
+
+    /* ── Cabecera ── */
+    header {
+      background: #fff;
+      border-bottom: 1px solid var(--borde);
+      padding: .75rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .logo {
+      font-size: .95rem;
+      font-weight: 700;
+      color: var(--azul);
+      text-decoration: none;
+    }
+    .logo span { color: #111827; font-weight: 400; }
+    nav a {
+      font-size: .85rem;
+      color: var(--gris);
+      text-decoration: none;
+      margin-left: 1.25rem;
+    }
+    nav a:hover { color: var(--azul); }
+
+    /* ── Layout ── */
+    .page { max-width: 1000px; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+
+    /* ── Breadcrumb ── */
+    .breadcrumb {
+      font-size: .8rem;
+      color: var(--gris);
+      margin-bottom: 1.25rem;
+    }
+    .breadcrumb a { color: var(--azul); text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+
+    /* ── Hero ── */
+    .hero { margin-bottom: 1.75rem; }
+    .hero h1 {
+      font-size: 1.65rem;
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: .4rem;
+    }
+    .hero .subtitulo { font-size: .9rem; color: var(--gris); }
+
+    /* ── Stats grid ── */
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: .75rem;
+      margin-bottom: 2rem;
+    }
+    .stat {
+      background: #fff;
+      border: 1px solid var(--borde);
+      border-radius: 10px;
+      padding: 1rem;
+      text-align: center;
+    }
+    .stat strong {
+      display: block;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--azul);
+      line-height: 1.1;
+    }
+    .stat span { font-size: .75rem; color: var(--gris); margin-top: .2rem; display: block; }
+
+    /* ── Alerta urgente ── */
+    .alerta-urgente {
+      background: #fffbeb;
+      border: 1px solid #fcd34d;
+      border-left: 4px solid #d97706;
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+    .alerta-urgente strong { color: #92400e; display: block; margin-bottom: .5rem; }
+    .alerta-urgente ul { padding-left: 1.25rem; }
+    .alerta-urgente li { font-size: .88rem; margin-bottom: .3rem; color: #78350f; }
+    .alerta-urgente a { color: #92400e; }
+
+    /* ── Sección ── */
+    .seccion { margin-bottom: 2rem; }
+    .seccion h2 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #374151;
+      border-bottom: 2px solid var(--azul);
+      padding-bottom: .4rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+    }
+
+    /* ── Tabla ── */
+    .tabla-wrap { overflow-x: auto; border-radius: 10px; border: 1px solid var(--borde); }
+    table { width: 100%; border-collapse: collapse; font-size: .875rem; background: #fff; }
+    thead th {
+      background: var(--azul);
+      color: #fff;
+      padding: .6rem .9rem;
+      text-align: left;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+    tbody td { padding: .6rem .9rem; border-bottom: 1px solid var(--borde); vertical-align: middle; }
+    tbody tr:last-child td { border-bottom: none; }
+    tbody tr:hover td { background: #f0f4ff; }
+    .contrato-link { color: var(--azul); text-decoration: none; font-weight: 500; }
+    .contrato-link:hover { text-decoration: underline; }
+    .org { color: var(--gris); font-size: .82rem; }
+    .valor { font-weight: 600; white-space: nowrap; }
+
+    /* ── Badges de estado ── */
+    .badge {
+      display: inline-block;
+      padding: 2px 9px;
+      border-radius: 20px;
+      font-size: .72rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .badge-urgente  { background: #fee2e2; color: #991b1b; }
+    .badge-proximo  { background: #ffedd5; color: #9a3412; }
+    .badge-abierto  { background: #d1fae5; color: #065f46; }
+    .badge-sinplazo { background: #f3f4f6; color: #6b7280; }
+
+    /* ── Chips de organismos ── */
+    .chips { display: flex; flex-wrap: wrap; gap: .4rem; }
+    .chip {
+      background: #eff6ff;
+      color: var(--azul);
+      border: 1px solid #bfdbfe;
+      border-radius: 20px;
+      padding: 3px 10px;
+      font-size: .78rem;
+    }
+
+    /* ── Callout informativo ── */
+    .callout {
+      background: #f0f9ff;
+      border: 1px solid #bae6fd;
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      font-size: .88rem;
+      color: #0c4a6e;
+      line-height: 1.6;
+    }
+
+    /* ── CTA premium ── */
+    .cta-premium {
+      background: linear-gradient(135deg, #1e429f 0%, #1a56db 100%);
+      color: #fff;
+      border-radius: 12px;
+      padding: 1.5rem 2rem;
+      margin: 2rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .cta-premium h3 { font-size: 1.05rem; margin-bottom: .3rem; }
+    .cta-premium p  { font-size: .88rem; opacity: .88; }
+    .cta-btn {
+      background: #fff;
+      color: var(--azul);
+      font-weight: 700;
+      font-size: .9rem;
+      padding: .6rem 1.4rem;
+      border-radius: 8px;
+      text-decoration: none;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .cta-btn:hover { background: #eff6ff; }
+
+    /* ── Footer ── */
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--borde);
+      font-size: .78rem;
+      color: var(--gris);
+      line-height: 1.7;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 640px) {
+      .hero h1   { font-size: 1.3rem; }
+      .cta-premium { flex-direction: column; text-align: center; }
+    }
+  </style>
 </head>
 <body>
+
+<header>
+  <a class="logo" href="/apex-site/">Licitaciones<span>.es</span></a>
+  <nav>
+    <a href="/apex-site/licitaciones-tecnologia-informacion-espana/">TI</a>
+    <a href="/apex-site/licitaciones-construccion-obra-publica-espana/">Construcción</a>
+    <a href="/apex-site/licitaciones-limpieza-servicios-espana/">Limpieza</a>
+    <a href="/apex-site/licitaciones-formacion-educacion-espana/">Formación</a>
+  </nav>
+</header>
+
+<div class="page">
   
-<h1>Licitaciones de Tecnología e Informática en España</h1>
-<p class="meta">Contratos públicos TI publicados en la Plataforma de Contratación del Estado · Actualizado 11/09/2026</p>
+
+<nav class="breadcrumb">
+  <a href="/apex-site/">Inicio</a> › Licitaciones de Tecnología e Informática en España
+</nav>
+
+<div class="hero">
+  <h1>Licitaciones de Tecnología e Informática en España</h1>
+  <p class="subtitulo">Contratos públicos TI publicados en la Plataforma de Contratación del Estado</p>
+</div>
 
 <div class="stat-grid">
   <div class="stat">
-    <strong>10</strong>
-    <span>Contratos últimos 90 días</span>
+    <strong>4</strong>
+    <span>Contratos activos</span>
   </div>
   <div class="stat">
-    <strong>25.6M €</strong>
+    <strong>11.7M €</strong>
     <span>Valor total licitado</span>
   </div>
   <div class="stat">
-    <strong>2.6M €</strong>
+    <strong>2.9M €</strong>
     <span>Contrato medio</span>
   </div>
   <div class="stat">
-    <strong>10</strong>
-    <span>Organismos convocantes</span>
+    <strong>1</strong>
+    <span>Cierran esta semana</span>
   </div>
 </div>
 
-<h2>Contratos activos en este sector</h2>
-<table>
-  <thead>
-    <tr>
-      <th>Contrato</th>
-      <th>Organismo</th>
-      <th>Valor estimado</th>
-      <th>Publicado</th>
-    </tr>
-  </thead>
-  <tbody>
+
+<div class="alerta-urgente">
+  <strong>⚠ Plazo urgente — cierran en menos de 7 días</strong>
+  <ul>
     
-    <tr>
-      <td><a href="https://contractaciopublica.cat/ca/detall-publicacio/0da93067-9af1-40b0-b040-c6cc7e0e8a02/300877935" target="_blank" rel="nofollow">Consisteix en la prestació del servei de gestió de les xarxes socials i del port</a></td>
-      <td>Patronat Municipal de Turisme de Salou</td>
-      <td>110K €</td>
-      <td>2026-09-10</td>
-    </tr>
+    <li>
+      <a href="https://www.contratacion.euskadi.eus/webkpe00-kpeperfi/es/contenidos/anuncio_contratacion/expjaso720877/es_doc/index.html" target="_blank" rel="nofollow">Implantación nuevo sistema tributario (fase 2), mantenimiento de la fase 1, y evolutivos d</a>
+      — Centro de Cálculo de Álava, S.A.-Centro de Cálculo de Álava, S.A. ·
+      <strong>Cierra 18/09/2026</strong>
+      (6 días)
+    </li>
     
-    <tr>
-      <td><a href="https://www.contratacion.euskadi.eus/webkpe00-kpeperfi/es/contenidos/anuncio_contratacion/expgebizkaia3634626/es_doc/index.html" target="_blank" rel="nofollow">Gestión de nombres de dominio</a></td>
-      <td>LANTIK-Director-Gerente</td>
-      <td>200K €</td>
-      <td>2026-09-10</td>
-    </tr>
+  </ul>
+</div>
+
+
+<div class="seccion">
+  <h2>📋 Contratos activos — ordenados por plazo</h2>
+  <div class="tabla-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Contrato</th>
+          <th>Organismo</th>
+          <th>Valor</th>
+          <th>Plazo límite</th>
+          <th>Estado</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        <tr>
+          <td>
+            <a class="contrato-link" href="https://www.contratacion.euskadi.eus/webkpe00-kpeperfi/es/contenidos/anuncio_contratacion/expjaso720877/es_doc/index.html"
+               target="_blank" rel="nofollow">Implantación nuevo sistema tributario (fase 2), mantenimiento de la fase 1, y ev</a>
+            
+          </td>
+          <td class="org">Centro de Cálculo de Álava, S.A.-Centro </td>
+          <td class="valor">11.2M €</td>
+          <td style="white-space:nowrap;">18/09/2026</td>
+          <td>
+            
+              <span class="badge badge-urgente">🔴 Urgente</span>
+            
+          </td>
+        </tr>
+        
+        <tr>
+          <td>
+            <a class="contrato-link" href="https://contractaciopublica.cat/ca/detall-publicacio/757217e7-963c-43a8-9793-b9cd49017a5a/300880358"
+               target="_blank" rel="nofollow">Presentar i analitzar les millors eines o solucions tecnològiques per substituir</a>
+            
+          </td>
+          <td class="org">Institut Municipal de Mercats de Barcelo</td>
+          <td class="valor">150K €</td>
+          <td style="white-space:nowrap;">23/09/2026</td>
+          <td>
+            
+              <span class="badge badge-proximo">🟠 11d</span>
+            
+          </td>
+        </tr>
+        
+        <tr>
+          <td>
+            <a class="contrato-link" href="https://contractaciopublica.cat/ca/detall-publicacio/0da93067-9af1-40b0-b040-c6cc7e0e8a02/300877935"
+               target="_blank" rel="nofollow">Consisteix en la prestació del servei de gestió de les xarxes socials i del port</a>
+            
+          </td>
+          <td class="org">Patronat Municipal de Turisme de Salou</td>
+          <td class="valor">110K €</td>
+          <td style="white-space:nowrap;">25/09/2026</td>
+          <td>
+            
+              <span class="badge badge-proximo">🟠 13d</span>
+            
+          </td>
+        </tr>
+        
+        <tr>
+          <td>
+            <a class="contrato-link" href="https://www.contratacion.euskadi.eus/webkpe00-kpeperfi/es/contenidos/anuncio_contratacion/expgebizkaia3634626/es_doc/index.html"
+               target="_blank" rel="nofollow">Gestión de nombres de dominio</a>
+            
+          </td>
+          <td class="org">LANTIK-Director-Gerente</td>
+          <td class="valor">200K €</td>
+          <td style="white-space:nowrap;">30/09/2026</td>
+          <td>
+            
+              <span class="badge badge-proximo">🟠 18d</span>
+            
+          </td>
+        </tr>
+        
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="seccion">
+  <h2>🏛 Organismos que más licitan en este sector</h2>
+  <div class="chips">
     
-    <tr>
-      <td><a href="https://contratos-publicos.comunidad.madrid/contrato-publico/suministro-e-implantacion-software-servicio-saas-gestion-ideas-canal-isabel-ii-sa" target="_blank" rel="nofollow">Suministro e implantación de un software como servicio (SaaS) para la gestión de</a></td>
-      <td>Canal de Isabel II, S.A.</td>
-      <td>58K €</td>
-      <td>2026-08-05</td>
-    </tr>
+    <span class="chip">Centro de Cálculo de Álava, S.A.-Centro  · 1</span>
     
-    <tr>
-      <td><a href="https://contractaciopublica.cat/ca/detall-publicacio/757217e7-963c-43a8-9793-b9cd49017a5a/300880358" target="_blank" rel="nofollow">Presentar i analitzar les millors eines o solucions tecnològiques per substituir</a></td>
-      <td>Institut Municipal de Mercats de Barcelona</td>
-      <td>150K €</td>
-      <td>2026-07-31</td>
-    </tr>
+    <span class="chip">Institut Municipal de Mercats de Barcelo · 1</span>
     
-    <tr>
-      <td><a href="https://contratos-publicos.comunidad.madrid/contrato-publico/prestacion-consultoria-asistencia-tecnica-elaboracion-redaccion-plan-movilidad" target="_blank" rel="nofollow">Prestación de consultoría asistencia técnica en la elaboración y redacción plan </a></td>
-      <td>Consejería de Vivienda, Transportes e Infraestructuras</td>
-      <td>214K €</td>
-      <td>2026-07-29</td>
-    </tr>
+    <span class="chip">Patronat Municipal de Turisme de Salou · 1</span>
     
-    <tr>
-      <td><a href="https://contractaciopublica.cat/ca/detall-publicacio/0dfb2334-f128-4157-841e-18ff60a7add3/300880401" target="_blank" rel="nofollow">Servicio de asistencia técnica para la definición, diseño e implantación de la O</a></td>
-      <td>Servei Públic d&#39;Ocupació de Catalunya</td>
-      <td>382K €</td>
-      <td>2026-07-27</td>
-    </tr>
+    <span class="chip">LANTIK-Director-Gerente · 1</span>
     
-    <tr>
-      <td><a href="https://www.contratacion.euskadi.eus/webkpe00-kpeperfi/es/contenidos/anuncio_contratacion/expjaso720877/es_doc/index.html" target="_blank" rel="nofollow">Implantación nuevo sistema tributario (fase 2), mantenimiento de la fase 1, y ev</a></td>
-      <td>Centro de Cálculo de Álava, S.A.-Centro de Cálculo de Álava, S.A.</td>
-      <td>11.2M €</td>
-      <td>2026-07-16</td>
-    </tr>
-    
-    <tr>
-      <td><a href="https://www.juntadeandalucia.es/haciendayadministracionpublica/apl/pdc_sirec/perfiles-licitaciones/detalle-licitacion.jsf?idExpediente=979784" target="_blank" rel="nofollow">0000204/2026 Servicios de soporte y mantenimiento de la plataforma de analítica </a></td>
-      <td>Servicio Andaluz de Salud</td>
-      <td>13.1M €</td>
-      <td>2026-07-13</td>
-    </tr>
-    
-    <tr>
-      <td><a href="https://contractaciopublica.cat/ca/detall-publicacio/e7c41a71-9d3f-4de1-98ad-71f0b943e23d/300880329" target="_blank" rel="nofollow">Serveis d’adaptació de les diferents aplicacions de l’entorn de treball a GEA de</a></td>
-      <td>Banc de Sang i Teixits (BST)</td>
-      <td>107K €</td>
-      <td>2026-06-26</td>
-    </tr>
-    
-    <tr>
-      <td><a href="https://contractaciopublica.cat/ca/detall-publicacio/90e1bff3-4b4d-4979-a8c3-dde667983d39/300880168" target="_blank" rel="nofollow">Prestació del servei de gestió integral de la comunicació digital i de les xarxe</a></td>
-      <td>Ajuntament de l&#39;Ametlla de Mar</td>
-      <td>36K €</td>
-      <td>2026-06-16</td>
-    </tr>
-    
-  </tbody>
-</table>
+  </div>
+</div>
 
-<h2>Organismos que más licitan en este sector</h2>
-<p>
+<div class="cta-premium">
+  <div>
+    <h3>¿Necesitas el listado completo este mes?</h3>
+    <p>Todos los contratos del sector, con plazos, organismos y enlaces directos a los pliegos. Actualizado cada mes.</p>
+  </div>
+  <a class="cta-btn" href="https://gumroad.com" target="_blank">
+    Ver informe completo — €12
+  </a>
+</div>
 
-  <span class="tag">Patronat Municipal de Turisme de Salou (1)</span>
+<div class="seccion">
+  <h2>ℹ Sobre este sector en la contratación pública</h2>
+  <div class="callout">El sector TI es uno de los que mayor crecimiento experimenta en la contratación pública española. Las administraciones licitan desde desarrollo de software y ciberseguridad hasta mantenimiento de infraestructuras y servicios en la nube.</div>
+</div>
 
-  <span class="tag">LANTIK-Director-Gerente (1)</span>
 
-  <span class="tag">Canal de Isabel II, S.A. (1)</span>
+</div>
 
-  <span class="tag">Institut Municipal de Mercats de Barcelo (1)</span>
+<footer style="max-width:1000px;margin:0 auto;padding:0 1.25rem 2rem;">
+  Datos extraídos de la <a href="https://contrataciondelestado.es" style="color:var(--azul);">
+  Plataforma de Contratación del Sector Público (PLACE)</a> — fuente oficial del Gobierno de España. ·
+  Última actualización: 12/09/2026
+</footer>
 
-  <span class="tag">Consejería de Vivienda, Transportes e In (1)</span>
-
-  <span class="tag">Servei Públic d&#39;Ocupació de Catalunya (1)</span>
-
-  <span class="tag">Centro de Cálculo de Álava, S.A.-Centro  (1)</span>
-
-  <span class="tag">Servicio Andaluz de Salud (1)</span>
-
-  <span class="tag">Banc de Sang i Teixits (BST) (1)</span>
-
-  <span class="tag">Ajuntament de l&#39;Ametlla de Mar (1)</span>
-
-</p>
-
-<h2>Sobre este sector en la contratación pública</h2>
-<p>El sector TI es uno de los que mayor crecimiento experimenta en la contratación pública española. Las administraciones licitan desde desarrollo de software y ciberseguridad hasta mantenimiento de infraestructuras y servicios en la nube.</p>
-
-  <footer>
-    <p>Datos extraídos de la Plataforma de Contratación del Sector Público (PLACE) — fuente oficial del Gobierno de España.</p>
-    <p>Última actualización: 11/09/2026</p>
-  </footer>
 </body>
 </html>

@@ -6,164 +6,440 @@
   <title>Licitaciones de Limpieza y Servicios Auxiliares en España | Contratos Públicos 2025</title>
   <meta name="description" content="Contratos de limpieza, seguridad y mantenimiento en administraciones públicas">
   <link rel="canonical" href="https://mtellezdominguez.github.io/apex-site/licitaciones-limpieza-servicios-espana/">
-  <style>
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:system-ui,sans-serif;color:#1a1a1a;line-height:1.6;max-width:860px;margin:0 auto;padding:1.5rem 1rem}
-    h1{font-size:1.8rem;margin-bottom:.5rem}
-    h2{font-size:1.2rem;margin:1.5rem 0 .5rem;color:#333}
-    .meta{color:#666;font-size:.9rem;margin-bottom:1.5rem}
-    .stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1rem;margin:1.5rem 0}
-    .stat{background:#f5f5f5;border-radius:8px;padding:1rem;text-align:center}
-    .stat strong{display:block;font-size:1.6rem;color:#0057b7}
-    .stat span{font-size:.8rem;color:#555}
-    table{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.9rem}
-    th{background:#0057b7;color:#fff;padding:.5rem .75rem;text-align:left}
-    td{padding:.5rem .75rem;border-bottom:1px solid #eee}
-    tr:hover td{background:#f9f9f9}
-    .tag{display:inline-block;background:#e8f0fe;color:#1a56db;font-size:.75rem;padding:2px 8px;border-radius:4px;margin:2px}
-    footer{margin-top:3rem;padding-top:1rem;border-top:1px solid #eee;font-size:.8rem;color:#888}
-    a{color:#0057b7}
-  </style>
-  <!-- SEO técnico -->
-  <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+  <link rel="sitemap" type="application/xml" href="/apex-site/sitemap.xml">
   <meta property="og:title" content="Licitaciones de Limpieza y Servicios Auxiliares en España | Contratos Públicos 2025">
   <meta property="og:description" content="Contratos de limpieza, seguridad y mantenimiento en administraciones públicas">
   <meta property="og:url" content="https://mtellezdominguez.github.io/apex-site/licitaciones-limpieza-servicios-espana/">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_ES">
   <meta name="robots" content="index, follow">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --azul:      #1a56db;
+      --azul-dark: #1e429f;
+      --verde:     #057a55;
+      --naranja:   #c27803;
+      --rojo:      #c81e1e;
+      --gris:      #6b7280;
+      --borde:     #e5e7eb;
+      --fondo:     #f9fafb;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      color: #111827;
+      background: var(--fondo);
+      line-height: 1.6;
+    }
+
+    /* ── Cabecera ── */
+    header {
+      background: #fff;
+      border-bottom: 1px solid var(--borde);
+      padding: .75rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .logo {
+      font-size: .95rem;
+      font-weight: 700;
+      color: var(--azul);
+      text-decoration: none;
+    }
+    .logo span { color: #111827; font-weight: 400; }
+    nav a {
+      font-size: .85rem;
+      color: var(--gris);
+      text-decoration: none;
+      margin-left: 1.25rem;
+    }
+    nav a:hover { color: var(--azul); }
+
+    /* ── Layout ── */
+    .page { max-width: 1000px; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+
+    /* ── Breadcrumb ── */
+    .breadcrumb {
+      font-size: .8rem;
+      color: var(--gris);
+      margin-bottom: 1.25rem;
+    }
+    .breadcrumb a { color: var(--azul); text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+
+    /* ── Hero ── */
+    .hero { margin-bottom: 1.75rem; }
+    .hero h1 {
+      font-size: 1.65rem;
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: .4rem;
+    }
+    .hero .subtitulo { font-size: .9rem; color: var(--gris); }
+
+    /* ── Stats grid ── */
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: .75rem;
+      margin-bottom: 2rem;
+    }
+    .stat {
+      background: #fff;
+      border: 1px solid var(--borde);
+      border-radius: 10px;
+      padding: 1rem;
+      text-align: center;
+    }
+    .stat strong {
+      display: block;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--azul);
+      line-height: 1.1;
+    }
+    .stat span { font-size: .75rem; color: var(--gris); margin-top: .2rem; display: block; }
+
+    /* ── Alerta urgente ── */
+    .alerta-urgente {
+      background: #fffbeb;
+      border: 1px solid #fcd34d;
+      border-left: 4px solid #d97706;
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+    .alerta-urgente strong { color: #92400e; display: block; margin-bottom: .5rem; }
+    .alerta-urgente ul { padding-left: 1.25rem; }
+    .alerta-urgente li { font-size: .88rem; margin-bottom: .3rem; color: #78350f; }
+    .alerta-urgente a { color: #92400e; }
+
+    /* ── Sección ── */
+    .seccion { margin-bottom: 2rem; }
+    .seccion h2 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #374151;
+      border-bottom: 2px solid var(--azul);
+      padding-bottom: .4rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+    }
+
+    /* ── Tabla ── */
+    .tabla-wrap { overflow-x: auto; border-radius: 10px; border: 1px solid var(--borde); }
+    table { width: 100%; border-collapse: collapse; font-size: .875rem; background: #fff; }
+    thead th {
+      background: var(--azul);
+      color: #fff;
+      padding: .6rem .9rem;
+      text-align: left;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+    tbody td { padding: .6rem .9rem; border-bottom: 1px solid var(--borde); vertical-align: middle; }
+    tbody tr:last-child td { border-bottom: none; }
+    tbody tr:hover td { background: #f0f4ff; }
+    .contrato-link { color: var(--azul); text-decoration: none; font-weight: 500; }
+    .contrato-link:hover { text-decoration: underline; }
+    .org { color: var(--gris); font-size: .82rem; }
+    .valor { font-weight: 600; white-space: nowrap; }
+
+    /* ── Badges de estado ── */
+    .badge {
+      display: inline-block;
+      padding: 2px 9px;
+      border-radius: 20px;
+      font-size: .72rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .badge-urgente  { background: #fee2e2; color: #991b1b; }
+    .badge-proximo  { background: #ffedd5; color: #9a3412; }
+    .badge-abierto  { background: #d1fae5; color: #065f46; }
+    .badge-sinplazo { background: #f3f4f6; color: #6b7280; }
+
+    /* ── Chips de organismos ── */
+    .chips { display: flex; flex-wrap: wrap; gap: .4rem; }
+    .chip {
+      background: #eff6ff;
+      color: var(--azul);
+      border: 1px solid #bfdbfe;
+      border-radius: 20px;
+      padding: 3px 10px;
+      font-size: .78rem;
+    }
+
+    /* ── Callout informativo ── */
+    .callout {
+      background: #f0f9ff;
+      border: 1px solid #bae6fd;
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      font-size: .88rem;
+      color: #0c4a6e;
+      line-height: 1.6;
+    }
+
+    /* ── CTA premium ── */
+    .cta-premium {
+      background: linear-gradient(135deg, #1e429f 0%, #1a56db 100%);
+      color: #fff;
+      border-radius: 12px;
+      padding: 1.5rem 2rem;
+      margin: 2rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .cta-premium h3 { font-size: 1.05rem; margin-bottom: .3rem; }
+    .cta-premium p  { font-size: .88rem; opacity: .88; }
+    .cta-btn {
+      background: #fff;
+      color: var(--azul);
+      font-weight: 700;
+      font-size: .9rem;
+      padding: .6rem 1.4rem;
+      border-radius: 8px;
+      text-decoration: none;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .cta-btn:hover { background: #eff6ff; }
+
+    /* ── Footer ── */
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--borde);
+      font-size: .78rem;
+      color: var(--gris);
+      line-height: 1.7;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 640px) {
+      .hero h1   { font-size: 1.3rem; }
+      .cta-premium { flex-direction: column; text-align: center; }
+    }
+  </style>
 </head>
 <body>
+
+<header>
+  <a class="logo" href="/apex-site/">Licitaciones<span>.es</span></a>
+  <nav>
+    <a href="/apex-site/licitaciones-tecnologia-informacion-espana/">TI</a>
+    <a href="/apex-site/licitaciones-construccion-obra-publica-espana/">Construcción</a>
+    <a href="/apex-site/licitaciones-limpieza-servicios-espana/">Limpieza</a>
+    <a href="/apex-site/licitaciones-formacion-educacion-espana/">Formación</a>
+  </nav>
+</header>
+
+<div class="page">
   
-<h1>Licitaciones de Limpieza y Servicios Auxiliares en España</h1>
-<p class="meta">Contratos de limpieza, seguridad y mantenimiento en administraciones públicas · Actualizado 11/09/2026</p>
+
+<nav class="breadcrumb">
+  <a href="/apex-site/">Inicio</a> › Licitaciones de Limpieza y Servicios Auxiliares en España
+</nav>
+
+<div class="hero">
+  <h1>Licitaciones de Limpieza y Servicios Auxiliares en España</h1>
+  <p class="subtitulo">Contratos de limpieza, seguridad y mantenimiento en administraciones públicas</p>
+</div>
 
 <div class="stat-grid">
   <div class="stat">
-    <strong>9</strong>
-    <span>Contratos últimos 90 días</span>
+    <strong>5</strong>
+    <span>Contratos activos</span>
   </div>
   <div class="stat">
-    <strong>10.2M €</strong>
+    <strong>8.7M €</strong>
     <span>Valor total licitado</span>
   </div>
   <div class="stat">
-    <strong>1.1M €</strong>
+    <strong>1.7M €</strong>
     <span>Contrato medio</span>
   </div>
   <div class="stat">
-    <strong>9</strong>
-    <span>Organismos convocantes</span>
+    <strong>2</strong>
+    <span>Cierran esta semana</span>
   </div>
 </div>
 
-<h2>Contratos activos en este sector</h2>
-<table>
-  <thead>
-    <tr>
-      <th>Contrato</th>
-      <th>Organismo</th>
-      <th>Valor estimado</th>
-      <th>Publicado</th>
-    </tr>
-  </thead>
-  <tbody>
+
+<div class="alerta-urgente">
+  <strong>⚠ Plazo urgente — cierran en menos de 7 días</strong>
+  <ul>
     
-    <tr>
-      <td><a href="https://www.contratacion.euskadi.eus/webkpe00-kpeperfi/es/contenidos/anuncio_contratacion/expjaso740593/es_doc/index.html" target="_blank" rel="nofollow">Servicio de Gestión de Papel y Cartón procedente de los contenedores azules y re</a></td>
-      <td>Arratiako Udalen Mankomunitatea-Presidencia</td>
-      <td>42K €</td>
-      <td>2026-09-10</td>
-    </tr>
+    <li>
+      <a href="https://www.juntadeandalucia.es/haciendayadministracionpublica/apl/pdc_sirec/perfiles-licitaciones/detalle-licitacion.jsf?idExpediente=1002617" target="_blank" rel="nofollow">servicio de mantenimiento ddd - para instalaciones del plan infoca</a>
+      — Agencia de Emergencias de Andalucía ·
+      <strong>Cierra 14/09/2026</strong>
+      (2 días)
+    </li>
     
-    <tr>
-      <td><a href="https://www.contratacion.euskadi.eus/webkpe00-kpeperfi/es/contenidos/anuncio_contratacion/expjaso739495/es_doc/index.html" target="_blank" rel="nofollow">Contratación del servicio de recogida y transporte de documentación entre las of</a></td>
-      <td>ALOKABIDE - Sociedad de Alquiler S.A.-Director General de ALOKABIDE</td>
-      <td>19K €</td>
-      <td>2026-09-10</td>
-    </tr>
+    <li>
+      <a href="https://www.contratacion.euskadi.eus/webkpe00-kpeperfi/es/contenidos/anuncio_contratacion/expjaso733191/es_doc/index.html" target="_blank" rel="nofollow">Servicios de limpieza de las instalaciones de saneamiento de AGASA</a>
+      — AGASA-Consejo de Administración ·
+      <strong>Cierra 15/09/2026</strong>
+      (3 días)
+    </li>
     
-    <tr>
-      <td><a href="https://www.juntadeandalucia.es/haciendayadministracionpublica/apl/pdc_sirec/perfiles-licitaciones/detalle-licitacion.jsf?idExpediente=1002617" target="_blank" rel="nofollow">servicio de mantenimiento ddd - para instalaciones del plan infoca</a></td>
-      <td>Agencia de Emergencias de Andalucía</td>
-      <td>100K €</td>
-      <td>2026-08-27</td>
-    </tr>
+  </ul>
+</div>
+
+
+<div class="seccion">
+  <h2>📋 Contratos activos — ordenados por plazo</h2>
+  <div class="tabla-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Contrato</th>
+          <th>Organismo</th>
+          <th>Valor</th>
+          <th>Plazo límite</th>
+          <th>Estado</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        <tr>
+          <td>
+            <a class="contrato-link" href="https://www.juntadeandalucia.es/haciendayadministracionpublica/apl/pdc_sirec/perfiles-licitaciones/detalle-licitacion.jsf?idExpediente=1002617"
+               target="_blank" rel="nofollow">servicio de mantenimiento ddd - para instalaciones del plan infoca</a>
+            
+          </td>
+          <td class="org">Agencia de Emergencias de Andalucía</td>
+          <td class="valor">100K €</td>
+          <td style="white-space:nowrap;">14/09/2026</td>
+          <td>
+            
+              <span class="badge badge-urgente">🔴 Urgente</span>
+            
+          </td>
+        </tr>
+        
+        <tr>
+          <td>
+            <a class="contrato-link" href="https://www.contratacion.euskadi.eus/webkpe00-kpeperfi/es/contenidos/anuncio_contratacion/expjaso733191/es_doc/index.html"
+               target="_blank" rel="nofollow">Servicios de limpieza de las instalaciones de saneamiento de AGASA</a>
+            
+          </td>
+          <td class="org">AGASA-Consejo de Administración</td>
+          <td class="valor">1.7M €</td>
+          <td style="white-space:nowrap;">15/09/2026</td>
+          <td>
+            
+              <span class="badge badge-urgente">🔴 Urgente</span>
+            
+          </td>
+        </tr>
+        
+        <tr>
+          <td>
+            <a class="contrato-link" href="https://contractaciopublica.cat/ca/detall-publicacio/7267e1c7-70cd-4fce-a017-703564b12497/300880448"
+               target="_blank" rel="nofollow">Servicios de las 3 instalaciones fijas de recogida selectiva (puntos limpios), l</a>
+            
+          </td>
+          <td class="org">Consell Comarcal del Berguedà</td>
+          <td class="valor">6.9M €</td>
+          <td style="white-space:nowrap;">22/09/2026</td>
+          <td>
+            
+              <span class="badge badge-proximo">🟠 10d</span>
+            
+          </td>
+        </tr>
+        
+        <tr>
+          <td>
+            <a class="contrato-link" href="https://www.contratacion.euskadi.eus/webkpe00-kpeperfi/es/contenidos/anuncio_contratacion/expjaso740593/es_doc/index.html"
+               target="_blank" rel="nofollow">Servicio de Gestión de Papel y Cartón procedente de los contenedores azules y re</a>
+            
+          </td>
+          <td class="org">Arratiako Udalen Mankomunitatea-Presiden</td>
+          <td class="valor">42K €</td>
+          <td style="white-space:nowrap;">25/09/2026</td>
+          <td>
+            
+              <span class="badge badge-proximo">🟠 13d</span>
+            
+          </td>
+        </tr>
+        
+        <tr>
+          <td>
+            <a class="contrato-link" href="https://www.contratacion.euskadi.eus/webkpe00-kpeperfi/es/contenidos/anuncio_contratacion/expjaso739495/es_doc/index.html"
+               target="_blank" rel="nofollow">Contratación del servicio de recogida y transporte de documentación entre las of</a>
+            
+          </td>
+          <td class="org">ALOKABIDE - Sociedad de Alquiler S.A.-Di</td>
+          <td class="valor">19K €</td>
+          <td style="white-space:nowrap;">28/09/2026</td>
+          <td>
+            
+              <span class="badge badge-proximo">🟠 16d</span>
+            
+          </td>
+        </tr>
+        
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="seccion">
+  <h2>🏛 Organismos que más licitan en este sector</h2>
+  <div class="chips">
     
-    <tr>
-      <td><a href="https://contractaciopublica.cat/ca/detall-publicacio/7267e1c7-70cd-4fce-a017-703564b12497/300880448" target="_blank" rel="nofollow">Servicios de las 3 instalaciones fijas de recogida selectiva (puntos limpios), l</a></td>
-      <td>Consell Comarcal del Berguedà</td>
-      <td>6.9M €</td>
-      <td>2026-08-25</td>
-    </tr>
+    <span class="chip">Agencia de Emergencias de Andalucía · 1</span>
     
-    <tr>
-      <td><a href="https://www.juntadeandalucia.es/haciendayadministracionpublica/apl/pdc_sirec/perfiles-licitaciones/detalle-licitacion.jsf?idExpediente=982176" target="_blank" rel="nofollow">servicio limpieza para centros de trabajo de la agencia provincia de jaén</a></td>
-      <td>Agencia de Medio Ambiente y Agua de Andalucía</td>
-      <td>17K €</td>
-      <td>2026-08-04</td>
-    </tr>
+    <span class="chip">AGASA-Consejo de Administración · 1</span>
     
-    <tr>
-      <td><a href="https://www.contratacion.euskadi.eus/webkpe00-kpeperfi/es/contenidos/anuncio_contratacion/expjaso733191/es_doc/index.html" target="_blank" rel="nofollow">Servicios de limpieza de las instalaciones de saneamiento de AGASA</a></td>
-      <td>AGASA-Consejo de Administración</td>
-      <td>1.7M €</td>
-      <td>2026-07-29</td>
-    </tr>
+    <span class="chip">Consell Comarcal del Berguedà · 1</span>
     
-    <tr>
-      <td><a href="https://www.contratacion.euskadi.eus/webkpe00-kpeperfi/es/contenidos/anuncio_contratacion/expjaso731087/es_doc/index.html" target="_blank" rel="nofollow">Hernaniko (HI) FL.08 eremukohondeaketako hondakinak kudeatzeko zerbitzua</a></td>
-      <td>Etorlur Gipuzkoako Lurra S.A.-Director General-Gerente y Consejo de Administración</td>
-      <td>1.3M €</td>
-      <td>2026-07-28</td>
-    </tr>
+    <span class="chip">Arratiako Udalen Mankomunitatea-Presiden · 1</span>
     
-    <tr>
-      <td><a href="https://www.juntadeandalucia.es/haciendayadministracionpublica/apl/pdc_sirec/perfiles-licitaciones/detalle-licitacion.jsf?idExpediente=979371" target="_blank" rel="nofollow">Servicios de limpieza de las sedes del Consorcio de Transportes</a></td>
-      <td>Consorcio de Transportes de la Bahía de Cádiz</td>
-      <td>17K €</td>
-      <td>2026-07-07</td>
-    </tr>
+    <span class="chip">ALOKABIDE - Sociedad de Alquiler S.A.-Di · 1</span>
     
-    <tr>
-      <td><a href="https://www.juntadeandalucia.es/haciendayadministracionpublica/apl/pdc_sirec/perfiles-licitaciones/detalle-licitacion.jsf?idExpediente=978012" target="_blank" rel="nofollow">film - servicio de limpieza en la filmoteca de andalucía</a></td>
-      <td>Delegación Territorial de Turismo, Cultura y Deporte en Córdoba</td>
-      <td>134K €</td>
-      <td>2026-06-25</td>
-    </tr>
-    
-  </tbody>
-</table>
+  </div>
+</div>
 
-<h2>Organismos que más licitan en este sector</h2>
-<p>
+<div class="cta-premium">
+  <div>
+    <h3>¿Necesitas el listado completo este mes?</h3>
+    <p>Todos los contratos del sector, con plazos, organismos y enlaces directos a los pliegos. Actualizado cada mes.</p>
+  </div>
+  <a class="cta-btn" href="https://gumroad.com" target="_blank">
+    Ver informe completo — €9
+  </a>
+</div>
 
-  <span class="tag">Arratiako Udalen Mankomunitatea-Presiden (1)</span>
+<div class="seccion">
+  <h2>ℹ Sobre este sector en la contratación pública</h2>
+  <div class="callout">Los servicios de limpieza y mantenimiento son de los contratos más frecuentes en la administración. Se caracterizan por contratos recurrentes de duración media y accesibles para PYMEs.</div>
+</div>
 
-  <span class="tag">ALOKABIDE - Sociedad de Alquiler S.A.-Di (1)</span>
 
-  <span class="tag">Agencia de Emergencias de Andalucía (1)</span>
+</div>
 
-  <span class="tag">Consell Comarcal del Berguedà (1)</span>
+<footer style="max-width:1000px;margin:0 auto;padding:0 1.25rem 2rem;">
+  Datos extraídos de la <a href="https://contrataciondelestado.es" style="color:var(--azul);">
+  Plataforma de Contratación del Sector Público (PLACE)</a> — fuente oficial del Gobierno de España. ·
+  Última actualización: 12/09/2026
+</footer>
 
-  <span class="tag">Agencia de Medio Ambiente y Agua de Anda (1)</span>
-
-  <span class="tag">AGASA-Consejo de Administración (1)</span>
-
-  <span class="tag">Etorlur Gipuzkoako Lurra S.A.-Director G (1)</span>
-
-  <span class="tag">Consorcio de Transportes de la Bahía de  (1)</span>
-
-  <span class="tag">Delegación Territorial de Turismo, Cultu (1)</span>
-
-</p>
-
-<h2>Sobre este sector en la contratación pública</h2>
-<p>Los servicios de limpieza y mantenimiento son de los contratos más frecuentes en la administración. Se caracterizan por contratos recurrentes de duración media y accesibles para PYMEs.</p>
-
-  <footer>
-    <p>Datos extraídos de la Plataforma de Contratación del Sector Público (PLACE) — fuente oficial del Gobierno de España.</p>
-    <p>Última actualización: 11/09/2026</p>
-  </footer>
 </body>
 </html>
