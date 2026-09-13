@@ -6,478 +6,257 @@
   <title>Licitaciones de Formación y Educación en España | Contratos Públicos 2026</title>
   <meta name="description" content="Contratos de formación, cursos y servicios educativos del sector público">
   <link rel="canonical" href="https://mtellezdominguez.github.io/apex-site/licitaciones-formacion-educacion-espana/">
-  <link rel="sitemap" type="application/xml" href="/sitemap.xml">
-  <link rel="alternate" type="application/rss+xml"
-        title="Licitaciones España — RSS" href="https://mtellezdominguez.github.io/apex-site/feed.xml">
   <meta property="og:title" content="Licitaciones de Formación y Educación en España | Contratos Públicos 2026">
   <meta property="og:description" content="Contratos de formación, cursos y servicios educativos del sector público">
   <meta property="og:url" content="https://mtellezdominguez.github.io/apex-site/licitaciones-formacion-educacion-espana/">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_ES">
   <meta name="robots" content="index, follow">
+  <link rel="sitemap" type="application/xml" href="https://mtellezdominguez.github.io/apex-site/sitemap.xml">
+  <link rel="alternate" type="application/rss+xml" title="LicitaEspaña RSS" href="https://mtellezdominguez.github.io/apex-site/feed.xml">
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --azul:#1a56db;--azul-dark:#1e3a8a;--verde:#059669;
+      --amber:#d97706;--morado:#7c3aed;--rojo:#dc2626;
+      --gris-50:#f9fafb;--gris-100:#f3f4f6;--gris-200:#e5e7eb;
+      --gris-400:#9ca3af;--gris-600:#4b5563;--gris-900:#111827;
+      --shadow:0 1px 3px rgba(0,0,0,.08),0 1px 2px rgba(0,0,0,.05);
+      --shadow-md:0 4px 6px rgba(0,0,0,.07),0 2px 4px rgba(0,0,0,.05);
+    }
+    body{font-family:system-ui,-apple-system,sans-serif;color:var(--gris-900);background:var(--gris-50);line-height:1.6}
+    a{color:var(--azul);text-decoration:none}
+    a:hover{text-decoration:underline}
 
-    :root {
-      --azul:      #1a56db;
-      --azul-dark: #1e429f;
-      --verde:     #057a55;
-      --naranja:   #c27803;
-      --rojo:      #c81e1e;
-      --gris:      #6b7280;
-      --borde:     #e5e7eb;
-      --fondo:     #f9fafb;
-    }
+    /* Header */
+    .site-header{background:#fff;border-bottom:1px solid var(--gris-200);padding:0 1.5rem;height:52px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:var(--shadow)}
+    .header-logo{display:flex;align-items:center;gap:9px;text-decoration:none}
+    .logo-icon{width:30px;height:30px;background:var(--azul);border-radius:7px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:14px;flex-shrink:0}
+    .logo-text{font-size:15px;font-weight:600;color:var(--gris-900)}
+    .logo-text span{color:var(--azul)}
+    .header-nav{display:flex;align-items:center;gap:1.25rem}
+    .header-nav a{font-size:13px;color:var(--gris-600);text-decoration:none}
+    .header-nav a:hover{color:var(--azul)}
+    .btn-alerta-nav{background:var(--azul);color:#fff !important;font-size:12px;font-weight:500;padding:6px 14px;border-radius:6px;white-space:nowrap}
+    .btn-alerta-nav:hover{background:var(--azul-dark)}
 
-    body {
-      font-family: system-ui, -apple-system, sans-serif;
-      color: #111827;
-      background: var(--fondo);
-      line-height: 1.6;
-    }
+    /* Page */
+    .page-wrap{max-width:980px;margin:0 auto;padding:2rem 1.25rem 4rem}
 
-    /* ── Cabecera ── */
-    header {
-      background: #fff;
-      border-bottom: 1px solid var(--borde);
-      padding: .75rem 1.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-    .logo {
-      font-size: .95rem;
-      font-weight: 700;
-      color: var(--azul);
-      text-decoration: none;
-    }
-    .logo span { color: #111827; font-weight: 400; }
-    nav a {
-      font-size: .85rem;
-      color: var(--gris);
-      text-decoration: none;
-      margin-left: 1.25rem;
-    }
-    nav a:hover { color: var(--azul); }
+    /* Breadcrumb */
+    .breadcrumb{font-size:13px;color:var(--gris-400);margin-bottom:1.25rem}
+    .breadcrumb a{color:var(--gris-400)}
+    .breadcrumb a:hover{color:var(--azul)}
+    .breadcrumb span{margin:0 .35rem}
 
-    /* ── Layout ── */
-    .page { max-width: 1000px; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+    /* Stat grid */
+    .stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:.75rem;margin-bottom:1.75rem}
+    .stat-card{background:#fff;border:1px solid var(--gris-200);border-radius:10px;padding:1rem;text-align:center;box-shadow:var(--shadow)}
+    .stat-card strong{display:block;font-size:1.65rem;font-weight:700;color:var(--azul);line-height:1.1;margin-bottom:.2rem}
+    .stat-card span{font-size:.73rem;color:var(--gris-400)}
 
-    /* ── Breadcrumb ── */
-    .breadcrumb {
-      font-size: .8rem;
-      color: var(--gris);
-      margin-bottom: 1.25rem;
-    }
-    .breadcrumb a { color: var(--azul); text-decoration: none; }
-    .breadcrumb a:hover { text-decoration: underline; }
+    /* Urgency alert */
+    .alerta-urgente{background:#fff7ed;border:1px solid #fed7aa;border-left:4px solid #ea580c;border-radius:8px;padding:1rem 1.25rem;margin-bottom:1.5rem;display:flex;gap:.75rem;align-items:flex-start}
+    .alerta-icon{font-size:18px;color:#ea580c;flex-shrink:0;line-height:1.4}
+    .alerta-urgente strong{display:block;font-size:.85rem;font-weight:600;color:#9a3412;margin-bottom:.3rem}
+    .alerta-urgente ul{padding-left:1.1rem;font-size:.82rem;color:#c2410c}
+    .alerta-urgente li{margin-bottom:.25rem}
+    .alerta-urgente a{color:#9a3412;font-weight:500}
 
-    /* ── Hero ── */
-    .hero { margin-bottom: 1.75rem; }
-    .hero h1 {
-      font-size: 1.65rem;
-      font-weight: 700;
-      line-height: 1.25;
-      margin-bottom: .4rem;
-    }
-    .hero .subtitulo { font-size: .9rem; color: var(--gris); }
+    /* Section header */
+    .sec-header{display:flex;align-items:center;gap:.5rem;font-size:.85rem;font-weight:600;color:var(--gris-600);margin-bottom:.75rem;padding-bottom:.4rem;border-bottom:2px solid var(--azul)}
 
-    /* ── Stats grid ── */
-    .stat-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: .75rem;
-      margin-bottom: 2rem;
-    }
-    .stat {
-      background: #fff;
-      border: 1px solid var(--borde);
-      border-radius: 10px;
-      padding: 1rem;
-      text-align: center;
-    }
-    .stat strong {
-      display: block;
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: var(--azul);
-      line-height: 1.1;
-    }
-    .stat span { font-size: .75rem; color: var(--gris); margin-top: .2rem; display: block; }
+    /* Table */
+    .table-wrap{overflow-x:auto;border-radius:10px;border:1px solid var(--gris-200);box-shadow:var(--shadow);margin-bottom:1.5rem;background:#fff}
+    table{width:100%;border-collapse:collapse;font-size:.855rem}
+    thead th{background:var(--azul);color:#fff;padding:.6rem .85rem;text-align:left;font-weight:500;font-size:.8rem;white-space:nowrap}
+    tbody td{padding:.6rem .85rem;border-bottom:1px solid var(--gris-100);vertical-align:middle}
+    tbody tr:last-child td{border-bottom:none}
+    tbody tr:hover td{background:#f0f4ff}
+    .cn{color:var(--gris-900);font-weight:500;display:block;line-height:1.4}
+    .cn:hover{color:var(--azul);text-decoration:none}
+    .cl{font-size:.73rem;color:var(--gris-400);margin-top:2px}
+    .org{font-size:.8rem;color:var(--gris-600)}
+    .val{font-weight:600;white-space:nowrap}
+    .btn-ver{display:block;width:100%;text-align:center;background:var(--gris-50);border:none;border-top:1px solid var(--gris-200);color:var(--gris-600);font-size:.83rem;padding:.65rem;cursor:pointer;border-radius:0 0 10px 10px}
+    .btn-ver:hover{background:var(--gris-100)}
 
-    /* ── Alerta urgente ── */
-    .alerta-urgente {
-      background: #fffbeb;
-      border: 1px solid #fcd34d;
-      border-left: 4px solid #d97706;
-      border-radius: 8px;
-      padding: 1rem 1.25rem;
-      margin-bottom: 1.5rem;
-    }
-    .alerta-urgente strong { color: #92400e; display: block; margin-bottom: .5rem; }
-    .alerta-urgente ul { padding-left: 1.25rem; }
-    .alerta-urgente li { font-size: .88rem; margin-bottom: .3rem; color: #78350f; }
-    .alerta-urgente a { color: #92400e; }
+    /* Badges */
+    .badge{display:inline-block;padding:2px 9px;border-radius:20px;font-size:.72rem;font-weight:600;white-space:nowrap}
+    .b-urgente{background:#fee2e2;color:#991b1b}
+    .b-proximo{background:#ffedd5;color:#9a3412}
+    .b-abierto{background:#d1fae5;color:#065f46}
+    .b-none{background:var(--gris-100);color:var(--gris-600)}
 
-    /* ── Sección ── */
-    .seccion { margin-bottom: 2rem; }
-    .seccion h2 {
-      font-size: 1rem;
-      font-weight: 600;
-      color: #374151;
-      border-bottom: 2px solid var(--azul);
-      padding-bottom: .4rem;
-      margin-bottom: 1rem;
-      display: flex;
-      align-items: center;
-      gap: .4rem;
-    }
+    /* CTA Premium */
+    .cta-premium{background:linear-gradient(135deg,#1e3a8a 0%,#1a56db 100%);color:#fff;border-radius:12px;padding:1.5rem 1.75rem;display:flex;align-items:center;justify-content:space-between;gap:1.25rem;flex-wrap:wrap;margin:1.5rem 0;box-shadow:var(--shadow-md)}
+    .cta-premium h3{font-size:.95rem;font-weight:600;margin-bottom:.25rem}
+    .cta-premium p{font-size:.83rem;opacity:.88}
+    .cta-btn{background:#fff;color:var(--azul);font-weight:700;font-size:.88rem;padding:.65rem 1.4rem;border-radius:8px;white-space:nowrap;flex-shrink:0;display:inline-block;transition:background .15s}
+    .cta-btn:hover{background:#eff6ff;text-decoration:none}
 
-    /* ── Tabla ── */
-    .tabla-wrap { overflow-x: auto; border-radius: 10px; border: 1px solid var(--borde); }
-    table { width: 100%; border-collapse: collapse; font-size: .875rem; background: #fff; }
-    thead th {
-      background: var(--azul);
-      color: #fff;
-      padding: .6rem .9rem;
-      text-align: left;
-      font-weight: 500;
-      white-space: nowrap;
-    }
-    tbody td { padding: .6rem .9rem; border-bottom: 1px solid var(--borde); vertical-align: middle; }
-    tbody tr:last-child td { border-bottom: none; }
-    tbody tr:hover td { background: #f0f4ff; }
-    .contrato-link { color: var(--azul); text-decoration: none; font-weight: 500; }
-    .contrato-link:hover { text-decoration: underline; }
-    .org { color: var(--gris); font-size: .82rem; }
-    .valor { font-weight: 600; white-space: nowrap; }
+    /* Email CTA */
+    .email-cta{background:#fff;border:1px solid var(--gris-200);border-radius:10px;padding:1.25rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;box-shadow:var(--shadow);margin:1.5rem 0}
+    .email-icon{width:38px;height:38px;background:#eff6ff;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+    .email-cta h4{font-size:.88rem;font-weight:600;margin-bottom:2px}
+    .email-cta p{font-size:.78rem;color:var(--gris-400);margin:0}
+    .email-form{display:flex;gap:.5rem;flex-shrink:0}
+    .email-form input{font-size:.82rem;padding:7px 11px;border:1px solid var(--gris-200);border-radius:6px;background:#fff;width:175px}
+    .email-form input:focus{outline:2px solid var(--azul);outline-offset:-1px}
+    .email-form button{background:var(--azul);color:#fff;border:none;border-radius:6px;padding:7px 14px;font-size:.82rem;font-weight:500;cursor:pointer;white-space:nowrap}
+    .email-form button:hover{background:var(--azul-dark)}
 
-    /* ── Badges de estado ── */
-    .badge {
-      display: inline-block;
-      padding: 2px 9px;
-      border-radius: 20px;
-      font-size: .72rem;
-      font-weight: 600;
-      white-space: nowrap;
-    }
-    .badge-urgente  { background: #fee2e2; color: #991b1b; }
-    .badge-proximo  { background: #ffedd5; color: #9a3412; }
-    .badge-abierto  { background: #d1fae5; color: #065f46; }
-    .badge-sinplazo { background: #f3f4f6; color: #6b7280; }
+    /* Chips */
+    .chips{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1.5rem}
+    .chip{background:#eff6ff;color:var(--azul);border:1px solid #bfdbfe;border-radius:20px;padding:3px 10px;font-size:.77rem}
 
-    /* ── Chips de organismos ── */
-    .chips { display: flex; flex-wrap: wrap; gap: .4rem; }
-    .chip {
-      background: #eff6ff;
-      color: var(--azul);
-      border: 1px solid #bfdbfe;
-      border-radius: 20px;
-      padding: 3px 10px;
-      font-size: .78rem;
-    }
+    /* Callout */
+    .callout{background:#f0f9ff;border:1px solid #bae6fd;border-radius:8px;padding:1rem 1.25rem;font-size:.87rem;color:#0c4a6e;line-height:1.75}
 
-    /* ── Callout informativo ── */
-    .callout {
-      background: #f0f9ff;
-      border: 1px solid #bae6fd;
-      border-radius: 8px;
-      padding: 1rem 1.25rem;
-      font-size: .88rem;
-      color: #0c4a6e;
-      line-height: 1.6;
-    }
+    /* Trust bar */
+    .trust-bar{display:flex;align-items:center;justify-content:center;gap:1.25rem;flex-wrap:wrap;margin-top:1.5rem;padding-top:1.25rem;border-top:1px solid var(--gris-200)}
+    .trust-item{display:flex;align-items:center;gap:.35rem;font-size:.77rem;color:var(--gris-400)}
+    .trust-sep{width:4px;height:4px;background:var(--gris-200);border-radius:50%}
 
-    /* ── CTA premium ── */
-    .cta-premium {
-      background: linear-gradient(135deg, #1e429f 0%, #1a56db 100%);
-      color: #fff;
-      border-radius: 12px;
-      padding: 1.5rem 2rem;
-      margin: 2rem 0;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-    .cta-premium h3 { font-size: 1.05rem; margin-bottom: .3rem; }
-    .cta-premium p  { font-size: .88rem; opacity: .88; }
-    .cta-btn {
-      background: #fff;
-      color: var(--azul);
-      font-weight: 700;
-      font-size: .9rem;
-      padding: .6rem 1.4rem;
-      border-radius: 8px;
-      text-decoration: none;
-      white-space: nowrap;
-      flex-shrink: 0;
-    }
-    .cta-btn:hover { background: #eff6ff; }
+    /* Footer */
+    .site-footer{max-width:980px;margin:0 auto;padding:.5rem 1.25rem 2rem;font-size:.77rem;color:var(--gris-400);text-align:center;line-height:1.7}
+    .site-footer a{color:var(--azul)}
 
-    /* ── Footer ── */
-    footer {
-      margin-top: 3rem;
-      padding-top: 1.25rem;
-      border-top: 1px solid var(--borde);
-      font-size: .78rem;
-      color: var(--gris);
-      line-height: 1.7;
-    }
-
-    /* ── Responsive ── */
-    @media (max-width: 640px) {
-      .hero h1   { font-size: 1.3rem; }
-      .cta-premium { flex-direction: column; text-align: center; }
+    @media(max-width:680px){
+      .header-nav a:not(.btn-alerta-nav){display:none}
+      .cta-premium,.email-cta{flex-direction:column}
+      .email-form{width:100%}
+      .email-form input{flex:1;width:auto}
     }
   </style>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Licitaciones España",
-    "url": "https://mtellezdominguez.github.io/apex-site/licitaciones-formacion-educacion-espana/",
-    "description": "Contratos de formaci\u00f3n, cursos y servicios educativos del sector p\u00fablico",
-    "publisher": {
-      "@type": "Organization",
-      "name": "Licitaciones España",
-      "url": "https://mtellezdominguez.github.io/apex-site/licitaciones-formacion-educacion-espana/"
-    }
-  }
-  </script>
 </head>
 <body>
 
-<header>
-  <a class="logo" href="https://mtellezdominguez.github.io/apex-site/">Licitaciones<span>.es</span></a>
-  <nav>
+<header class="site-header">
+  <a class="header-logo" href="https://mtellezdominguez.github.io/apex-site/">
+    <div class="logo-icon">L</div>
+    <span class="logo-text">Licita<span>España</span></span>
+  </a>
+  <nav class="header-nav">
     <a href="https://mtellezdominguez.github.io/apex-site/licitaciones-tecnologia-informacion-espana/">TI</a>
     <a href="https://mtellezdominguez.github.io/apex-site/licitaciones-construccion-obra-publica-espana/">Construcción</a>
     <a href="https://mtellezdominguez.github.io/apex-site/licitaciones-limpieza-servicios-espana/">Limpieza</a>
     <a href="https://mtellezdominguez.github.io/apex-site/licitaciones-formacion-educacion-espana/">Formación</a>
+    <a href="https://mtellezdominguez.github.io/apex-site/licitaciones-consultoria-servicios-empresariales-espana/">Consultoría</a>
+    <a class="btn-alerta-nav" href="#suscribirse">🔔 Alertas gratis</a>
   </nav>
 </header>
 
-<div class="page">
+
+<div class="page-wrap">
+
+  <nav class="breadcrumb">
+    <a href="https://mtellezdominguez.github.io/apex-site/">Inicio</a><span>›</span>Licitaciones de Formación y Educación en España
+  </nav>
+
+  <div style="background:linear-gradient(135deg,#1e3a8a,#1a56db);border-radius:12px;padding:1.5rem 2rem;color:#fff;margin-bottom:1.5rem;box-shadow:0 4px 12px rgba(30,58,138,.25);">
+    <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);border-radius:20px;padding:3px 11px;margin-bottom:.75rem;">
+      <div style="width:7px;height:7px;background:#86efac;border-radius:50%;"></div>
+      <span style="font-size:.72rem;font-weight:500;letter-spacing:.02em;">Datos actualizados hoy · PLACE Gobierno de España</span>
+    </div>
+    <h1 style="font-size:1.5rem;font-weight:600;line-height:1.3;margin-bottom:.3rem;">Licitaciones de Formación y Educación en España</h1>
+    <p style="font-size:.88rem;opacity:.88;margin:0;">Contratos de formación, cursos y servicios educativos del sector público</p>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card"><strong>5</strong><span>Contratos activos</span></div>
+    <div class="stat-card"><strong>43.3M €</strong><span>Valor total licitado</span></div>
+    <div class="stat-card"><strong>8.7M €</strong><span>Contrato medio</span></div>
+    <div class="stat-card"><strong style="color:#dc2626;">0</strong><span>Cierran esta semana</span></div>
+  </div>
+
   
 
-<nav class="breadcrumb">
-  <a href="https://mtellezdominguez.github.io/apex-site/">Inicio</a> › Licitaciones de Formación y Educación en España
-</nav>
-
-<div class="hero">
-  <h1>Licitaciones de Formación y Educación en España</h1>
-  <p class="subtitulo">Contratos de formación, cursos y servicios educativos del sector público</p>
-</div>
-
-<div class="stat-grid">
-  <div class="stat">
-    <strong>5</strong>
-    <span>Contratos activos</span>
-  </div>
-  <div class="stat">
-    <strong>43.3M €</strong>
-    <span>Valor total licitado</span>
-  </div>
-  <div class="stat">
-    <strong>8.7M €</strong>
-    <span>Contrato medio</span>
-  </div>
-  <div class="stat">
-    <strong>0</strong>
-    <span>Cierran esta semana</span>
-  </div>
-</div>
-
-
-
-<div class="seccion">
-  <h2>📋 Contratos activos — ordenados por plazo</h2>
-  <div class="tabla-wrap">
+  <div class="sec-header">📋 Contratos activos — ordenados por plazo de presentación</div>
+  <div class="table-wrap">
     <table>
-      <thead>
-        <tr>
-          <th>Contrato</th>
-          <th>Organismo</th>
-          <th>Valor</th>
-          <th>Plazo límite</th>
-          <th>Estado</th>
-        </tr>
-      </thead>
+      <thead><tr><th style="width:40%">Contrato</th><th>Organismo</th><th>Valor est.</th><th>Plazo límite</th><th>Estado</th></tr></thead>
       <tbody>
         
-        <tr>
-          <td>
-            <a class="contrato-link" href="https://www.contratosdegalicia.gal/licitacion?N=829051"
-               target="_blank" rel="nofollow">Impartición de clases de música en la escuela municipal del Ayuntamiento de Cole</a>
-            
-          </td>
-          <td class="org">Concello de Coles</td>
-          <td class="valor">120K €</td>
-          <td style="white-space:nowrap;">21/09/2026</td>
-          <td>
-            
-              <span class="badge badge-proximo">🟠 9d</span>
-            
-          </td>
+        <tr >
+          <td><a class="cn" href="https://www.contratosdegalicia.gal/licitacion?N=829051" target="_blank" rel="nofollow">Impartición de clases de música en la escuela municipal del Ayuntamiento de Co</a></td>
+          <td><span class="org">Concello de Coles</span></td>
+          <td><span class="val">120K €</span></td>
+          <td style="font-size:.8rem;white-space:nowrap;">21/09/2026</td>
+          <td><span class="badge b-proximo">🟠 8d</span></td>
         </tr>
         
-        <tr>
-          <td>
-            <a class="contrato-link" href="https://contractaciopublica.cat/ca/detall-publicacio/308287dd-3ef3-4682-8b37-f66d00c28fc3/300880124"
-               target="_blank" rel="nofollow">Contracte de concessió de serveis per la gestió i explotació de l&#39;Escola Municip</a>
-            
-          </td>
-          <td class="org">Ajuntament de Llorenç del Penedès</td>
-          <td class="valor">264K €</td>
-          <td style="white-space:nowrap;">25/09/2026</td>
-          <td>
-            
-              <span class="badge badge-proximo">🟠 13d</span>
-            
-          </td>
+        <tr >
+          <td><a class="cn" href="https://contractaciopublica.cat/ca/detall-publicacio/308287dd-3ef3-4682-8b37-f66d00c28fc3/300880124" target="_blank" rel="nofollow">Contracte de concessió de serveis per la gestió i explotació de l&#39;Escola Munic</a></td>
+          <td><span class="org">Ajuntament de Llorenç del Penedès</span></td>
+          <td><span class="val">264K €</span></td>
+          <td style="font-size:.8rem;white-space:nowrap;">25/09/2026</td>
+          <td><span class="badge b-proximo">🟠 12d</span></td>
         </tr>
         
-        <tr>
-          <td>
-            <a class="contrato-link" href="https://contractaciopublica.cat/ca/detall-publicacio/990ddd20-7e70-41ba-b016-16568387e768/300880354"
-               target="_blank" rel="nofollow">Servei per a la impartició de 2 cursos de formació professional per a l’ocupació</a>
-            
-          </td>
-          <td class="org">Servei Públic d&#39;Ocupació de Catalunya</td>
-          <td class="valor">106K €</td>
-          <td style="white-space:nowrap;">25/09/2026</td>
-          <td>
-            
-              <span class="badge badge-proximo">🟠 13d</span>
-            
-          </td>
+        <tr >
+          <td><a class="cn" href="https://contractaciopublica.cat/ca/detall-publicacio/990ddd20-7e70-41ba-b016-16568387e768/300880354" target="_blank" rel="nofollow">Servei per a la impartició de 2 cursos de formació professional per a l’ocupac</a></td>
+          <td><span class="org">Servei Públic d&#39;Ocupació de Catalunya</span></td>
+          <td><span class="val">106K €</span></td>
+          <td style="font-size:.8rem;white-space:nowrap;">25/09/2026</td>
+          <td><span class="badge b-proximo">🟠 12d</span></td>
         </tr>
         
-        <tr>
-          <td>
-            <a class="contrato-link" href="https://contractaciopublica.cat/ca/detall-publicacio/db8ae41d-816a-4b13-9178-75007faa38a5/300880268"
-               target="_blank" rel="nofollow">L’objecte del contracte és la realització de classes de cursos monogràfics d’Esc</a>
-            
-          </td>
-          <td class="org">Organisme Autònom Municipal d&#39;Ensenyamen</td>
-          <td class="valor">74K €</td>
-          <td style="white-space:nowrap;">25/09/2026</td>
-          <td>
-            
-              <span class="badge badge-proximo">🟠 13d</span>
-            
-          </td>
+        <tr >
+          <td><a class="cn" href="https://contractaciopublica.cat/ca/detall-publicacio/db8ae41d-816a-4b13-9178-75007faa38a5/300880268" target="_blank" rel="nofollow">L’objecte del contracte és la realització de classes de cursos monogràfics d’E</a></td>
+          <td><span class="org">Organisme Autònom Municipal d&#39;Ensenyam</span></td>
+          <td><span class="val">74K €</span></td>
+          <td style="font-size:.8rem;white-space:nowrap;">25/09/2026</td>
+          <td><span class="badge b-proximo">🟠 12d</span></td>
         </tr>
         
-        <tr>
-          <td>
-            <a class="contrato-link" href="https://contrataciondelestado.es/licitacion/20068071"
-               target="_blank" rel="nofollow">Ejecución de determinadas acciones formativas incluidas dentro del Proyecto de F</a>
-            
-            <br><small class="org">📍 Sevilla</small>
-            
-          </td>
-          <td class="org">Secretaría General de la Federación Anda</td>
-          <td class="valor">42.8M €</td>
-          <td style="white-space:nowrap;">—</td>
-          <td>
-            
-              <span class="badge badge-sinplazo">Sin plazo</span>
-            
-          </td>
+        <tr >
+          <td><a class="cn" href="https://contrataciondelestado.es/licitacion/20068071" target="_blank" rel="nofollow">Ejecución de determinadas acciones formativas incluidas dentro del Proyecto de</a><div class="cl">📍 Sevilla</div></td>
+          <td><span class="org">Secretaría General de la Federación An</span></td>
+          <td><span class="val">42.8M €</span></td>
+          <td style="font-size:.8rem;white-space:nowrap;">—</td>
+          <td><span class="badge b-none">Sin plazo</span></td>
         </tr>
         
       </tbody>
     </table>
-  </div>
-</div>
-
-<div class="seccion">
-  <h2>🏛 Organismos que más licitan en este sector</h2>
-  <div class="chips">
-    
-    <span class="chip">Concello de Coles · 1</span>
-    
-    <span class="chip">Ajuntament de Llorenç del Penedès · 1</span>
-    
-    <span class="chip">Servei Públic d&#39;Ocupació de Catalunya · 1</span>
-    
-    <span class="chip">Organisme Autònom Municipal d&#39;Ensenyamen · 1</span>
-    
-    <span class="chip">Secretaría General de la Federación Anda · 1</span>
     
   </div>
-</div>
 
+  
 
+  
+  <div class="email-cta" id="suscribirse">
+    <div style="display:flex;align-items:center;gap:.75rem;"><div class="email-icon">🔔</div><div><h4>Alertas gratuitas — Formación</h4><p>Nuevas licitaciones de este sector cada lunes. Sin spam. Cancela cuando quieras.</p></div></div>
+    <div class="email-form"><input type="email" placeholder="email@empresa.com" id="email-input" aria-label="Correo electrónico"><button type="button" onclick="var v=document.getElementById('email-input').value;if(!v||!v.includes('@')){alert('Introduce un email válido');return;}this.textContent='✓ Apuntado';this.style.background='#059669';this.disabled=true;">Suscribirse</button></div>
+  </div>
+  
 
+  <div class="sec-header">🏛 Organismos que más licitan en este sector</div>
+  <div class="chips"><span class="chip">Concello de Coles · 1</span><span class="chip">Ajuntament de Llorenç del Penedès · 1</span><span class="chip">Servei Públic d&#39;Ocupació de Catalunya · 1</span><span class="chip">Organisme Autònom Municipal d&#39;Ensenyamen · 1</span><span class="chip">Secretaría General de la Federación Anda · 1</span></div>
 
-
-<div class="seccion">
-  <h2>ℹ Sobre este sector en la contratación pública</h2>
+  <div class="sec-header">ℹ Sobre este sector</div>
   <div class="callout">La formación es un nicho con alta rotación de contratos y ticket medio accesible. Incluye formación para empleados públicos, formación ocupacional y servicios educativos complementarios.</div>
-</div>
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "ItemList",
-  "name": "Licitaciones de Formaci\u00f3n y Educaci\u00f3n en Espa\u00f1a",
-  "description": "Contratos de formaci\u00f3n, cursos y servicios educativos del sector p\u00fablico",
-  "numberOfItems": 5,
-  "itemListElement": [
-    
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Impartici\u00f3n de clases de m\u00fasica en la escuela municipal del Ayuntamiento de Coles",
-      "url": "https://www.contratosdegalicia.gal/licitacion?N=829051"
-    },
-    
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Contracte de concessi\u00f3 de serveis per la gesti\u00f3 i explotaci\u00f3 de l\u0027Escola Municipal de M\u00fasica de Llor",
-      "url": "https://contractaciopublica.cat/ca/detall-publicacio/308287dd-3ef3-4682-8b37-f66d00c28fc3/300880124"
-    },
-    
-    {
-      "@type": "ListItem",
-      "position": 3,
-      "name": "Servei per a la impartici\u00f3 de 2 cursos de formaci\u00f3 professional per a l\u2019ocupaci\u00f3 distribu\u00efts en els ",
-      "url": "https://contractaciopublica.cat/ca/detall-publicacio/990ddd20-7e70-41ba-b016-16568387e768/300880354"
-    },
-    
-    {
-      "@type": "ListItem",
-      "position": 4,
-      "name": "L\u2019objecte del contracte \u00e9s la realitzaci\u00f3 de classes de cursos monogr\u00e0fics d\u2019Escola Oberta a l\u2019Escol",
-      "url": "https://contractaciopublica.cat/ca/detall-publicacio/db8ae41d-816a-4b13-9178-75007faa38a5/300880268"
-    },
-    
-    {
-      "@type": "ListItem",
-      "position": 5,
-      "name": "Ejecuci\u00f3n de determinadas acciones formativas incluidas dentro del Proyecto de Formaci\u00f3n Continua de",
-      "url": "https://contrataciondelestado.es/licitacion/20068071"
-    }
-    
-  ]
-}
-</script>
+  <div class="trust-bar">
+    <div class="trust-item">🛡 Datos oficiales PLACE</div><div class="trust-sep"></div>
+    <div class="trust-item">🔄 Actualización diaria automática</div><div class="trust-sep"></div>
+    <div class="trust-item">📖 Licencia de datos abiertos</div><div class="trust-sep"></div>
+    <div class="trust-item">🇪🇸 Gobierno de España</div>
+  </div>
 
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"ItemList","name":"Licitaciones de Formaci\u00f3n y Educaci\u00f3n en Espa\u00f1a","description":"Contratos de formaci\u00f3n, cursos y servicios educativos del sector p\u00fablico","numberOfItems":5,"itemListElement":[{"@type":"ListItem","position":1,"name":"Impartici\u00f3n de clases de m\u00fasica en la escuela municipal del Ayuntamiento de Coles","url":"https://www.contratosdegalicia.gal/licitacion?N=829051"},{"@type":"ListItem","position":2,"name":"Contracte de concessi\u00f3 de serveis per la gesti\u00f3 i explotaci\u00f3 de l\u0027Escola Municipal de M\u00fasica de Llor","url":"https://contractaciopublica.cat/ca/detall-publicacio/308287dd-3ef3-4682-8b37-f66d00c28fc3/300880124"},{"@type":"ListItem","position":3,"name":"Servei per a la impartici\u00f3 de 2 cursos de formaci\u00f3 professional per a l\u2019ocupaci\u00f3 distribu\u00efts en els ","url":"https://contractaciopublica.cat/ca/detall-publicacio/990ddd20-7e70-41ba-b016-16568387e768/300880354"},{"@type":"ListItem","position":4,"name":"L\u2019objecte del contracte \u00e9s la realitzaci\u00f3 de classes de cursos monogr\u00e0fics d\u2019Escola Oberta a l\u2019Escol","url":"https://contractaciopublica.cat/ca/detall-publicacio/db8ae41d-816a-4b13-9178-75007faa38a5/300880268"},{"@type":"ListItem","position":5,"name":"Ejecuci\u00f3n de determinadas acciones formativas incluidas dentro del Proyecto de Formaci\u00f3n Continua de","url":"https://contrataciondelestado.es/licitacion/20068071"}]}
+  </script>
 
 </div>
 
-<footer style="max-width:1000px;margin:0 auto;padding:0 1.25rem 2rem;">
-  Datos extraídos de la <a href="https://contrataciondelestado.es" style="color:var(--azul);">
-  Plataforma de Contratación del Sector Público (PLACE)</a> — fuente oficial del Gobierno de España. ·
-  Última actualización: 12/09/2026
+
+<footer class="site-footer">
+  Datos oficiales extraídos de la
+  <a href="https://contrataciondelestado.es" rel="noopener">Plataforma de Contratación del Sector Público (PLACE)</a>
+  — Gobierno de España · Licencia de datos abiertos ·
+  Actualizado: 13/09/2026
 </footer>
 
 </body>

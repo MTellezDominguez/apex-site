@@ -6,637 +6,317 @@
   <title>Licitaciones de Consultoría y Servicios Empresariales en España | Contratos Públicos 2026</title>
   <meta name="description" content="Contratos de consultoría, comunicación y gestión en el sector público">
   <link rel="canonical" href="https://mtellezdominguez.github.io/apex-site/licitaciones-consultoria-servicios-empresariales-espana/">
-  <link rel="sitemap" type="application/xml" href="/sitemap.xml">
-  <link rel="alternate" type="application/rss+xml"
-        title="Licitaciones España — RSS" href="https://mtellezdominguez.github.io/apex-site/feed.xml">
   <meta property="og:title" content="Licitaciones de Consultoría y Servicios Empresariales en España | Contratos Públicos 2026">
   <meta property="og:description" content="Contratos de consultoría, comunicación y gestión en el sector público">
   <meta property="og:url" content="https://mtellezdominguez.github.io/apex-site/licitaciones-consultoria-servicios-empresariales-espana/">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_ES">
   <meta name="robots" content="index, follow">
+  <link rel="sitemap" type="application/xml" href="https://mtellezdominguez.github.io/apex-site/sitemap.xml">
+  <link rel="alternate" type="application/rss+xml" title="LicitaEspaña RSS" href="https://mtellezdominguez.github.io/apex-site/feed.xml">
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --azul:#1a56db;--azul-dark:#1e3a8a;--verde:#059669;
+      --amber:#d97706;--morado:#7c3aed;--rojo:#dc2626;
+      --gris-50:#f9fafb;--gris-100:#f3f4f6;--gris-200:#e5e7eb;
+      --gris-400:#9ca3af;--gris-600:#4b5563;--gris-900:#111827;
+      --shadow:0 1px 3px rgba(0,0,0,.08),0 1px 2px rgba(0,0,0,.05);
+      --shadow-md:0 4px 6px rgba(0,0,0,.07),0 2px 4px rgba(0,0,0,.05);
+    }
+    body{font-family:system-ui,-apple-system,sans-serif;color:var(--gris-900);background:var(--gris-50);line-height:1.6}
+    a{color:var(--azul);text-decoration:none}
+    a:hover{text-decoration:underline}
 
-    :root {
-      --azul:      #1a56db;
-      --azul-dark: #1e429f;
-      --verde:     #057a55;
-      --naranja:   #c27803;
-      --rojo:      #c81e1e;
-      --gris:      #6b7280;
-      --borde:     #e5e7eb;
-      --fondo:     #f9fafb;
-    }
+    /* Header */
+    .site-header{background:#fff;border-bottom:1px solid var(--gris-200);padding:0 1.5rem;height:52px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:var(--shadow)}
+    .header-logo{display:flex;align-items:center;gap:9px;text-decoration:none}
+    .logo-icon{width:30px;height:30px;background:var(--azul);border-radius:7px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:14px;flex-shrink:0}
+    .logo-text{font-size:15px;font-weight:600;color:var(--gris-900)}
+    .logo-text span{color:var(--azul)}
+    .header-nav{display:flex;align-items:center;gap:1.25rem}
+    .header-nav a{font-size:13px;color:var(--gris-600);text-decoration:none}
+    .header-nav a:hover{color:var(--azul)}
+    .btn-alerta-nav{background:var(--azul);color:#fff !important;font-size:12px;font-weight:500;padding:6px 14px;border-radius:6px;white-space:nowrap}
+    .btn-alerta-nav:hover{background:var(--azul-dark)}
 
-    body {
-      font-family: system-ui, -apple-system, sans-serif;
-      color: #111827;
-      background: var(--fondo);
-      line-height: 1.6;
-    }
+    /* Page */
+    .page-wrap{max-width:980px;margin:0 auto;padding:2rem 1.25rem 4rem}
 
-    /* ── Cabecera ── */
-    header {
-      background: #fff;
-      border-bottom: 1px solid var(--borde);
-      padding: .75rem 1.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-    .logo {
-      font-size: .95rem;
-      font-weight: 700;
-      color: var(--azul);
-      text-decoration: none;
-    }
-    .logo span { color: #111827; font-weight: 400; }
-    nav a {
-      font-size: .85rem;
-      color: var(--gris);
-      text-decoration: none;
-      margin-left: 1.25rem;
-    }
-    nav a:hover { color: var(--azul); }
+    /* Breadcrumb */
+    .breadcrumb{font-size:13px;color:var(--gris-400);margin-bottom:1.25rem}
+    .breadcrumb a{color:var(--gris-400)}
+    .breadcrumb a:hover{color:var(--azul)}
+    .breadcrumb span{margin:0 .35rem}
 
-    /* ── Layout ── */
-    .page { max-width: 1000px; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+    /* Stat grid */
+    .stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:.75rem;margin-bottom:1.75rem}
+    .stat-card{background:#fff;border:1px solid var(--gris-200);border-radius:10px;padding:1rem;text-align:center;box-shadow:var(--shadow)}
+    .stat-card strong{display:block;font-size:1.65rem;font-weight:700;color:var(--azul);line-height:1.1;margin-bottom:.2rem}
+    .stat-card span{font-size:.73rem;color:var(--gris-400)}
 
-    /* ── Breadcrumb ── */
-    .breadcrumb {
-      font-size: .8rem;
-      color: var(--gris);
-      margin-bottom: 1.25rem;
-    }
-    .breadcrumb a { color: var(--azul); text-decoration: none; }
-    .breadcrumb a:hover { text-decoration: underline; }
+    /* Urgency alert */
+    .alerta-urgente{background:#fff7ed;border:1px solid #fed7aa;border-left:4px solid #ea580c;border-radius:8px;padding:1rem 1.25rem;margin-bottom:1.5rem;display:flex;gap:.75rem;align-items:flex-start}
+    .alerta-icon{font-size:18px;color:#ea580c;flex-shrink:0;line-height:1.4}
+    .alerta-urgente strong{display:block;font-size:.85rem;font-weight:600;color:#9a3412;margin-bottom:.3rem}
+    .alerta-urgente ul{padding-left:1.1rem;font-size:.82rem;color:#c2410c}
+    .alerta-urgente li{margin-bottom:.25rem}
+    .alerta-urgente a{color:#9a3412;font-weight:500}
 
-    /* ── Hero ── */
-    .hero { margin-bottom: 1.75rem; }
-    .hero h1 {
-      font-size: 1.65rem;
-      font-weight: 700;
-      line-height: 1.25;
-      margin-bottom: .4rem;
-    }
-    .hero .subtitulo { font-size: .9rem; color: var(--gris); }
+    /* Section header */
+    .sec-header{display:flex;align-items:center;gap:.5rem;font-size:.85rem;font-weight:600;color:var(--gris-600);margin-bottom:.75rem;padding-bottom:.4rem;border-bottom:2px solid var(--azul)}
 
-    /* ── Stats grid ── */
-    .stat-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: .75rem;
-      margin-bottom: 2rem;
-    }
-    .stat {
-      background: #fff;
-      border: 1px solid var(--borde);
-      border-radius: 10px;
-      padding: 1rem;
-      text-align: center;
-    }
-    .stat strong {
-      display: block;
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: var(--azul);
-      line-height: 1.1;
-    }
-    .stat span { font-size: .75rem; color: var(--gris); margin-top: .2rem; display: block; }
+    /* Table */
+    .table-wrap{overflow-x:auto;border-radius:10px;border:1px solid var(--gris-200);box-shadow:var(--shadow);margin-bottom:1.5rem;background:#fff}
+    table{width:100%;border-collapse:collapse;font-size:.855rem}
+    thead th{background:var(--azul);color:#fff;padding:.6rem .85rem;text-align:left;font-weight:500;font-size:.8rem;white-space:nowrap}
+    tbody td{padding:.6rem .85rem;border-bottom:1px solid var(--gris-100);vertical-align:middle}
+    tbody tr:last-child td{border-bottom:none}
+    tbody tr:hover td{background:#f0f4ff}
+    .cn{color:var(--gris-900);font-weight:500;display:block;line-height:1.4}
+    .cn:hover{color:var(--azul);text-decoration:none}
+    .cl{font-size:.73rem;color:var(--gris-400);margin-top:2px}
+    .org{font-size:.8rem;color:var(--gris-600)}
+    .val{font-weight:600;white-space:nowrap}
+    .btn-ver{display:block;width:100%;text-align:center;background:var(--gris-50);border:none;border-top:1px solid var(--gris-200);color:var(--gris-600);font-size:.83rem;padding:.65rem;cursor:pointer;border-radius:0 0 10px 10px}
+    .btn-ver:hover{background:var(--gris-100)}
 
-    /* ── Alerta urgente ── */
-    .alerta-urgente {
-      background: #fffbeb;
-      border: 1px solid #fcd34d;
-      border-left: 4px solid #d97706;
-      border-radius: 8px;
-      padding: 1rem 1.25rem;
-      margin-bottom: 1.5rem;
-    }
-    .alerta-urgente strong { color: #92400e; display: block; margin-bottom: .5rem; }
-    .alerta-urgente ul { padding-left: 1.25rem; }
-    .alerta-urgente li { font-size: .88rem; margin-bottom: .3rem; color: #78350f; }
-    .alerta-urgente a { color: #92400e; }
+    /* Badges */
+    .badge{display:inline-block;padding:2px 9px;border-radius:20px;font-size:.72rem;font-weight:600;white-space:nowrap}
+    .b-urgente{background:#fee2e2;color:#991b1b}
+    .b-proximo{background:#ffedd5;color:#9a3412}
+    .b-abierto{background:#d1fae5;color:#065f46}
+    .b-none{background:var(--gris-100);color:var(--gris-600)}
 
-    /* ── Sección ── */
-    .seccion { margin-bottom: 2rem; }
-    .seccion h2 {
-      font-size: 1rem;
-      font-weight: 600;
-      color: #374151;
-      border-bottom: 2px solid var(--azul);
-      padding-bottom: .4rem;
-      margin-bottom: 1rem;
-      display: flex;
-      align-items: center;
-      gap: .4rem;
-    }
+    /* CTA Premium */
+    .cta-premium{background:linear-gradient(135deg,#1e3a8a 0%,#1a56db 100%);color:#fff;border-radius:12px;padding:1.5rem 1.75rem;display:flex;align-items:center;justify-content:space-between;gap:1.25rem;flex-wrap:wrap;margin:1.5rem 0;box-shadow:var(--shadow-md)}
+    .cta-premium h3{font-size:.95rem;font-weight:600;margin-bottom:.25rem}
+    .cta-premium p{font-size:.83rem;opacity:.88}
+    .cta-btn{background:#fff;color:var(--azul);font-weight:700;font-size:.88rem;padding:.65rem 1.4rem;border-radius:8px;white-space:nowrap;flex-shrink:0;display:inline-block;transition:background .15s}
+    .cta-btn:hover{background:#eff6ff;text-decoration:none}
 
-    /* ── Tabla ── */
-    .tabla-wrap { overflow-x: auto; border-radius: 10px; border: 1px solid var(--borde); }
-    table { width: 100%; border-collapse: collapse; font-size: .875rem; background: #fff; }
-    thead th {
-      background: var(--azul);
-      color: #fff;
-      padding: .6rem .9rem;
-      text-align: left;
-      font-weight: 500;
-      white-space: nowrap;
-    }
-    tbody td { padding: .6rem .9rem; border-bottom: 1px solid var(--borde); vertical-align: middle; }
-    tbody tr:last-child td { border-bottom: none; }
-    tbody tr:hover td { background: #f0f4ff; }
-    .contrato-link { color: var(--azul); text-decoration: none; font-weight: 500; }
-    .contrato-link:hover { text-decoration: underline; }
-    .org { color: var(--gris); font-size: .82rem; }
-    .valor { font-weight: 600; white-space: nowrap; }
+    /* Email CTA */
+    .email-cta{background:#fff;border:1px solid var(--gris-200);border-radius:10px;padding:1.25rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;box-shadow:var(--shadow);margin:1.5rem 0}
+    .email-icon{width:38px;height:38px;background:#eff6ff;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+    .email-cta h4{font-size:.88rem;font-weight:600;margin-bottom:2px}
+    .email-cta p{font-size:.78rem;color:var(--gris-400);margin:0}
+    .email-form{display:flex;gap:.5rem;flex-shrink:0}
+    .email-form input{font-size:.82rem;padding:7px 11px;border:1px solid var(--gris-200);border-radius:6px;background:#fff;width:175px}
+    .email-form input:focus{outline:2px solid var(--azul);outline-offset:-1px}
+    .email-form button{background:var(--azul);color:#fff;border:none;border-radius:6px;padding:7px 14px;font-size:.82rem;font-weight:500;cursor:pointer;white-space:nowrap}
+    .email-form button:hover{background:var(--azul-dark)}
 
-    /* ── Badges de estado ── */
-    .badge {
-      display: inline-block;
-      padding: 2px 9px;
-      border-radius: 20px;
-      font-size: .72rem;
-      font-weight: 600;
-      white-space: nowrap;
-    }
-    .badge-urgente  { background: #fee2e2; color: #991b1b; }
-    .badge-proximo  { background: #ffedd5; color: #9a3412; }
-    .badge-abierto  { background: #d1fae5; color: #065f46; }
-    .badge-sinplazo { background: #f3f4f6; color: #6b7280; }
+    /* Chips */
+    .chips{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1.5rem}
+    .chip{background:#eff6ff;color:var(--azul);border:1px solid #bfdbfe;border-radius:20px;padding:3px 10px;font-size:.77rem}
 
-    /* ── Chips de organismos ── */
-    .chips { display: flex; flex-wrap: wrap; gap: .4rem; }
-    .chip {
-      background: #eff6ff;
-      color: var(--azul);
-      border: 1px solid #bfdbfe;
-      border-radius: 20px;
-      padding: 3px 10px;
-      font-size: .78rem;
-    }
+    /* Callout */
+    .callout{background:#f0f9ff;border:1px solid #bae6fd;border-radius:8px;padding:1rem 1.25rem;font-size:.87rem;color:#0c4a6e;line-height:1.75}
 
-    /* ── Callout informativo ── */
-    .callout {
-      background: #f0f9ff;
-      border: 1px solid #bae6fd;
-      border-radius: 8px;
-      padding: 1rem 1.25rem;
-      font-size: .88rem;
-      color: #0c4a6e;
-      line-height: 1.6;
-    }
+    /* Trust bar */
+    .trust-bar{display:flex;align-items:center;justify-content:center;gap:1.25rem;flex-wrap:wrap;margin-top:1.5rem;padding-top:1.25rem;border-top:1px solid var(--gris-200)}
+    .trust-item{display:flex;align-items:center;gap:.35rem;font-size:.77rem;color:var(--gris-400)}
+    .trust-sep{width:4px;height:4px;background:var(--gris-200);border-radius:50%}
 
-    /* ── CTA premium ── */
-    .cta-premium {
-      background: linear-gradient(135deg, #1e429f 0%, #1a56db 100%);
-      color: #fff;
-      border-radius: 12px;
-      padding: 1.5rem 2rem;
-      margin: 2rem 0;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-    .cta-premium h3 { font-size: 1.05rem; margin-bottom: .3rem; }
-    .cta-premium p  { font-size: .88rem; opacity: .88; }
-    .cta-btn {
-      background: #fff;
-      color: var(--azul);
-      font-weight: 700;
-      font-size: .9rem;
-      padding: .6rem 1.4rem;
-      border-radius: 8px;
-      text-decoration: none;
-      white-space: nowrap;
-      flex-shrink: 0;
-    }
-    .cta-btn:hover { background: #eff6ff; }
+    /* Footer */
+    .site-footer{max-width:980px;margin:0 auto;padding:.5rem 1.25rem 2rem;font-size:.77rem;color:var(--gris-400);text-align:center;line-height:1.7}
+    .site-footer a{color:var(--azul)}
 
-    /* ── Footer ── */
-    footer {
-      margin-top: 3rem;
-      padding-top: 1.25rem;
-      border-top: 1px solid var(--borde);
-      font-size: .78rem;
-      color: var(--gris);
-      line-height: 1.7;
-    }
-
-    /* ── Responsive ── */
-    @media (max-width: 640px) {
-      .hero h1   { font-size: 1.3rem; }
-      .cta-premium { flex-direction: column; text-align: center; }
+    @media(max-width:680px){
+      .header-nav a:not(.btn-alerta-nav){display:none}
+      .cta-premium,.email-cta{flex-direction:column}
+      .email-form{width:100%}
+      .email-form input{flex:1;width:auto}
     }
   </style>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Licitaciones España",
-    "url": "https://mtellezdominguez.github.io/apex-site/licitaciones-consultoria-servicios-empresariales-espana/",
-    "description": "Contratos de consultor\u00eda, comunicaci\u00f3n y gesti\u00f3n en el sector p\u00fablico",
-    "publisher": {
-      "@type": "Organization",
-      "name": "Licitaciones España",
-      "url": "https://mtellezdominguez.github.io/apex-site/licitaciones-consultoria-servicios-empresariales-espana/"
-    }
-  }
-  </script>
 </head>
 <body>
 
-<header>
-  <a class="logo" href="https://mtellezdominguez.github.io/apex-site/">Licitaciones<span>.es</span></a>
-  <nav>
+<header class="site-header">
+  <a class="header-logo" href="https://mtellezdominguez.github.io/apex-site/">
+    <div class="logo-icon">L</div>
+    <span class="logo-text">Licita<span>España</span></span>
+  </a>
+  <nav class="header-nav">
     <a href="https://mtellezdominguez.github.io/apex-site/licitaciones-tecnologia-informacion-espana/">TI</a>
     <a href="https://mtellezdominguez.github.io/apex-site/licitaciones-construccion-obra-publica-espana/">Construcción</a>
     <a href="https://mtellezdominguez.github.io/apex-site/licitaciones-limpieza-servicios-espana/">Limpieza</a>
     <a href="https://mtellezdominguez.github.io/apex-site/licitaciones-formacion-educacion-espana/">Formación</a>
+    <a href="https://mtellezdominguez.github.io/apex-site/licitaciones-consultoria-servicios-empresariales-espana/">Consultoría</a>
+    <a class="btn-alerta-nav" href="#suscribirse">🔔 Alertas gratis</a>
   </nav>
 </header>
 
-<div class="page">
+
+<div class="page-wrap">
+
+  <nav class="breadcrumb">
+    <a href="https://mtellezdominguez.github.io/apex-site/">Inicio</a><span>›</span>Licitaciones de Consultoría y Servicios Empresariales en España
+  </nav>
+
+  <div style="background:linear-gradient(135deg,#1e3a8a,#1a56db);border-radius:12px;padding:1.5rem 2rem;color:#fff;margin-bottom:1.5rem;box-shadow:0 4px 12px rgba(30,58,138,.25);">
+    <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);border-radius:20px;padding:3px 11px;margin-bottom:.75rem;">
+      <div style="width:7px;height:7px;background:#86efac;border-radius:50%;"></div>
+      <span style="font-size:.72rem;font-weight:500;letter-spacing:.02em;">Datos actualizados hoy · PLACE Gobierno de España</span>
+    </div>
+    <h1 style="font-size:1.5rem;font-weight:600;line-height:1.3;margin-bottom:.3rem;">Licitaciones de Consultoría y Servicios Empresariales en España</h1>
+    <p style="font-size:.88rem;opacity:.88;margin:0;">Contratos de consultoría, comunicación y gestión en el sector público</p>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card"><strong>11</strong><span>Contratos activos</span></div>
+    <div class="stat-card"><strong>32.2M €</strong><span>Valor total licitado</span></div>
+    <div class="stat-card"><strong>2.9M €</strong><span>Contrato medio</span></div>
+    <div class="stat-card"><strong style="color:#dc2626;">1</strong><span>Cierran esta semana</span></div>
+  </div>
+
+  
+  <div class="alerta-urgente">
+    <span class="alerta-icon">⚠</span>
+    <div>
+      <strong>Plazo urgente — cierran en menos de 7 días</strong>
+      <ul>
+        
+        <li><a href="https://www.contratacion.euskadi.eus/webkpe00-kpeperfi/es/contenidos/anuncio_contratacion/expjaso737605/es_doc/index.html" target="_blank" rel="nofollow">Servicio de asistencia técnica para la gobernanza y el seguimiento de los planes estratégi</a> — Ayuntamiento de Vitoria-Gasteiz-Concejala-Delegada del Departamento de Promoción Económica, Empleo, Comercio y Turismo · <strong>Cierra 14/09/2026</strong> (1 días)</li>
+        
+      </ul>
+    </div>
+  </div>
   
 
-<nav class="breadcrumb">
-  <a href="https://mtellezdominguez.github.io/apex-site/">Inicio</a> › Licitaciones de Consultoría y Servicios Empresariales en España
-</nav>
-
-<div class="hero">
-  <h1>Licitaciones de Consultoría y Servicios Empresariales en España</h1>
-  <p class="subtitulo">Contratos de consultoría, comunicación y gestión en el sector público</p>
-</div>
-
-<div class="stat-grid">
-  <div class="stat">
-    <strong>11</strong>
-    <span>Contratos activos</span>
-  </div>
-  <div class="stat">
-    <strong>32.2M €</strong>
-    <span>Valor total licitado</span>
-  </div>
-  <div class="stat">
-    <strong>2.9M €</strong>
-    <span>Contrato medio</span>
-  </div>
-  <div class="stat">
-    <strong>1</strong>
-    <span>Cierran esta semana</span>
-  </div>
-</div>
-
-
-<div class="alerta-urgente">
-  <strong>⚠ Plazo urgente — cierran en menos de 7 días</strong>
-  <ul>
-    
-    <li>
-      <a href="https://www.contratacion.euskadi.eus/webkpe00-kpeperfi/es/contenidos/anuncio_contratacion/expjaso737605/es_doc/index.html" target="_blank" rel="nofollow">Servicio de asistencia técnica para la gobernanza y el seguimiento de los planes estratégi</a>
-      — Ayuntamiento de Vitoria-Gasteiz-Concejala-Delegada del Departamento de Promoción Económica, Empleo, Comercio y Turismo ·
-      <strong>Cierra 14/09/2026</strong>
-      (2 días)
-    </li>
-    
-  </ul>
-</div>
-
-
-<div class="seccion">
-  <h2>📋 Contratos activos — ordenados por plazo</h2>
-  <div class="tabla-wrap">
+  <div class="sec-header">📋 Contratos activos — ordenados por plazo de presentación</div>
+  <div class="table-wrap">
     <table>
-      <thead>
-        <tr>
-          <th>Contrato</th>
-          <th>Organismo</th>
-          <th>Valor</th>
-          <th>Plazo límite</th>
-          <th>Estado</th>
-        </tr>
-      </thead>
+      <thead><tr><th style="width:40%">Contrato</th><th>Organismo</th><th>Valor est.</th><th>Plazo límite</th><th>Estado</th></tr></thead>
       <tbody>
         
-        <tr>
-          <td>
-            <a class="contrato-link" href="https://www.contratacion.euskadi.eus/webkpe00-kpeperfi/es/contenidos/anuncio_contratacion/expjaso737605/es_doc/index.html"
-               target="_blank" rel="nofollow">Servicio de asistencia técnica para la gobernanza y el seguimiento de los planes</a>
-            
-          </td>
-          <td class="org">Ayuntamiento de Vitoria-Gasteiz-Concejal</td>
-          <td class="valor">74K €</td>
-          <td style="white-space:nowrap;">14/09/2026</td>
-          <td>
-            
-              <span class="badge badge-urgente">🔴 Urgente</span>
-            
-          </td>
+        <tr >
+          <td><a class="cn" href="https://www.contratacion.euskadi.eus/webkpe00-kpeperfi/es/contenidos/anuncio_contratacion/expjaso737605/es_doc/index.html" target="_blank" rel="nofollow">Servicio de asistencia técnica para la gobernanza y el seguimiento de los plan</a></td>
+          <td><span class="org">Ayuntamiento de Vitoria-Gasteiz-Concej</span></td>
+          <td><span class="val">74K €</span></td>
+          <td style="font-size:.8rem;white-space:nowrap;">14/09/2026</td>
+          <td><span class="badge b-urgente">🔴 Urgente</span></td>
         </tr>
         
-        <tr>
-          <td>
-            <a class="contrato-link" href="https://contractaciopublica.cat/ca/detall-publicacio/aea74b04-9dbc-496a-b1b8-c4680dc701cf/300880420"
-               target="_blank" rel="nofollow">Contractació dels serveis de vigilància i socorrisme, control d’accés/cobrador, </a>
-            
-          </td>
-          <td class="org">Ajuntament de Batea</td>
-          <td class="valor">166K €</td>
-          <td style="white-space:nowrap;">25/09/2026</td>
-          <td>
-            
-              <span class="badge badge-proximo">🟠 13d</span>
-            
-          </td>
+        <tr >
+          <td><a class="cn" href="https://contractaciopublica.cat/ca/detall-publicacio/aea74b04-9dbc-496a-b1b8-c4680dc701cf/300880420" target="_blank" rel="nofollow">Contractació dels serveis de vigilància i socorrisme, control d’accés/cobrador</a></td>
+          <td><span class="org">Ajuntament de Batea</span></td>
+          <td><span class="val">166K €</span></td>
+          <td style="font-size:.8rem;white-space:nowrap;">25/09/2026</td>
+          <td><span class="badge b-proximo">🟠 12d</span></td>
         </tr>
         
-        <tr>
-          <td>
-            <a class="contrato-link" href="https://contractaciopublica.cat/ca/detall-publicacio/0da93067-9af1-40b0-b040-c6cc7e0e8a02/300877935"
-               target="_blank" rel="nofollow">Consisteix en la prestació del servei de gestió de les xarxes socials i del port</a>
-            
-          </td>
-          <td class="org">Patronat Municipal de Turisme de Salou</td>
-          <td class="valor">110K €</td>
-          <td style="white-space:nowrap;">25/09/2026</td>
-          <td>
-            
-              <span class="badge badge-proximo">🟠 13d</span>
-            
-          </td>
+        <tr >
+          <td><a class="cn" href="https://contractaciopublica.cat/ca/detall-publicacio/0da93067-9af1-40b0-b040-c6cc7e0e8a02/300877935" target="_blank" rel="nofollow">Consisteix en la prestació del servei de gestió de les xarxes socials i del po</a></td>
+          <td><span class="org">Patronat Municipal de Turisme de Salou</span></td>
+          <td><span class="val">110K €</span></td>
+          <td style="font-size:.8rem;white-space:nowrap;">25/09/2026</td>
+          <td><span class="badge b-proximo">🟠 12d</span></td>
         </tr>
         
-        <tr>
-          <td>
-            <a class="contrato-link" href="https://www.juntadeandalucia.es/haciendayadministracionpublica/apl/pdc_sirec/perfiles-licitaciones/detalle-licitacion.jsf?idExpediente=1006281"
-               target="_blank" rel="nofollow">servicio de vigilancia y seguridad sscc sae</a>
-            
-          </td>
-          <td class="org">Servicio Andaluz de Empleo. Servicios Ce</td>
-          <td class="valor">306K €</td>
-          <td style="white-space:nowrap;">25/09/2026</td>
-          <td>
-            
-              <span class="badge badge-proximo">🟠 13d</span>
-            
-          </td>
+        <tr >
+          <td><a class="cn" href="https://www.juntadeandalucia.es/haciendayadministracionpublica/apl/pdc_sirec/perfiles-licitaciones/detalle-licitacion.jsf?idExpediente=1006281" target="_blank" rel="nofollow">servicio de vigilancia y seguridad sscc sae</a></td>
+          <td><span class="org">Servicio Andaluz de Empleo. Servicios </span></td>
+          <td><span class="val">306K €</span></td>
+          <td style="font-size:.8rem;white-space:nowrap;">25/09/2026</td>
+          <td><span class="badge b-proximo">🟠 12d</span></td>
         </tr>
         
-        <tr>
-          <td>
-            <a class="contrato-link" href="https://contractaciopublica.cat/ca/detall-publicacio/14c35fce-31cd-4e06-8bb6-7ef7f678d683/300880388"
-               target="_blank" rel="nofollow">L’objecte del present plec és l’establiment de les condicions que regiran la con</a>
-            
-          </td>
-          <td class="org">CALAFELL EMPRESA MUNICIPAL DE SERVEIS, S</td>
-          <td class="valor">100K €</td>
-          <td style="white-space:nowrap;">25/09/2026</td>
-          <td>
-            
-              <span class="badge badge-proximo">🟠 13d</span>
-            
-          </td>
+        <tr >
+          <td><a class="cn" href="https://contractaciopublica.cat/ca/detall-publicacio/14c35fce-31cd-4e06-8bb6-7ef7f678d683/300880388" target="_blank" rel="nofollow">L’objecte del present plec és l’establiment de les condicions que regiran la c</a></td>
+          <td><span class="org">CALAFELL EMPRESA MUNICIPAL DE SERVEIS,</span></td>
+          <td><span class="val">100K €</span></td>
+          <td style="font-size:.8rem;white-space:nowrap;">25/09/2026</td>
+          <td><span class="badge b-proximo">🟠 12d</span></td>
         </tr>
         
-        <tr>
-          <td>
-            <a class="contrato-link" href="https://www.contratacion.euskadi.eus/webkpe00-kpeperfi/es/contenidos/anuncio_contratacion/expgebizkaia3634928/es_doc/index.html"
-               target="_blank" rel="nofollow">Servicio de gabinete de comunicacion</a>
-            
-          </td>
-          <td class="org">Ayuntamiento de Barrika-Alcalde</td>
-          <td class="valor">64K €</td>
-          <td style="white-space:nowrap;">28/09/2026</td>
-          <td>
-            
-              <span class="badge badge-proximo">🟠 16d</span>
-            
-          </td>
+        <tr >
+          <td><a class="cn" href="https://www.contratacion.euskadi.eus/webkpe00-kpeperfi/es/contenidos/anuncio_contratacion/expgebizkaia3634928/es_doc/index.html" target="_blank" rel="nofollow">Servicio de gabinete de comunicacion</a></td>
+          <td><span class="org">Ayuntamiento de Barrika-Alcalde</span></td>
+          <td><span class="val">64K €</span></td>
+          <td style="font-size:.8rem;white-space:nowrap;">28/09/2026</td>
+          <td><span class="badge b-proximo">🟠 15d</span></td>
         </tr>
         
-        <tr>
-          <td>
-            <a class="contrato-link" href="https://hacienda.navarra.es/sicpportal/mtoAnunciosModalidad.aspx?cod=26091013094828F5684D"
-               target="_blank" rel="nofollow">Asistencia técnica para el diseño y ejecución del plan de acción para la interna</a>
-            
-          </td>
-          <td class="org">Servicio de Proyección Internacional</td>
-          <td class="valor">588K €</td>
-          <td style="white-space:nowrap;">08/10/2026</td>
-          <td>
-            
-              <span class="badge badge-proximo">🟠 26d</span>
-            
-          </td>
+        <tr >
+          <td><a class="cn" href="https://hacienda.navarra.es/sicpportal/mtoAnunciosModalidad.aspx?cod=26091013094828F5684D" target="_blank" rel="nofollow">Asistencia técnica para el diseño y ejecución del plan de acción para la inter</a></td>
+          <td><span class="org">Servicio de Proyección Internacional</span></td>
+          <td><span class="val">588K €</span></td>
+          <td style="font-size:.8rem;white-space:nowrap;">08/10/2026</td>
+          <td><span class="badge b-proximo">🟠 25d</span></td>
         </tr>
         
-        <tr>
-          <td>
-            <a class="contrato-link" href="https://contrataciondelestado.es/licitacion/19596410"
-               target="_blank" rel="nofollow">Asistencia técnica y consultoría especializada requeridos para el diseño, desarr</a>
-            
-          </td>
-          <td class="org">Alcaldia del Ayuntamiento de Pilas</td>
-          <td class="valor">5.4M €</td>
-          <td style="white-space:nowrap;">—</td>
-          <td>
-            
-              <span class="badge badge-sinplazo">Sin plazo</span>
-            
-          </td>
+        <tr >
+          <td><a class="cn" href="https://contrataciondelestado.es/licitacion/19596410" target="_blank" rel="nofollow">Asistencia técnica y consultoría especializada requeridos para el diseño, desa</a></td>
+          <td><span class="org">Alcaldia del Ayuntamiento de Pilas</span></td>
+          <td><span class="val">5.4M €</span></td>
+          <td style="font-size:.8rem;white-space:nowrap;">—</td>
+          <td><span class="badge b-none">Sin plazo</span></td>
         </tr>
         
-        <tr>
-          <td>
-            <a class="contrato-link" href="https://contrataciondelestado.es/licitacion/19361396"
-               target="_blank" rel="nofollow">La contratación de los servicios de consultoría para la implantación, desarrollo</a>
-            
-            <br><small class="org">📍 Granada</small>
-            
-          </td>
-          <td class="org">Vicepresidencia del Servicio Provincial </td>
-          <td class="valor">2.0M €</td>
-          <td style="white-space:nowrap;">—</td>
-          <td>
-            
-              <span class="badge badge-sinplazo">Sin plazo</span>
-            
-          </td>
+        <tr >
+          <td><a class="cn" href="https://contrataciondelestado.es/licitacion/19361396" target="_blank" rel="nofollow">La contratación de los servicios de consultoría para la implantación, desarrol</a><div class="cl">📍 Granada</div></td>
+          <td><span class="org">Vicepresidencia del Servicio Provincia</span></td>
+          <td><span class="val">2.0M €</span></td>
+          <td style="font-size:.8rem;white-space:nowrap;">—</td>
+          <td><span class="badge b-none">Sin plazo</span></td>
         </tr>
         
-        <tr>
-          <td>
-            <a class="contrato-link" href="https://contrataciondelestado.es/licitacion/20287529"
-               target="_blank" rel="nofollow">Asistencia técnica especializada y soporte a la Unidad de Gestión FEDER del Ayun</a>
-            
-            <br><small class="org">📍 Cuenca</small>
-            
-          </td>
-          <td class="org">Junta de Gobierno del Ayuntamiento de Cu</td>
-          <td class="valor">23.3M €</td>
-          <td style="white-space:nowrap;">—</td>
-          <td>
-            
-              <span class="badge badge-sinplazo">Sin plazo</span>
-            
-          </td>
+        <tr >
+          <td><a class="cn" href="https://contrataciondelestado.es/licitacion/20287529" target="_blank" rel="nofollow">Asistencia técnica especializada y soporte a la Unidad de Gestión FEDER del Ay</a><div class="cl">📍 Cuenca</div></td>
+          <td><span class="org">Junta de Gobierno del Ayuntamiento de </span></td>
+          <td><span class="val">23.3M €</span></td>
+          <td style="font-size:.8rem;white-space:nowrap;">—</td>
+          <td><span class="badge b-none">Sin plazo</span></td>
         </tr>
         
-        <tr>
-          <td>
-            <a class="contrato-link" href="https://contractaciopublica.cat/ca/detall-publicacio/4e2a64cf-1691-4e47-93ac-e766ab612f4c/300880400"
-               target="_blank" rel="nofollow">Servei de gestió de les xarxes socials i d&#39;altres continguts digitals del Reial </a>
-            
-          </td>
-          <td class="org">Institut de Cultura de Barcelona</td>
-          <td class="valor">169K €</td>
-          <td style="white-space:nowrap;">—</td>
-          <td>
-            
-              <span class="badge badge-sinplazo">Sin plazo</span>
-            
-          </td>
+        <tr >
+          <td><a class="cn" href="https://contractaciopublica.cat/ca/detall-publicacio/4e2a64cf-1691-4e47-93ac-e766ab612f4c/300880400" target="_blank" rel="nofollow">Servei de gestió de les xarxes socials i d&#39;altres continguts digitals del Reia</a></td>
+          <td><span class="org">Institut de Cultura de Barcelona</span></td>
+          <td><span class="val">169K €</span></td>
+          <td style="font-size:.8rem;white-space:nowrap;">—</td>
+          <td><span class="badge b-none">Sin plazo</span></td>
         </tr>
         
       </tbody>
     </table>
-  </div>
-</div>
-
-<div class="seccion">
-  <h2>🏛 Organismos que más licitan en este sector</h2>
-  <div class="chips">
-    
-    <span class="chip">Ayuntamiento de Vitoria-Gasteiz-Concejal · 1</span>
-    
-    <span class="chip">Ajuntament de Batea · 1</span>
-    
-    <span class="chip">Patronat Municipal de Turisme de Salou · 1</span>
-    
-    <span class="chip">Servicio Andaluz de Empleo. Servicios Ce · 1</span>
-    
-    <span class="chip">CALAFELL EMPRESA MUNICIPAL DE SERVEIS, S · 1</span>
-    
-    <span class="chip">Ayuntamiento de Barrika-Alcalde · 1</span>
-    
-    <span class="chip">Servicio de Proyección Internacional · 1</span>
-    
-    <span class="chip">Alcaldia del Ayuntamiento de Pilas · 1</span>
-    
-    <span class="chip">Vicepresidencia del Servicio Provincial  · 1</span>
-    
-    <span class="chip">Junta de Gobierno del Ayuntamiento de Cu · 1</span>
-    
-    <span class="chip">Institut de Cultura de Barcelona · 1</span>
     
   </div>
-</div>
 
+  
 
+  
+  <div class="email-cta" id="suscribirse">
+    <div style="display:flex;align-items:center;gap:.75rem;"><div class="email-icon">🔔</div><div><h4>Alertas gratuitas — Consultoría</h4><p>Nuevas licitaciones de este sector cada lunes. Sin spam. Cancela cuando quieras.</p></div></div>
+    <div class="email-form"><input type="email" placeholder="email@empresa.com" id="email-input" aria-label="Correo electrónico"><button type="button" onclick="var v=document.getElementById('email-input').value;if(!v||!v.includes('@')){alert('Introduce un email válido');return;}this.textContent='✓ Apuntado';this.style.background='#059669';this.disabled=true;">Suscribirse</button></div>
+  </div>
+  
 
+  <div class="sec-header">🏛 Organismos que más licitan en este sector</div>
+  <div class="chips"><span class="chip">Ayuntamiento de Vitoria-Gasteiz-Concejal · 1</span><span class="chip">Ajuntament de Batea · 1</span><span class="chip">Patronat Municipal de Turisme de Salou · 1</span><span class="chip">Servicio Andaluz de Empleo. Servicios Ce · 1</span><span class="chip">CALAFELL EMPRESA MUNICIPAL DE SERVEIS, S · 1</span><span class="chip">Ayuntamiento de Barrika-Alcalde · 1</span><span class="chip">Servicio de Proyección Internacional · 1</span><span class="chip">Alcaldia del Ayuntamiento de Pilas · 1</span><span class="chip">Vicepresidencia del Servicio Provincial  · 1</span><span class="chip">Junta de Gobierno del Ayuntamiento de Cu · 1</span><span class="chip">Institut de Cultura de Barcelona · 1</span></div>
 
-
-<div class="seccion">
-  <h2>ℹ Sobre este sector en la contratación pública</h2>
+  <div class="sec-header">ℹ Sobre este sector</div>
   <div class="callout">La consultoría y servicios profesionales tienen alta presencia en la contratación pública. Incluye auditoría, comunicación, formación, traducción y servicios de gestión.</div>
-</div>
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "ItemList",
-  "name": "Licitaciones de Consultor\u00eda y Servicios Empresariales en Espa\u00f1a",
-  "description": "Contratos de consultor\u00eda, comunicaci\u00f3n y gesti\u00f3n en el sector p\u00fablico",
-  "numberOfItems": 11,
-  "itemListElement": [
-    
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Servicio de asistencia t\u00e9cnica para la gobernanza y el seguimiento de los planes estrat\u00e9gicos de tur",
-      "url": "https://www.contratacion.euskadi.eus/webkpe00-kpeperfi/es/contenidos/anuncio_contratacion/expjaso737605/es_doc/index.html"
-    },
-    
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Contractaci\u00f3 dels serveis de vigil\u00e0ncia i socorrisme, control d\u2019acc\u00e9s/cobrador, i activitats dirigid",
-      "url": "https://contractaciopublica.cat/ca/detall-publicacio/aea74b04-9dbc-496a-b1b8-c4680dc701cf/300880420"
-    },
-    
-    {
-      "@type": "ListItem",
-      "position": 3,
-      "name": "Consisteix en la prestaci\u00f3 del servei de gesti\u00f3 de les xarxes socials i del portal web del Patronat ",
-      "url": "https://contractaciopublica.cat/ca/detall-publicacio/0da93067-9af1-40b0-b040-c6cc7e0e8a02/300877935"
-    },
-    
-    {
-      "@type": "ListItem",
-      "position": 4,
-      "name": "servicio de vigilancia y seguridad sscc sae",
-      "url": "https://www.juntadeandalucia.es/haciendayadministracionpublica/apl/pdc_sirec/perfiles-licitaciones/detalle-licitacion.jsf?idExpediente=1006281"
-    },
-    
-    {
-      "@type": "ListItem",
-      "position": 5,
-      "name": "L\u2019objecte del present plec \u00e9s l\u2019establiment de les condicions que regiran la contractaci\u00f3 dels serve",
-      "url": "https://contractaciopublica.cat/ca/detall-publicacio/14c35fce-31cd-4e06-8bb6-7ef7f678d683/300880388"
-    },
-    
-    {
-      "@type": "ListItem",
-      "position": 6,
-      "name": "Servicio de gabinete de comunicacion",
-      "url": "https://www.contratacion.euskadi.eus/webkpe00-kpeperfi/es/contenidos/anuncio_contratacion/expgebizkaia3634928/es_doc/index.html"
-    },
-    
-    {
-      "@type": "ListItem",
-      "position": 7,
-      "name": "Asistencia t\u00e9cnica para el dise\u00f1o y ejecuci\u00f3n del plan de acci\u00f3n para la internacionalizaci\u00f3n de Nav",
-      "url": "https://hacienda.navarra.es/sicpportal/mtoAnunciosModalidad.aspx?cod=26091013094828F5684D"
-    },
-    
-    {
-      "@type": "ListItem",
-      "position": 8,
-      "name": "Asistencia t\u00e9cnica y consultor\u00eda especializada requeridos para el dise\u00f1o, desarrollo, implantaci\u00f3n y",
-      "url": "https://contrataciondelestado.es/licitacion/19596410"
-    },
-    
-    {
-      "@type": "ListItem",
-      "position": 9,
-      "name": "La contrataci\u00f3n de los servicios de consultor\u00eda para la implantaci\u00f3n, desarrollo y mantenimiento de ",
-      "url": "https://contrataciondelestado.es/licitacion/19361396"
-    },
-    
-    {
-      "@type": "ListItem",
-      "position": 10,
-      "name": "Asistencia t\u00e9cnica especializada y soporte a la Unidad de Gesti\u00f3n FEDER del Ayuntamiento de Cuenca p",
-      "url": "https://contrataciondelestado.es/licitacion/20287529"
-    }
-    
-  ]
-}
-</script>
+  <div class="trust-bar">
+    <div class="trust-item">🛡 Datos oficiales PLACE</div><div class="trust-sep"></div>
+    <div class="trust-item">🔄 Actualización diaria automática</div><div class="trust-sep"></div>
+    <div class="trust-item">📖 Licencia de datos abiertos</div><div class="trust-sep"></div>
+    <div class="trust-item">🇪🇸 Gobierno de España</div>
+  </div>
 
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"ItemList","name":"Licitaciones de Consultor\u00eda y Servicios Empresariales en Espa\u00f1a","description":"Contratos de consultor\u00eda, comunicaci\u00f3n y gesti\u00f3n en el sector p\u00fablico","numberOfItems":11,"itemListElement":[{"@type":"ListItem","position":1,"name":"Servicio de asistencia t\u00e9cnica para la gobernanza y el seguimiento de los planes estrat\u00e9gicos de tur","url":"https://www.contratacion.euskadi.eus/webkpe00-kpeperfi/es/contenidos/anuncio_contratacion/expjaso737605/es_doc/index.html"},{"@type":"ListItem","position":2,"name":"Contractaci\u00f3 dels serveis de vigil\u00e0ncia i socorrisme, control d\u2019acc\u00e9s/cobrador, i activitats dirigid","url":"https://contractaciopublica.cat/ca/detall-publicacio/aea74b04-9dbc-496a-b1b8-c4680dc701cf/300880420"},{"@type":"ListItem","position":3,"name":"Consisteix en la prestaci\u00f3 del servei de gesti\u00f3 de les xarxes socials i del portal web del Patronat ","url":"https://contractaciopublica.cat/ca/detall-publicacio/0da93067-9af1-40b0-b040-c6cc7e0e8a02/300877935"},{"@type":"ListItem","position":4,"name":"servicio de vigilancia y seguridad sscc sae","url":"https://www.juntadeandalucia.es/haciendayadministracionpublica/apl/pdc_sirec/perfiles-licitaciones/detalle-licitacion.jsf?idExpediente=1006281"},{"@type":"ListItem","position":5,"name":"L\u2019objecte del present plec \u00e9s l\u2019establiment de les condicions que regiran la contractaci\u00f3 dels serve","url":"https://contractaciopublica.cat/ca/detall-publicacio/14c35fce-31cd-4e06-8bb6-7ef7f678d683/300880388"},{"@type":"ListItem","position":6,"name":"Servicio de gabinete de comunicacion","url":"https://www.contratacion.euskadi.eus/webkpe00-kpeperfi/es/contenidos/anuncio_contratacion/expgebizkaia3634928/es_doc/index.html"},{"@type":"ListItem","position":7,"name":"Asistencia t\u00e9cnica para el dise\u00f1o y ejecuci\u00f3n del plan de acci\u00f3n para la internacionalizaci\u00f3n de Nav","url":"https://hacienda.navarra.es/sicpportal/mtoAnunciosModalidad.aspx?cod=26091013094828F5684D"},{"@type":"ListItem","position":8,"name":"Asistencia t\u00e9cnica y consultor\u00eda especializada requeridos para el dise\u00f1o, desarrollo, implantaci\u00f3n y","url":"https://contrataciondelestado.es/licitacion/19596410"},{"@type":"ListItem","position":9,"name":"La contrataci\u00f3n de los servicios de consultor\u00eda para la implantaci\u00f3n, desarrollo y mantenimiento de ","url":"https://contrataciondelestado.es/licitacion/19361396"},{"@type":"ListItem","position":10,"name":"Asistencia t\u00e9cnica especializada y soporte a la Unidad de Gesti\u00f3n FEDER del Ayuntamiento de Cuenca p","url":"https://contrataciondelestado.es/licitacion/20287529"}]}
+  </script>
 
 </div>
 
-<footer style="max-width:1000px;margin:0 auto;padding:0 1.25rem 2rem;">
-  Datos extraídos de la <a href="https://contrataciondelestado.es" style="color:var(--azul);">
-  Plataforma de Contratación del Sector Público (PLACE)</a> — fuente oficial del Gobierno de España. ·
-  Última actualización: 12/09/2026
+
+<footer class="site-footer">
+  Datos oficiales extraídos de la
+  <a href="https://contrataciondelestado.es" rel="noopener">Plataforma de Contratación del Sector Público (PLACE)</a>
+  — Gobierno de España · Licencia de datos abiertos ·
+  Actualizado: 13/09/2026
 </footer>
 
 </body>

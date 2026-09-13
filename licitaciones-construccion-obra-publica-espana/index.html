@@ -6,1060 +6,518 @@
   <title>Licitaciones de Construcción y Obra Pública en España | Contratos Públicos 2026</title>
   <meta name="description" content="Contratos de obra civil y edificación publicados en PLACE">
   <link rel="canonical" href="https://mtellezdominguez.github.io/apex-site/licitaciones-construccion-obra-publica-espana/">
-  <link rel="sitemap" type="application/xml" href="/sitemap.xml">
-  <link rel="alternate" type="application/rss+xml"
-        title="Licitaciones España — RSS" href="https://mtellezdominguez.github.io/apex-site/feed.xml">
   <meta property="og:title" content="Licitaciones de Construcción y Obra Pública en España | Contratos Públicos 2026">
   <meta property="og:description" content="Contratos de obra civil y edificación publicados en PLACE">
   <meta property="og:url" content="https://mtellezdominguez.github.io/apex-site/licitaciones-construccion-obra-publica-espana/">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_ES">
   <meta name="robots" content="index, follow">
+  <link rel="sitemap" type="application/xml" href="https://mtellezdominguez.github.io/apex-site/sitemap.xml">
+  <link rel="alternate" type="application/rss+xml" title="LicitaEspaña RSS" href="https://mtellezdominguez.github.io/apex-site/feed.xml">
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --azul:#1a56db;--azul-dark:#1e3a8a;--verde:#059669;
+      --amber:#d97706;--morado:#7c3aed;--rojo:#dc2626;
+      --gris-50:#f9fafb;--gris-100:#f3f4f6;--gris-200:#e5e7eb;
+      --gris-400:#9ca3af;--gris-600:#4b5563;--gris-900:#111827;
+      --shadow:0 1px 3px rgba(0,0,0,.08),0 1px 2px rgba(0,0,0,.05);
+      --shadow-md:0 4px 6px rgba(0,0,0,.07),0 2px 4px rgba(0,0,0,.05);
+    }
+    body{font-family:system-ui,-apple-system,sans-serif;color:var(--gris-900);background:var(--gris-50);line-height:1.6}
+    a{color:var(--azul);text-decoration:none}
+    a:hover{text-decoration:underline}
 
-    :root {
-      --azul:      #1a56db;
-      --azul-dark: #1e429f;
-      --verde:     #057a55;
-      --naranja:   #c27803;
-      --rojo:      #c81e1e;
-      --gris:      #6b7280;
-      --borde:     #e5e7eb;
-      --fondo:     #f9fafb;
-    }
+    /* Header */
+    .site-header{background:#fff;border-bottom:1px solid var(--gris-200);padding:0 1.5rem;height:52px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:var(--shadow)}
+    .header-logo{display:flex;align-items:center;gap:9px;text-decoration:none}
+    .logo-icon{width:30px;height:30px;background:var(--azul);border-radius:7px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:14px;flex-shrink:0}
+    .logo-text{font-size:15px;font-weight:600;color:var(--gris-900)}
+    .logo-text span{color:var(--azul)}
+    .header-nav{display:flex;align-items:center;gap:1.25rem}
+    .header-nav a{font-size:13px;color:var(--gris-600);text-decoration:none}
+    .header-nav a:hover{color:var(--azul)}
+    .btn-alerta-nav{background:var(--azul);color:#fff !important;font-size:12px;font-weight:500;padding:6px 14px;border-radius:6px;white-space:nowrap}
+    .btn-alerta-nav:hover{background:var(--azul-dark)}
 
-    body {
-      font-family: system-ui, -apple-system, sans-serif;
-      color: #111827;
-      background: var(--fondo);
-      line-height: 1.6;
-    }
+    /* Page */
+    .page-wrap{max-width:980px;margin:0 auto;padding:2rem 1.25rem 4rem}
 
-    /* ── Cabecera ── */
-    header {
-      background: #fff;
-      border-bottom: 1px solid var(--borde);
-      padding: .75rem 1.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-    .logo {
-      font-size: .95rem;
-      font-weight: 700;
-      color: var(--azul);
-      text-decoration: none;
-    }
-    .logo span { color: #111827; font-weight: 400; }
-    nav a {
-      font-size: .85rem;
-      color: var(--gris);
-      text-decoration: none;
-      margin-left: 1.25rem;
-    }
-    nav a:hover { color: var(--azul); }
+    /* Breadcrumb */
+    .breadcrumb{font-size:13px;color:var(--gris-400);margin-bottom:1.25rem}
+    .breadcrumb a{color:var(--gris-400)}
+    .breadcrumb a:hover{color:var(--azul)}
+    .breadcrumb span{margin:0 .35rem}
 
-    /* ── Layout ── */
-    .page { max-width: 1000px; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+    /* Stat grid */
+    .stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:.75rem;margin-bottom:1.75rem}
+    .stat-card{background:#fff;border:1px solid var(--gris-200);border-radius:10px;padding:1rem;text-align:center;box-shadow:var(--shadow)}
+    .stat-card strong{display:block;font-size:1.65rem;font-weight:700;color:var(--azul);line-height:1.1;margin-bottom:.2rem}
+    .stat-card span{font-size:.73rem;color:var(--gris-400)}
 
-    /* ── Breadcrumb ── */
-    .breadcrumb {
-      font-size: .8rem;
-      color: var(--gris);
-      margin-bottom: 1.25rem;
-    }
-    .breadcrumb a { color: var(--azul); text-decoration: none; }
-    .breadcrumb a:hover { text-decoration: underline; }
+    /* Urgency alert */
+    .alerta-urgente{background:#fff7ed;border:1px solid #fed7aa;border-left:4px solid #ea580c;border-radius:8px;padding:1rem 1.25rem;margin-bottom:1.5rem;display:flex;gap:.75rem;align-items:flex-start}
+    .alerta-icon{font-size:18px;color:#ea580c;flex-shrink:0;line-height:1.4}
+    .alerta-urgente strong{display:block;font-size:.85rem;font-weight:600;color:#9a3412;margin-bottom:.3rem}
+    .alerta-urgente ul{padding-left:1.1rem;font-size:.82rem;color:#c2410c}
+    .alerta-urgente li{margin-bottom:.25rem}
+    .alerta-urgente a{color:#9a3412;font-weight:500}
 
-    /* ── Hero ── */
-    .hero { margin-bottom: 1.75rem; }
-    .hero h1 {
-      font-size: 1.65rem;
-      font-weight: 700;
-      line-height: 1.25;
-      margin-bottom: .4rem;
-    }
-    .hero .subtitulo { font-size: .9rem; color: var(--gris); }
+    /* Section header */
+    .sec-header{display:flex;align-items:center;gap:.5rem;font-size:.85rem;font-weight:600;color:var(--gris-600);margin-bottom:.75rem;padding-bottom:.4rem;border-bottom:2px solid var(--azul)}
 
-    /* ── Stats grid ── */
-    .stat-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: .75rem;
-      margin-bottom: 2rem;
-    }
-    .stat {
-      background: #fff;
-      border: 1px solid var(--borde);
-      border-radius: 10px;
-      padding: 1rem;
-      text-align: center;
-    }
-    .stat strong {
-      display: block;
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: var(--azul);
-      line-height: 1.1;
-    }
-    .stat span { font-size: .75rem; color: var(--gris); margin-top: .2rem; display: block; }
+    /* Table */
+    .table-wrap{overflow-x:auto;border-radius:10px;border:1px solid var(--gris-200);box-shadow:var(--shadow);margin-bottom:1.5rem;background:#fff}
+    table{width:100%;border-collapse:collapse;font-size:.855rem}
+    thead th{background:var(--azul);color:#fff;padding:.6rem .85rem;text-align:left;font-weight:500;font-size:.8rem;white-space:nowrap}
+    tbody td{padding:.6rem .85rem;border-bottom:1px solid var(--gris-100);vertical-align:middle}
+    tbody tr:last-child td{border-bottom:none}
+    tbody tr:hover td{background:#f0f4ff}
+    .cn{color:var(--gris-900);font-weight:500;display:block;line-height:1.4}
+    .cn:hover{color:var(--azul);text-decoration:none}
+    .cl{font-size:.73rem;color:var(--gris-400);margin-top:2px}
+    .org{font-size:.8rem;color:var(--gris-600)}
+    .val{font-weight:600;white-space:nowrap}
+    .btn-ver{display:block;width:100%;text-align:center;background:var(--gris-50);border:none;border-top:1px solid var(--gris-200);color:var(--gris-600);font-size:.83rem;padding:.65rem;cursor:pointer;border-radius:0 0 10px 10px}
+    .btn-ver:hover{background:var(--gris-100)}
 
-    /* ── Alerta urgente ── */
-    .alerta-urgente {
-      background: #fffbeb;
-      border: 1px solid #fcd34d;
-      border-left: 4px solid #d97706;
-      border-radius: 8px;
-      padding: 1rem 1.25rem;
-      margin-bottom: 1.5rem;
-    }
-    .alerta-urgente strong { color: #92400e; display: block; margin-bottom: .5rem; }
-    .alerta-urgente ul { padding-left: 1.25rem; }
-    .alerta-urgente li { font-size: .88rem; margin-bottom: .3rem; color: #78350f; }
-    .alerta-urgente a { color: #92400e; }
+    /* Badges */
+    .badge{display:inline-block;padding:2px 9px;border-radius:20px;font-size:.72rem;font-weight:600;white-space:nowrap}
+    .b-urgente{background:#fee2e2;color:#991b1b}
+    .b-proximo{background:#ffedd5;color:#9a3412}
+    .b-abierto{background:#d1fae5;color:#065f46}
+    .b-none{background:var(--gris-100);color:var(--gris-600)}
 
-    /* ── Sección ── */
-    .seccion { margin-bottom: 2rem; }
-    .seccion h2 {
-      font-size: 1rem;
-      font-weight: 600;
-      color: #374151;
-      border-bottom: 2px solid var(--azul);
-      padding-bottom: .4rem;
-      margin-bottom: 1rem;
-      display: flex;
-      align-items: center;
-      gap: .4rem;
-    }
+    /* CTA Premium */
+    .cta-premium{background:linear-gradient(135deg,#1e3a8a 0%,#1a56db 100%);color:#fff;border-radius:12px;padding:1.5rem 1.75rem;display:flex;align-items:center;justify-content:space-between;gap:1.25rem;flex-wrap:wrap;margin:1.5rem 0;box-shadow:var(--shadow-md)}
+    .cta-premium h3{font-size:.95rem;font-weight:600;margin-bottom:.25rem}
+    .cta-premium p{font-size:.83rem;opacity:.88}
+    .cta-btn{background:#fff;color:var(--azul);font-weight:700;font-size:.88rem;padding:.65rem 1.4rem;border-radius:8px;white-space:nowrap;flex-shrink:0;display:inline-block;transition:background .15s}
+    .cta-btn:hover{background:#eff6ff;text-decoration:none}
 
-    /* ── Tabla ── */
-    .tabla-wrap { overflow-x: auto; border-radius: 10px; border: 1px solid var(--borde); }
-    table { width: 100%; border-collapse: collapse; font-size: .875rem; background: #fff; }
-    thead th {
-      background: var(--azul);
-      color: #fff;
-      padding: .6rem .9rem;
-      text-align: left;
-      font-weight: 500;
-      white-space: nowrap;
-    }
-    tbody td { padding: .6rem .9rem; border-bottom: 1px solid var(--borde); vertical-align: middle; }
-    tbody tr:last-child td { border-bottom: none; }
-    tbody tr:hover td { background: #f0f4ff; }
-    .contrato-link { color: var(--azul); text-decoration: none; font-weight: 500; }
-    .contrato-link:hover { text-decoration: underline; }
-    .org { color: var(--gris); font-size: .82rem; }
-    .valor { font-weight: 600; white-space: nowrap; }
+    /* Email CTA */
+    .email-cta{background:#fff;border:1px solid var(--gris-200);border-radius:10px;padding:1.25rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;box-shadow:var(--shadow);margin:1.5rem 0}
+    .email-icon{width:38px;height:38px;background:#eff6ff;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+    .email-cta h4{font-size:.88rem;font-weight:600;margin-bottom:2px}
+    .email-cta p{font-size:.78rem;color:var(--gris-400);margin:0}
+    .email-form{display:flex;gap:.5rem;flex-shrink:0}
+    .email-form input{font-size:.82rem;padding:7px 11px;border:1px solid var(--gris-200);border-radius:6px;background:#fff;width:175px}
+    .email-form input:focus{outline:2px solid var(--azul);outline-offset:-1px}
+    .email-form button{background:var(--azul);color:#fff;border:none;border-radius:6px;padding:7px 14px;font-size:.82rem;font-weight:500;cursor:pointer;white-space:nowrap}
+    .email-form button:hover{background:var(--azul-dark)}
 
-    /* ── Badges de estado ── */
-    .badge {
-      display: inline-block;
-      padding: 2px 9px;
-      border-radius: 20px;
-      font-size: .72rem;
-      font-weight: 600;
-      white-space: nowrap;
-    }
-    .badge-urgente  { background: #fee2e2; color: #991b1b; }
-    .badge-proximo  { background: #ffedd5; color: #9a3412; }
-    .badge-abierto  { background: #d1fae5; color: #065f46; }
-    .badge-sinplazo { background: #f3f4f6; color: #6b7280; }
+    /* Chips */
+    .chips{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1.5rem}
+    .chip{background:#eff6ff;color:var(--azul);border:1px solid #bfdbfe;border-radius:20px;padding:3px 10px;font-size:.77rem}
 
-    /* ── Chips de organismos ── */
-    .chips { display: flex; flex-wrap: wrap; gap: .4rem; }
-    .chip {
-      background: #eff6ff;
-      color: var(--azul);
-      border: 1px solid #bfdbfe;
-      border-radius: 20px;
-      padding: 3px 10px;
-      font-size: .78rem;
-    }
+    /* Callout */
+    .callout{background:#f0f9ff;border:1px solid #bae6fd;border-radius:8px;padding:1rem 1.25rem;font-size:.87rem;color:#0c4a6e;line-height:1.75}
 
-    /* ── Callout informativo ── */
-    .callout {
-      background: #f0f9ff;
-      border: 1px solid #bae6fd;
-      border-radius: 8px;
-      padding: 1rem 1.25rem;
-      font-size: .88rem;
-      color: #0c4a6e;
-      line-height: 1.6;
-    }
+    /* Trust bar */
+    .trust-bar{display:flex;align-items:center;justify-content:center;gap:1.25rem;flex-wrap:wrap;margin-top:1.5rem;padding-top:1.25rem;border-top:1px solid var(--gris-200)}
+    .trust-item{display:flex;align-items:center;gap:.35rem;font-size:.77rem;color:var(--gris-400)}
+    .trust-sep{width:4px;height:4px;background:var(--gris-200);border-radius:50%}
 
-    /* ── CTA premium ── */
-    .cta-premium {
-      background: linear-gradient(135deg, #1e429f 0%, #1a56db 100%);
-      color: #fff;
-      border-radius: 12px;
-      padding: 1.5rem 2rem;
-      margin: 2rem 0;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-    .cta-premium h3 { font-size: 1.05rem; margin-bottom: .3rem; }
-    .cta-premium p  { font-size: .88rem; opacity: .88; }
-    .cta-btn {
-      background: #fff;
-      color: var(--azul);
-      font-weight: 700;
-      font-size: .9rem;
-      padding: .6rem 1.4rem;
-      border-radius: 8px;
-      text-decoration: none;
-      white-space: nowrap;
-      flex-shrink: 0;
-    }
-    .cta-btn:hover { background: #eff6ff; }
+    /* Footer */
+    .site-footer{max-width:980px;margin:0 auto;padding:.5rem 1.25rem 2rem;font-size:.77rem;color:var(--gris-400);text-align:center;line-height:1.7}
+    .site-footer a{color:var(--azul)}
 
-    /* ── Footer ── */
-    footer {
-      margin-top: 3rem;
-      padding-top: 1.25rem;
-      border-top: 1px solid var(--borde);
-      font-size: .78rem;
-      color: var(--gris);
-      line-height: 1.7;
-    }
-
-    /* ── Responsive ── */
-    @media (max-width: 640px) {
-      .hero h1   { font-size: 1.3rem; }
-      .cta-premium { flex-direction: column; text-align: center; }
+    @media(max-width:680px){
+      .header-nav a:not(.btn-alerta-nav){display:none}
+      .cta-premium,.email-cta{flex-direction:column}
+      .email-form{width:100%}
+      .email-form input{flex:1;width:auto}
     }
   </style>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Licitaciones España",
-    "url": "https://mtellezdominguez.github.io/apex-site/licitaciones-construccion-obra-publica-espana/",
-    "description": "Contratos de obra civil y edificaci\u00f3n publicados en PLACE",
-    "publisher": {
-      "@type": "Organization",
-      "name": "Licitaciones España",
-      "url": "https://mtellezdominguez.github.io/apex-site/licitaciones-construccion-obra-publica-espana/"
-    }
-  }
-  </script>
 </head>
 <body>
 
-<header>
-  <a class="logo" href="https://mtellezdominguez.github.io/apex-site/">Licitaciones<span>.es</span></a>
-  <nav>
+<header class="site-header">
+  <a class="header-logo" href="https://mtellezdominguez.github.io/apex-site/">
+    <div class="logo-icon">L</div>
+    <span class="logo-text">Licita<span>España</span></span>
+  </a>
+  <nav class="header-nav">
     <a href="https://mtellezdominguez.github.io/apex-site/licitaciones-tecnologia-informacion-espana/">TI</a>
     <a href="https://mtellezdominguez.github.io/apex-site/licitaciones-construccion-obra-publica-espana/">Construcción</a>
     <a href="https://mtellezdominguez.github.io/apex-site/licitaciones-limpieza-servicios-espana/">Limpieza</a>
     <a href="https://mtellezdominguez.github.io/apex-site/licitaciones-formacion-educacion-espana/">Formación</a>
+    <a href="https://mtellezdominguez.github.io/apex-site/licitaciones-consultoria-servicios-empresariales-espana/">Consultoría</a>
+    <a class="btn-alerta-nav" href="#suscribirse">🔔 Alertas gratis</a>
   </nav>
 </header>
 
-<div class="page">
+
+<div class="page-wrap">
+
+  <nav class="breadcrumb">
+    <a href="https://mtellezdominguez.github.io/apex-site/">Inicio</a><span>›</span>Licitaciones de Construcción y Obra Pública en España
+  </nav>
+
+  <div style="background:linear-gradient(135deg,#1e3a8a,#1a56db);border-radius:12px;padding:1.5rem 2rem;color:#fff;margin-bottom:1.5rem;box-shadow:0 4px 12px rgba(30,58,138,.25);">
+    <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);border-radius:20px;padding:3px 11px;margin-bottom:.75rem;">
+      <div style="width:7px;height:7px;background:#86efac;border-radius:50%;"></div>
+      <span style="font-size:.72rem;font-weight:500;letter-spacing:.02em;">Datos actualizados hoy · PLACE Gobierno de España</span>
+    </div>
+    <h1 style="font-size:1.5rem;font-weight:600;line-height:1.3;margin-bottom:.3rem;">Licitaciones de Construcción y Obra Pública en España</h1>
+    <p style="font-size:.88rem;opacity:.88;margin:0;">Contratos de obra civil y edificación publicados en PLACE</p>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card"><strong>35</strong><span>Contratos activos</span></div>
+    <div class="stat-card"><strong>181.5M €</strong><span>Valor total licitado</span></div>
+    <div class="stat-card"><strong>5.2M €</strong><span>Contrato medio</span></div>
+    <div class="stat-card"><strong style="color:#dc2626;">3</strong><span>Cierran esta semana</span></div>
+  </div>
+
+  
+  <div class="alerta-urgente">
+    <span class="alerta-icon">⚠</span>
+    <div>
+      <strong>Plazo urgente — cierran en menos de 7 días</strong>
+      <ul>
+        
+        <li><a href="https://contractaciopublica.cat/ca/detall-publicacio/680afe91-4b3e-4ab9-8f88-0e4911e34452/300880271" target="_blank" rel="nofollow">Obres de millora de la mobilitat de vianants al Districte Econòmic a l’Hospitalet de Llobr</a> — Ajuntament de l&#39;Hospitalet de Llobregat · <strong>Cierra 15/09/2026</strong> (2 días)</li>
+        
+        <li><a href="https://www.contratacion.euskadi.eus/webkpe00-kpeperfi/es/contenidos/anuncio_contratacion/expjaso725379/es_doc/index.html" target="_blank" rel="nofollow">Ejecución de las obras de las promociones:
+- Lote 1: B-134 75 VPOa en la parcela RRCL-1, P</a> — VISESA - Vivienda y Suelo de Euskadi, S.A.-Consejo de Administración de VISESA · <strong>Cierra 16/09/2026</strong> (3 días)</li>
+        
+        <li><a href="https://contractaciopublica.cat/ca/detall-publicacio/77593a36-9d0e-41ef-8acb-4192c120410b/300880439" target="_blank" rel="nofollow">Manteniment de l’edifici per assegurar-ne la seva estanquitat i evitar la degradació dels </a> — Ajuntament de Vilabella · <strong>Cierra 18/09/2026</strong> (5 días)</li>
+        
+      </ul>
+    </div>
+  </div>
   
 
-<nav class="breadcrumb">
-  <a href="https://mtellezdominguez.github.io/apex-site/">Inicio</a> › Licitaciones de Construcción y Obra Pública en España
-</nav>
-
-<div class="hero">
-  <h1>Licitaciones de Construcción y Obra Pública en España</h1>
-  <p class="subtitulo">Contratos de obra civil y edificación publicados en PLACE</p>
-</div>
-
-<div class="stat-grid">
-  <div class="stat">
-    <strong>35</strong>
-    <span>Contratos activos</span>
-  </div>
-  <div class="stat">
-    <strong>181.5M €</strong>
-    <span>Valor total licitado</span>
-  </div>
-  <div class="stat">
-    <strong>5.2M €</strong>
-    <span>Contrato medio</span>
-  </div>
-  <div class="stat">
-    <strong>3</strong>
-    <span>Cierran esta semana</span>
-  </div>
-</div>
-
-
-<div class="alerta-urgente">
-  <strong>⚠ Plazo urgente — cierran en menos de 7 días</strong>
-  <ul>
-    
-    <li>
-      <a href="https://contractaciopublica.cat/ca/detall-publicacio/680afe91-4b3e-4ab9-8f88-0e4911e34452/300880271" target="_blank" rel="nofollow">Obres de millora de la mobilitat de vianants al Districte Econòmic a l’Hospitalet de Llobr</a>
-      — Ajuntament de l&#39;Hospitalet de Llobregat ·
-      <strong>Cierra 15/09/2026</strong>
-      (3 días)
-    </li>
-    
-    <li>
-      <a href="https://www.contratacion.euskadi.eus/webkpe00-kpeperfi/es/contenidos/anuncio_contratacion/expjaso725379/es_doc/index.html" target="_blank" rel="nofollow">Ejecución de las obras de las promociones:
-- Lote 1: B-134 75 VPOa en la parcela RRCL-1, P</a>
-      — VISESA - Vivienda y Suelo de Euskadi, S.A.-Consejo de Administración de VISESA ·
-      <strong>Cierra 16/09/2026</strong>
-      (4 días)
-    </li>
-    
-    <li>
-      <a href="https://contractaciopublica.cat/ca/detall-publicacio/77593a36-9d0e-41ef-8acb-4192c120410b/300880439" target="_blank" rel="nofollow">Manteniment de l’edifici per assegurar-ne la seva estanquitat i evitar la degradació dels </a>
-      — Ajuntament de Vilabella ·
-      <strong>Cierra 18/09/2026</strong>
-      (6 días)
-    </li>
-    
-  </ul>
-</div>
-
-
-<div class="seccion">
-  <h2>📋 Contratos activos — ordenados por plazo</h2>
-  <div class="tabla-wrap">
+  <div class="sec-header">📋 Contratos activos — ordenados por plazo de presentación</div>
+  <div class="table-wrap">
     <table>
-      <thead>
-        <tr>
-          <th>Contrato</th>
-          <th>Organismo</th>
-          <th>Valor</th>
-          <th>Plazo límite</th>
-          <th>Estado</th>
-        </tr>
-      </thead>
+      <thead><tr><th style="width:40%">Contrato</th><th>Organismo</th><th>Valor est.</th><th>Plazo límite</th><th>Estado</th></tr></thead>
       <tbody>
         
-        <tr>
-          <td>
-            <a class="contrato-link" href="https://contractaciopublica.cat/ca/detall-publicacio/680afe91-4b3e-4ab9-8f88-0e4911e34452/300880271"
-               target="_blank" rel="nofollow">Obres de millora de la mobilitat de vianants al Districte Econòmic a l’Hospitale</a>
-            
-          </td>
-          <td class="org">Ajuntament de l&#39;Hospitalet de Llobregat</td>
-          <td class="valor">1.1M €</td>
-          <td style="white-space:nowrap;">15/09/2026</td>
-          <td>
-            
-              <span class="badge badge-urgente">🔴 Urgente</span>
-            
-          </td>
+        <tr >
+          <td><a class="cn" href="https://contractaciopublica.cat/ca/detall-publicacio/680afe91-4b3e-4ab9-8f88-0e4911e34452/300880271" target="_blank" rel="nofollow">Obres de millora de la mobilitat de vianants al Districte Econòmic a l’Hospita</a></td>
+          <td><span class="org">Ajuntament de l&#39;Hospitalet de Llobrega</span></td>
+          <td><span class="val">1.1M €</span></td>
+          <td style="font-size:.8rem;white-space:nowrap;">15/09/2026</td>
+          <td><span class="badge b-urgente">🔴 Urgente</span></td>
         </tr>
         
-        <tr>
-          <td>
-            <a class="contrato-link" href="https://www.contratacion.euskadi.eus/webkpe00-kpeperfi/es/contenidos/anuncio_contratacion/expjaso725379/es_doc/index.html"
-               target="_blank" rel="nofollow">Ejecución de las obras de las promociones:
-- Lote 1: B-134 75 VPOa en la parcela</a>
-            
-          </td>
-          <td class="org">VISESA - Vivienda y Suelo de Euskadi, S.</td>
-          <td class="valor">103.2M €</td>
-          <td style="white-space:nowrap;">16/09/2026</td>
-          <td>
-            
-              <span class="badge badge-urgente">🔴 Urgente</span>
-            
-          </td>
+        <tr >
+          <td><a class="cn" href="https://www.contratacion.euskadi.eus/webkpe00-kpeperfi/es/contenidos/anuncio_contratacion/expjaso725379/es_doc/index.html" target="_blank" rel="nofollow">Ejecución de las obras de las promociones:
+- Lote 1: B-134 75 VPOa en la parce</a></td>
+          <td><span class="org">VISESA - Vivienda y Suelo de Euskadi, </span></td>
+          <td><span class="val">103.2M €</span></td>
+          <td style="font-size:.8rem;white-space:nowrap;">16/09/2026</td>
+          <td><span class="badge b-urgente">🔴 Urgente</span></td>
         </tr>
         
-        <tr>
-          <td>
-            <a class="contrato-link" href="https://contractaciopublica.cat/ca/detall-publicacio/77593a36-9d0e-41ef-8acb-4192c120410b/300880439"
-               target="_blank" rel="nofollow">Manteniment de l’edifici per assegurar-ne la seva estanquitat i evitar la degrad</a>
-            
-          </td>
-          <td class="org">Ajuntament de Vilabella</td>
-          <td class="valor">47K €</td>
-          <td style="white-space:nowrap;">18/09/2026</td>
-          <td>
-            
-              <span class="badge badge-urgente">🔴 Urgente</span>
-            
-          </td>
+        <tr >
+          <td><a class="cn" href="https://contractaciopublica.cat/ca/detall-publicacio/77593a36-9d0e-41ef-8acb-4192c120410b/300880439" target="_blank" rel="nofollow">Manteniment de l’edifici per assegurar-ne la seva estanquitat i evitar la degr</a></td>
+          <td><span class="org">Ajuntament de Vilabella</span></td>
+          <td><span class="val">47K €</span></td>
+          <td style="font-size:.8rem;white-space:nowrap;">18/09/2026</td>
+          <td><span class="badge b-urgente">🔴 Urgente</span></td>
         </tr>
         
-        <tr>
-          <td>
-            <a class="contrato-link" href="https://www.contratacion.euskadi.eus/webkpe00-kpeperfi/es/contenidos/anuncio_contratacion/expjaso740624/es_doc/index.html"
-               target="_blank" rel="nofollow">Contrato de las obras de reforma del acceso al aparcamiento Euskal Herria y de a</a>
-            
-          </td>
-          <td class="org">Ayuntamiento de Oiartzun-Alcalde</td>
-          <td class="valor">65K €</td>
-          <td style="white-space:nowrap;">24/09/2026</td>
-          <td>
-            
-              <span class="badge badge-proximo">🟠 12d</span>
-            
-          </td>
+        <tr >
+          <td><a class="cn" href="https://www.contratacion.euskadi.eus/webkpe00-kpeperfi/es/contenidos/anuncio_contratacion/expjaso740624/es_doc/index.html" target="_blank" rel="nofollow">Contrato de las obras de reforma del acceso al aparcamiento Euskal Herria y de</a></td>
+          <td><span class="org">Ayuntamiento de Oiartzun-Alcalde</span></td>
+          <td><span class="val">65K €</span></td>
+          <td style="font-size:.8rem;white-space:nowrap;">24/09/2026</td>
+          <td><span class="badge b-proximo">🟠 11d</span></td>
         </tr>
         
-        <tr>
-          <td>
-            <a class="contrato-link" href="https://www.contratacion.euskadi.eus/webkpe00-kpeperfi/es/contenidos/anuncio_contratacion/expgebizkaia3636582/es_doc/index.html"
-               target="_blank" rel="nofollow">Obras para la reparación de varios tramos en camino de Ziarsolo</a>
-            
-          </td>
-          <td class="org">Ayuntamiento de Zeanuri-Alcaldía</td>
-          <td class="valor">45K €</td>
-          <td style="white-space:nowrap;">25/09/2026</td>
-          <td>
-            
-              <span class="badge badge-proximo">🟠 13d</span>
-            
-          </td>
+        <tr >
+          <td><a class="cn" href="https://www.contratacion.euskadi.eus/webkpe00-kpeperfi/es/contenidos/anuncio_contratacion/expgebizkaia3636582/es_doc/index.html" target="_blank" rel="nofollow">Obras para la reparación de varios tramos en camino de Ziarsolo</a></td>
+          <td><span class="org">Ayuntamiento de Zeanuri-Alcaldía</span></td>
+          <td><span class="val">45K €</span></td>
+          <td style="font-size:.8rem;white-space:nowrap;">25/09/2026</td>
+          <td><span class="badge b-proximo">🟠 12d</span></td>
         </tr>
         
-        <tr>
-          <td>
-            <a class="contrato-link" href="https://www.contratacion.euskadi.eus/webkpe00-kpeperfi/es/contenidos/anuncio_contratacion/expjaso740638/es_doc/index.html"
-               target="_blank" rel="nofollow">Servicio de Montaje del alumbrado navideño en las calles y edificios de Portugal</a>
-            
-          </td>
-          <td class="org">Ayuntamiento de Portugalete -Alcalde</td>
-          <td class="valor">45K €</td>
-          <td style="white-space:nowrap;">25/09/2026</td>
-          <td>
-            
-              <span class="badge badge-proximo">🟠 13d</span>
-            
-          </td>
+        <tr >
+          <td><a class="cn" href="https://www.contratacion.euskadi.eus/webkpe00-kpeperfi/es/contenidos/anuncio_contratacion/expjaso740638/es_doc/index.html" target="_blank" rel="nofollow">Servicio de Montaje del alumbrado navideño en las calles y edificios de Portug</a></td>
+          <td><span class="org">Ayuntamiento de Portugalete -Alcalde</span></td>
+          <td><span class="val">45K €</span></td>
+          <td style="font-size:.8rem;white-space:nowrap;">25/09/2026</td>
+          <td><span class="badge b-proximo">🟠 12d</span></td>
         </tr>
         
-        <tr>
-          <td>
-            <a class="contrato-link" href="https://www.contratacion.euskadi.eus/webkpe00-kpeperfi/es/contenidos/anuncio_contratacion/expjaso738215/es_doc/index.html"
-               target="_blank" rel="nofollow">Obras de ejecución de un vial peatonal en la E.L.M. de Armentia.</a>
-            
-          </td>
-          <td class="org">Ayuntamiento de Vitoria-Gasteiz-Concejal</td>
-          <td class="valor">56K €</td>
-          <td style="white-space:nowrap;">25/09/2026</td>
-          <td>
-            
-              <span class="badge badge-proximo">🟠 13d</span>
-            
-          </td>
+        <tr >
+          <td><a class="cn" href="https://www.contratacion.euskadi.eus/webkpe00-kpeperfi/es/contenidos/anuncio_contratacion/expjaso738215/es_doc/index.html" target="_blank" rel="nofollow">Obras de ejecución de un vial peatonal en la E.L.M. de Armentia.</a></td>
+          <td><span class="org">Ayuntamiento de Vitoria-Gasteiz-Concej</span></td>
+          <td><span class="val">56K €</span></td>
+          <td style="font-size:.8rem;white-space:nowrap;">25/09/2026</td>
+          <td><span class="badge b-proximo">🟠 12d</span></td>
         </tr>
         
-        <tr>
-          <td>
-            <a class="contrato-link" href="https://www.contratacion.euskadi.eus/webkpe00-kpeperfi/es/contenidos/anuncio_contratacion/expjaso738006/es_doc/index.html"
-               target="_blank" rel="nofollow">Mejora del alumbrado público Vitoria-Gasteiz (Año 2026)</a>
-            
-          </td>
-          <td class="org">Ayuntamiento de Vitoria-Gasteiz-Junta de</td>
-          <td class="valor">490K €</td>
-          <td style="white-space:nowrap;">28/09/2026</td>
-          <td>
-            
-              <span class="badge badge-proximo">🟠 16d</span>
-            
-          </td>
+        <tr >
+          <td><a class="cn" href="https://www.contratacion.euskadi.eus/webkpe00-kpeperfi/es/contenidos/anuncio_contratacion/expjaso738006/es_doc/index.html" target="_blank" rel="nofollow">Mejora del alumbrado público Vitoria-Gasteiz (Año 2026)</a></td>
+          <td><span class="org">Ayuntamiento de Vitoria-Gasteiz-Junta </span></td>
+          <td><span class="val">490K €</span></td>
+          <td style="font-size:.8rem;white-space:nowrap;">28/09/2026</td>
+          <td><span class="badge b-proximo">🟠 15d</span></td>
         </tr>
         
-        <tr>
-          <td>
-            <a class="contrato-link" href="https://www.contratacion.euskadi.eus/webkpe00-kpeperfi/es/contenidos/anuncio_contratacion/expgebizkaia3631964/es_doc/index.html"
-               target="_blank" rel="nofollow">Contrato de obras de urbanización de instalación de un aseo público autolimpiabl</a>
-            
-          </td>
-          <td class="org">Ayuntamiento de Plentzia-Alcaldía</td>
-          <td class="valor">126K €</td>
-          <td style="white-space:nowrap;">30/09/2026</td>
-          <td>
-            
-              <span class="badge badge-proximo">🟠 18d</span>
-            
-          </td>
+        <tr >
+          <td><a class="cn" href="https://www.contratacion.euskadi.eus/webkpe00-kpeperfi/es/contenidos/anuncio_contratacion/expgebizkaia3631964/es_doc/index.html" target="_blank" rel="nofollow">Contrato de obras de urbanización de instalación de un aseo público autolimpia</a></td>
+          <td><span class="org">Ayuntamiento de Plentzia-Alcaldía</span></td>
+          <td><span class="val">126K €</span></td>
+          <td style="font-size:.8rem;white-space:nowrap;">30/09/2026</td>
+          <td><span class="badge b-proximo">🟠 17d</span></td>
         </tr>
         
-        <tr>
-          <td>
-            <a class="contrato-link" href="https://contractaciopublica.cat/ca/detall-publicacio/00b1416b-4cc1-4039-8e46-eb1109e1e2ee/300880188"
-               target="_blank" rel="nofollow">L’objecte principal del Projecte és l&#39;arranjament i millora dels camins asfaltat</a>
-            
-          </td>
-          <td class="org">Ajuntament d&#39;Ivars de Noguera</td>
-          <td class="valor">111K €</td>
-          <td style="white-space:nowrap;">30/09/2026</td>
-          <td>
-            
-              <span class="badge badge-proximo">🟠 18d</span>
-            
-          </td>
+        <tr >
+          <td><a class="cn" href="https://contractaciopublica.cat/ca/detall-publicacio/00b1416b-4cc1-4039-8e46-eb1109e1e2ee/300880188" target="_blank" rel="nofollow">L’objecte principal del Projecte és l&#39;arranjament i millora dels camins asfalt</a></td>
+          <td><span class="org">Ajuntament d&#39;Ivars de Noguera</span></td>
+          <td><span class="val">111K €</span></td>
+          <td style="font-size:.8rem;white-space:nowrap;">30/09/2026</td>
+          <td><span class="badge b-proximo">🟠 17d</span></td>
         </tr>
         
-        <tr>
-          <td>
-            <a class="contrato-link" href="https://contractaciopublica.cat/ca/detall-publicacio/db7852b3-0e5e-4136-adec-c67a0ca39342/300873862"
-               target="_blank" rel="nofollow">Obra “ Reforma de la pista esportiva i construcció de tanca de l’Escola Sant Àng</a>
-            
-          </td>
-          <td class="org">Ajuntament de Camarles</td>
-          <td class="valor">134K €</td>
-          <td style="white-space:nowrap;">30/09/2026</td>
-          <td>
-            
-              <span class="badge badge-proximo">🟠 18d</span>
-            
-          </td>
+        <tr >
+          <td><a class="cn" href="https://contractaciopublica.cat/ca/detall-publicacio/db7852b3-0e5e-4136-adec-c67a0ca39342/300873862" target="_blank" rel="nofollow">Obra “ Reforma de la pista esportiva i construcció de tanca de l’Escola Sant À</a></td>
+          <td><span class="org">Ajuntament de Camarles</span></td>
+          <td><span class="val">134K €</span></td>
+          <td style="font-size:.8rem;white-space:nowrap;">30/09/2026</td>
+          <td><span class="badge b-proximo">🟠 17d</span></td>
         </tr>
         
-        <tr>
-          <td>
-            <a class="contrato-link" href="https://www.contratacion.euskadi.eus/webkpe00-kpeperfi/es/contenidos/anuncio_contratacion/expjaso740296/es_doc/index.html"
-               target="_blank" rel="nofollow">Proyecto de rehabilitación del firme en la vía ciclista I03-042F (Segura-Zegama)</a>
-            
-          </td>
-          <td class="org">Diputación Foral de Gipuzkoa-Dirección G</td>
-          <td class="valor">112K €</td>
-          <td style="white-space:nowrap;">01/10/2026</td>
-          <td>
-            
-              <span class="badge badge-proximo">🟠 19d</span>
-            
-          </td>
+        <tr >
+          <td><a class="cn" href="https://www.contratacion.euskadi.eus/webkpe00-kpeperfi/es/contenidos/anuncio_contratacion/expjaso740296/es_doc/index.html" target="_blank" rel="nofollow">Proyecto de rehabilitación del firme en la vía ciclista I03-042F (Segura-Zegam</a></td>
+          <td><span class="org">Diputación Foral de Gipuzkoa-Dirección</span></td>
+          <td><span class="val">112K €</span></td>
+          <td style="font-size:.8rem;white-space:nowrap;">01/10/2026</td>
+          <td><span class="badge b-proximo">🟠 18d</span></td>
         </tr>
         
-        <tr>
-          <td>
-            <a class="contrato-link" href="https://www.juntadeandalucia.es/haciendayadministracionpublica/apl/pdc_sirec/perfiles-licitaciones/detalle-licitacion.jsf?idExpediente=1006042"
-               target="_blank" rel="nofollow">obras accesibilidad bloque 6 manzana 12 de la bda. guadalquivir de córdoba</a>
-            
-          </td>
-          <td class="org">Agencia de Vivienda y Rehabilitación de </td>
-          <td class="valor">130K €</td>
-          <td style="white-space:nowrap;">01/10/2026</td>
-          <td>
-            
-              <span class="badge badge-proximo">🟠 19d</span>
-            
-          </td>
+        <tr >
+          <td><a class="cn" href="https://www.juntadeandalucia.es/haciendayadministracionpublica/apl/pdc_sirec/perfiles-licitaciones/detalle-licitacion.jsf?idExpediente=1006042" target="_blank" rel="nofollow">obras accesibilidad bloque 6 manzana 12 de la bda. guadalquivir de córdoba</a></td>
+          <td><span class="org">Agencia de Vivienda y Rehabilitación d</span></td>
+          <td><span class="val">130K €</span></td>
+          <td style="font-size:.8rem;white-space:nowrap;">01/10/2026</td>
+          <td><span class="badge b-proximo">🟠 18d</span></td>
         </tr>
         
-        <tr>
-          <td>
-            <a class="contrato-link" href="https://contractaciopublica.cat/ca/detall-publicacio/b2b9d848-f6fd-495a-97f5-6de440d5c058/300879832"
-               target="_blank" rel="nofollow">Execució de les obres del projecte d’instal·lació de climatització de la seu adm</a>
-            
-          </td>
-          <td class="org">Diputació de Barcelona</td>
-          <td class="valor">66K €</td>
-          <td style="white-space:nowrap;">05/10/2026</td>
-          <td>
-            
-              <span class="badge badge-proximo">🟠 23d</span>
-            
-          </td>
+        <tr >
+          <td><a class="cn" href="https://contractaciopublica.cat/ca/detall-publicacio/b2b9d848-f6fd-495a-97f5-6de440d5c058/300879832" target="_blank" rel="nofollow">Execució de les obres del projecte d’instal·lació de climatització de la seu a</a></td>
+          <td><span class="org">Diputació de Barcelona</span></td>
+          <td><span class="val">66K €</span></td>
+          <td style="font-size:.8rem;white-space:nowrap;">05/10/2026</td>
+          <td><span class="badge b-proximo">🟠 22d</span></td>
         </tr>
         
-        <tr>
-          <td>
-            <a class="contrato-link" href="https://www.contratacion.euskadi.eus/webkpe00-kpeperfi/es/contenidos/anuncio_contratacion/expjaso740599/es_doc/index.html"
-               target="_blank" rel="nofollow">Obras para mejorar la accesibilidad en la zona alta de Errotazar (Ventas).</a>
-            
-          </td>
-          <td class="org">Ayuntamiento de Irun -Junta de Gobierno </td>
-          <td class="valor">440K €</td>
-          <td style="white-space:nowrap;">06/10/2026</td>
-          <td>
-            
-              <span class="badge badge-proximo">🟠 24d</span>
-            
-          </td>
+        <tr >
+          <td><a class="cn" href="https://www.contratacion.euskadi.eus/webkpe00-kpeperfi/es/contenidos/anuncio_contratacion/expjaso740599/es_doc/index.html" target="_blank" rel="nofollow">Obras para mejorar la accesibilidad en la zona alta de Errotazar (Ventas).</a></td>
+          <td><span class="org">Ayuntamiento de Irun -Junta de Gobiern</span></td>
+          <td><span class="val">440K €</span></td>
+          <td style="font-size:.8rem;white-space:nowrap;">06/10/2026</td>
+          <td><span class="badge b-proximo">🟠 23d</span></td>
         </tr>
         
-        <tr>
-          <td>
-            <a class="contrato-link" href="https://www.contratosdegalicia.gal/licitacion?N=829114"
-               target="_blank" rel="nofollow">EDU-2026-0058: Obras de rehabilitación integral y ampliación delCEIP Plurilingüe</a>
-            
-          </td>
-          <td class="org">Consellería de Educación, Ciencia, Unive</td>
-          <td class="valor">1.2M €</td>
-          <td style="white-space:nowrap;">07/10/2026</td>
-          <td>
-            
-              <span class="badge badge-proximo">🟠 25d</span>
-            
-          </td>
+        <tr class="fe" style="display:none">
+          <td><a class="cn" href="https://www.contratosdegalicia.gal/licitacion?N=829114" target="_blank" rel="nofollow">EDU-2026-0058: Obras de rehabilitación integral y ampliación delCEIP Pluriling</a></td>
+          <td><span class="org">Consellería de Educación, Ciencia, Uni</span></td>
+          <td><span class="val">1.2M €</span></td>
+          <td style="font-size:.8rem;white-space:nowrap;">07/10/2026</td>
+          <td><span class="badge b-proximo">🟠 24d</span></td>
         </tr>
         
-        <tr>
-          <td>
-            <a class="contrato-link" href="https://contractaciopublica.cat/ca/detall-publicacio/2ff89476-de46-4c4a-b74b-27710c633cde/300878797"
-               target="_blank" rel="nofollow">Contracte d’obres relatives a l’actualització i segregació del Projecte d’Urbani</a>
-            
-          </td>
-          <td class="org">Institut Municipal d&#39;Urbanisme de Barcel</td>
-          <td class="valor">1.7M €</td>
-          <td style="white-space:nowrap;">08/10/2026</td>
-          <td>
-            
-              <span class="badge badge-proximo">🟠 26d</span>
-            
-          </td>
+        <tr class="fe" style="display:none">
+          <td><a class="cn" href="https://contractaciopublica.cat/ca/detall-publicacio/2ff89476-de46-4c4a-b74b-27710c633cde/300878797" target="_blank" rel="nofollow">Contracte d’obres relatives a l’actualització i segregació del Projecte d’Urba</a></td>
+          <td><span class="org">Institut Municipal d&#39;Urbanisme de Barc</span></td>
+          <td><span class="val">1.7M €</span></td>
+          <td style="font-size:.8rem;white-space:nowrap;">08/10/2026</td>
+          <td><span class="badge b-proximo">🟠 25d</span></td>
         </tr>
         
-        <tr>
-          <td>
-            <a class="contrato-link" href="https://contractaciopublica.cat/ca/detall-publicacio/f186dc92-6ca5-465c-941b-e301e5032830/300879497"
-               target="_blank" rel="nofollow">Execució de les obres incloses en el projecte “Obres per la
-reurbanització de la</a>
-            
-          </td>
-          <td class="org">Ajuntament del Catllar</td>
-          <td class="valor">504K €</td>
-          <td style="white-space:nowrap;">09/10/2026</td>
-          <td>
-            
-              <span class="badge badge-proximo">🟠 27d</span>
-            
-          </td>
+        <tr class="fe" style="display:none">
+          <td><a class="cn" href="https://contractaciopublica.cat/ca/detall-publicacio/f186dc92-6ca5-465c-941b-e301e5032830/300879497" target="_blank" rel="nofollow">Execució de les obres incloses en el projecte “Obres per la
+reurbanització de </a></td>
+          <td><span class="org">Ajuntament del Catllar</span></td>
+          <td><span class="val">504K €</span></td>
+          <td style="font-size:.8rem;white-space:nowrap;">09/10/2026</td>
+          <td><span class="badge b-proximo">🟠 26d</span></td>
         </tr>
         
-        <tr>
-          <td>
-            <a class="contrato-link" href="https://www.contratacion.euskadi.eus/webkpe00-kpeperfi/es/contenidos/anuncio_contratacion/expjaso657199/es_doc/index.html"
-               target="_blank" rel="nofollow">Construcción de 24 viviendas de protección oficial en parcela U.A.U. 13.2 San Ju</a>
-            
-          </td>
-          <td class="org">Gobierno Vasco-Dirección de Servicios</td>
-          <td class="valor">4.5M €</td>
-          <td style="white-space:nowrap;">09/10/2026</td>
-          <td>
-            
-              <span class="badge badge-proximo">🟠 27d</span>
-            
-          </td>
+        <tr class="fe" style="display:none">
+          <td><a class="cn" href="https://www.contratacion.euskadi.eus/webkpe00-kpeperfi/es/contenidos/anuncio_contratacion/expjaso657199/es_doc/index.html" target="_blank" rel="nofollow">Construcción de 24 viviendas de protección oficial en parcela U.A.U. 13.2 San </a></td>
+          <td><span class="org">Gobierno Vasco-Dirección de Servicios</span></td>
+          <td><span class="val">4.5M €</span></td>
+          <td style="font-size:.8rem;white-space:nowrap;">09/10/2026</td>
+          <td><span class="badge b-proximo">🟠 26d</span></td>
         </tr>
         
-        <tr>
-          <td>
-            <a class="contrato-link" href="https://www.contratosdegalicia.gal/licitacion?N=829081"
-               target="_blank" rel="nofollow">VPG-2026-0066: Obra para la construcción de un edificio de 24 viviendas de promo</a>
-            
-          </td>
-          <td class="org">Sociedade de Vivenda Pública de Galicia,</td>
-          <td class="valor">4.3M €</td>
-          <td style="white-space:nowrap;">26/10/2026</td>
-          <td>
-            
-              <span class="badge badge-abierto">🟢 Abierto</span>
-            
-          </td>
+        <tr class="fe" style="display:none">
+          <td><a class="cn" href="https://www.contratosdegalicia.gal/licitacion?N=829081" target="_blank" rel="nofollow">VPG-2026-0066: Obra para la construcción de un edificio de 24 viviendas de pro</a></td>
+          <td><span class="org">Sociedade de Vivenda Pública de Galici</span></td>
+          <td><span class="val">4.3M €</span></td>
+          <td style="font-size:.8rem;white-space:nowrap;">26/10/2026</td>
+          <td><span class="badge b-abierto">🟢 Abierto</span></td>
         </tr>
         
-        <tr>
-          <td>
-            <a class="contrato-link" href="https://www.juntadeandalucia.es/haciendayadministracionpublica/apl/pdc_sirec/perfiles-licitaciones/detalle-licitacion.jsf?idExpediente=1000633"
-               target="_blank" rel="nofollow">0318/ise/2026/se, fotovoltaica y bioclimatización en el ies lucus solis</a>
-            
-          </td>
-          <td class="org">Agencia Pública Andaluza de Educación</td>
-          <td class="valor">631K €</td>
-          <td style="white-space:nowrap;">—</td>
-          <td>
-            
-              <span class="badge badge-sinplazo">Sin plazo</span>
-            
-          </td>
+        <tr class="fe" style="display:none">
+          <td><a class="cn" href="https://www.juntadeandalucia.es/haciendayadministracionpublica/apl/pdc_sirec/perfiles-licitaciones/detalle-licitacion.jsf?idExpediente=1000633" target="_blank" rel="nofollow">0318/ise/2026/se, fotovoltaica y bioclimatización en el ies lucus solis</a></td>
+          <td><span class="org">Agencia Pública Andaluza de Educación</span></td>
+          <td><span class="val">631K €</span></td>
+          <td style="font-size:.8rem;white-space:nowrap;">—</td>
+          <td><span class="badge b-none">Sin plazo</span></td>
         </tr>
         
-        <tr>
-          <td>
-            <a class="contrato-link" href="https://contrataciondelestado.es/licitacion/20060539"
-               target="_blank" rel="nofollow">2ª. Fase mejora del Área del Polígono Industrial Las Eras.</a>
-            
-            <br><small class="org">📍 Segovia</small>
-            
-          </td>
-          <td class="org">Alcaldía del Ayuntamiento del Real Sitio</td>
-          <td class="valor">9.0M €</td>
-          <td style="white-space:nowrap;">—</td>
-          <td>
-            
-              <span class="badge badge-sinplazo">Sin plazo</span>
-            
-          </td>
+        <tr class="fe" style="display:none">
+          <td><a class="cn" href="https://contrataciondelestado.es/licitacion/20060539" target="_blank" rel="nofollow">2ª. Fase mejora del Área del Polígono Industrial Las Eras.</a><div class="cl">📍 Segovia</div></td>
+          <td><span class="org">Alcaldía del Ayuntamiento del Real Sit</span></td>
+          <td><span class="val">9.0M €</span></td>
+          <td style="font-size:.8rem;white-space:nowrap;">—</td>
+          <td><span class="badge b-none">Sin plazo</span></td>
         </tr>
         
-        <tr>
-          <td>
-            <a class="contrato-link" href="https://contrataciondelestado.es/licitacion/19910260"
-               target="_blank" rel="nofollow">Renovación de la red de agua potable y acometidas en Camino Los Murcia de Jacari</a>
-            
-            <br><small class="org">📍 Alicante/Alacant</small>
-            
-          </td>
-          <td class="org">Alcaldía del Ayuntamiento de Jacarilla</td>
-          <td class="valor">495K €</td>
-          <td style="white-space:nowrap;">—</td>
-          <td>
-            
-              <span class="badge badge-sinplazo">Sin plazo</span>
-            
-          </td>
+        <tr class="fe" style="display:none">
+          <td><a class="cn" href="https://contrataciondelestado.es/licitacion/19910260" target="_blank" rel="nofollow">Renovación de la red de agua potable y acometidas en Camino Los Murcia de Jaca</a><div class="cl">📍 Alicante/Alacant</div></td>
+          <td><span class="org">Alcaldía del Ayuntamiento de Jacarilla</span></td>
+          <td><span class="val">495K €</span></td>
+          <td style="font-size:.8rem;white-space:nowrap;">—</td>
+          <td><span class="badge b-none">Sin plazo</span></td>
         </tr>
         
-        <tr>
-          <td>
-            <a class="contrato-link" href="https://contrataciondelestado.es/licitacion/20050062"
-               target="_blank" rel="nofollow">La ejecución de las obras previstas en el proyecto técnico denominado: &#34;Rehabili</a>
-            
-            <br><small class="org">📍 Alicante/Alacant</small>
-            
-          </td>
-          <td class="org">Alcaldía del Ayuntamiento de Jacarilla</td>
-          <td class="valor">11.9M €</td>
-          <td style="white-space:nowrap;">—</td>
-          <td>
-            
-              <span class="badge badge-sinplazo">Sin plazo</span>
-            
-          </td>
+        <tr class="fe" style="display:none">
+          <td><a class="cn" href="https://contrataciondelestado.es/licitacion/20050062" target="_blank" rel="nofollow">La ejecución de las obras previstas en el proyecto técnico denominado: &#34;Rehabi</a><div class="cl">📍 Alicante/Alacant</div></td>
+          <td><span class="org">Alcaldía del Ayuntamiento de Jacarilla</span></td>
+          <td><span class="val">11.9M €</span></td>
+          <td style="font-size:.8rem;white-space:nowrap;">—</td>
+          <td><span class="badge b-none">Sin plazo</span></td>
         </tr>
         
-        <tr>
-          <td>
-            <a class="contrato-link" href="https://contrataciondelestado.es/licitacion/20150767"
-               target="_blank" rel="nofollow">Proyecto B.E. Mejora de viario en el núcleo de Pradoalbar (caminos rurais 2026/2</a>
-            
-            <br><small class="org">📍 Ourense</small>
-            
-          </td>
-          <td class="org">Alcaldía del Ayuntamiento de Vilariño de</td>
-          <td class="valor">59K €</td>
-          <td style="white-space:nowrap;">—</td>
-          <td>
-            
-              <span class="badge badge-sinplazo">Sin plazo</span>
-            
-          </td>
+        <tr class="fe" style="display:none">
+          <td><a class="cn" href="https://contrataciondelestado.es/licitacion/20150767" target="_blank" rel="nofollow">Proyecto B.E. Mejora de viario en el núcleo de Pradoalbar (caminos rurais 2026</a><div class="cl">📍 Ourense</div></td>
+          <td><span class="org">Alcaldía del Ayuntamiento de Vilariño </span></td>
+          <td><span class="val">59K €</span></td>
+          <td style="font-size:.8rem;white-space:nowrap;">—</td>
+          <td><span class="badge b-none">Sin plazo</span></td>
         </tr>
         
-        <tr>
-          <td>
-            <a class="contrato-link" href="https://contrataciondelestado.es/licitacion/19705272"
-               target="_blank" rel="nofollow">Ejecución de las obras descritas en el proyecto de mejora de las redes de pluvia</a>
-            
-            <br><small class="org">📍 Mallorca</small>
-            
-          </td>
-          <td class="org">Alcaldía del Ayuntamiento de Petra</td>
-          <td class="valor">5.3M €</td>
-          <td style="white-space:nowrap;">—</td>
-          <td>
-            
-              <span class="badge badge-sinplazo">Sin plazo</span>
-            
-          </td>
+        <tr class="fe" style="display:none">
+          <td><a class="cn" href="https://contrataciondelestado.es/licitacion/19705272" target="_blank" rel="nofollow">Ejecución de las obras descritas en el proyecto de mejora de las redes de pluv</a><div class="cl">📍 Mallorca</div></td>
+          <td><span class="org">Alcaldía del Ayuntamiento de Petra</span></td>
+          <td><span class="val">5.3M €</span></td>
+          <td style="font-size:.8rem;white-space:nowrap;">—</td>
+          <td><span class="badge b-none">Sin plazo</span></td>
         </tr>
         
-        <tr>
-          <td>
-            <a class="contrato-link" href="https://contrataciondelestado.es/licitacion/20014711"
-               target="_blank" rel="nofollow">Infraestructura estratégica comarcal para la transformación verde, digital y soc</a>
-            
-            <br><small class="org">📍 Pontevedra</small>
-            
-          </td>
-          <td class="org">Presidencia de la Mancomunidade do Salné</td>
-          <td class="valor">250K €</td>
-          <td style="white-space:nowrap;">—</td>
-          <td>
-            
-              <span class="badge badge-sinplazo">Sin plazo</span>
-            
-          </td>
+        <tr class="fe" style="display:none">
+          <td><a class="cn" href="https://contrataciondelestado.es/licitacion/20014711" target="_blank" rel="nofollow">Infraestructura estratégica comarcal para la transformación verde, digital y s</a><div class="cl">📍 Pontevedra</div></td>
+          <td><span class="org">Presidencia de la Mancomunidade do Sal</span></td>
+          <td><span class="val">250K €</span></td>
+          <td style="font-size:.8rem;white-space:nowrap;">—</td>
+          <td><span class="badge b-none">Sin plazo</span></td>
         </tr>
         
-        <tr>
-          <td>
-            <a class="contrato-link" href="https://contrataciondelestado.es/licitacion/19910924"
-               target="_blank" rel="nofollow">AM CAT NAT 01 Reparación y refuerzo de chapas cubiertas Edf. 1 Acto Recarga</a>
-            
-            <br><small class="org">📍 Ciudad de Ceuta</small>
-            
-          </td>
-          <td class="org">Sección de Asuntos Económicos de la Coma</td>
-          <td class="valor">609K €</td>
-          <td style="white-space:nowrap;">—</td>
-          <td>
-            
-              <span class="badge badge-sinplazo">Sin plazo</span>
-            
-          </td>
+        <tr class="fe" style="display:none">
+          <td><a class="cn" href="https://contrataciondelestado.es/licitacion/19910924" target="_blank" rel="nofollow">AM CAT NAT 01 Reparación y refuerzo de chapas cubiertas Edf. 1 Acto Recarga</a><div class="cl">📍 Ciudad de Ceuta</div></td>
+          <td><span class="org">Sección de Asuntos Económicos de la Co</span></td>
+          <td><span class="val">609K €</span></td>
+          <td style="font-size:.8rem;white-space:nowrap;">—</td>
+          <td><span class="badge b-none">Sin plazo</span></td>
         </tr>
         
-        <tr>
-          <td>
-            <a class="contrato-link" href="https://contrataciondelestado.es/licitacion/20050318"
-               target="_blank" rel="nofollow">Reparación y contención del hundimiento en la confluencia de la C/Polígono Presi</a>
-            
-            <br><small class="org">📍 Valencia/València</small>
-            
-          </td>
-          <td class="org">Alcaldía del Ayuntamiento de Vallada</td>
-          <td class="valor">6.8M €</td>
-          <td style="white-space:nowrap;">—</td>
-          <td>
-            
-              <span class="badge badge-sinplazo">Sin plazo</span>
-            
-          </td>
+        <tr class="fe" style="display:none">
+          <td><a class="cn" href="https://contrataciondelestado.es/licitacion/20050318" target="_blank" rel="nofollow">Reparación y contención del hundimiento en la confluencia de la C/Polígono Pre</a><div class="cl">📍 Valencia/València</div></td>
+          <td><span class="org">Alcaldía del Ayuntamiento de Vallada</span></td>
+          <td><span class="val">6.8M €</span></td>
+          <td style="font-size:.8rem;white-space:nowrap;">—</td>
+          <td><span class="badge b-none">Sin plazo</span></td>
         </tr>
         
-        <tr>
-          <td>
-            <a class="contrato-link" href="https://contrataciondelestado.es/licitacion/20379233"
-               target="_blank" rel="nofollow">Expediente 2026/AR46U/00001202E Segundo CB AM 2025/AR46U/00001821E L1 Mantenimie</a>
-            
-            <br><small class="org">📍 Cádiz</small>
-            
-          </td>
-          <td class="org">Intendente de Rota</td>
-          <td class="valor">245K €</td>
-          <td style="white-space:nowrap;">—</td>
-          <td>
-            
-              <span class="badge badge-sinplazo">Sin plazo</span>
-            
-          </td>
+        <tr class="fe" style="display:none">
+          <td><a class="cn" href="https://contrataciondelestado.es/licitacion/20379233" target="_blank" rel="nofollow">Expediente 2026/AR46U/00001202E Segundo CB AM 2025/AR46U/00001821E L1 Mantenim</a><div class="cl">📍 Cádiz</div></td>
+          <td><span class="org">Intendente de Rota</span></td>
+          <td><span class="val">245K €</span></td>
+          <td style="font-size:.8rem;white-space:nowrap;">—</td>
+          <td><span class="badge b-none">Sin plazo</span></td>
         </tr>
         
-        <tr>
-          <td>
-            <a class="contrato-link" href="https://contrataciondelestado.es/licitacion/19846376"
-               target="_blank" rel="nofollow">AM Actuación sobre cubiertas de tejas dos edificios Acto. Tablas USBAD CAT NAT 0</a>
-            
-            <br><small class="org">📍 Ciudad de Ceuta</small>
-            
-          </td>
-          <td class="org">Sección de Asuntos Económicos de la Coma</td>
-          <td class="valor">1.3M €</td>
-          <td style="white-space:nowrap;">—</td>
-          <td>
-            
-              <span class="badge badge-sinplazo">Sin plazo</span>
-            
-          </td>
+        <tr class="fe" style="display:none">
+          <td><a class="cn" href="https://contrataciondelestado.es/licitacion/19846376" target="_blank" rel="nofollow">AM Actuación sobre cubiertas de tejas dos edificios Acto. Tablas USBAD CAT NAT</a><div class="cl">📍 Ciudad de Ceuta</div></td>
+          <td><span class="org">Sección de Asuntos Económicos de la Co</span></td>
+          <td><span class="val">1.3M €</span></td>
+          <td style="font-size:.8rem;white-space:nowrap;">—</td>
+          <td><span class="badge b-none">Sin plazo</span></td>
         </tr>
         
-        <tr>
-          <td>
-            <a class="contrato-link" href="https://contrataciondelestado.es/licitacion/19763072"
-               target="_blank" rel="nofollow">Mediante el presente contrato se pretende licitar la obra para la construcción d</a>
-            
-            <br><small class="org">📍 Sevilla</small>
-            
-          </td>
-          <td class="org">Presidencia de la Entidad Local Menor Is</td>
-          <td class="valor">13.1M €</td>
-          <td style="white-space:nowrap;">—</td>
-          <td>
-            
-              <span class="badge badge-sinplazo">Sin plazo</span>
-            
-          </td>
+        <tr class="fe" style="display:none">
+          <td><a class="cn" href="https://contrataciondelestado.es/licitacion/19763072" target="_blank" rel="nofollow">Mediante el presente contrato se pretende licitar la obra para la construcción</a><div class="cl">📍 Sevilla</div></td>
+          <td><span class="org">Presidencia de la Entidad Local Menor </span></td>
+          <td><span class="val">13.1M €</span></td>
+          <td style="font-size:.8rem;white-space:nowrap;">—</td>
+          <td><span class="badge b-none">Sin plazo</span></td>
         </tr>
         
-        <tr>
-          <td>
-            <a class="contrato-link" href="https://contrataciondelestado.es/licitacion/20328633"
-               target="_blank" rel="nofollow">Ejecución de las obras de instalación de una nueva estación depuradora de aguas </a>
-            
-            <br><small class="org">📍 Huesca</small>
-            
-          </td>
-          <td class="org">Pleno de la Mancomunidad Forestal Ansó-F</td>
-          <td class="valor">12.9M €</td>
-          <td style="white-space:nowrap;">—</td>
-          <td>
-            
-              <span class="badge badge-sinplazo">Sin plazo</span>
-            
-          </td>
+        <tr class="fe" style="display:none">
+          <td><a class="cn" href="https://contrataciondelestado.es/licitacion/20328633" target="_blank" rel="nofollow">Ejecución de las obras de instalación de una nueva estación depuradora de agua</a><div class="cl">📍 Huesca</div></td>
+          <td><span class="org">Pleno de la Mancomunidad Forestal Ansó</span></td>
+          <td><span class="val">12.9M €</span></td>
+          <td style="font-size:.8rem;white-space:nowrap;">—</td>
+          <td><span class="badge b-none">Sin plazo</span></td>
         </tr>
         
-        <tr>
-          <td>
-            <a class="contrato-link" href="https://hacienda.navarra.es/sicpportal/mtoAnunciosModalidad.aspx?cod=2608121144225259B3F1"
-               target="_blank" rel="nofollow">Contrato de obras del Proyecto de recuperación del espacio fluvial del río Aragó</a>
-            
-          </td>
-          <td class="org">la Directora General de Medio Ambiente</td>
-          <td class="valor">493K €</td>
-          <td style="white-space:nowrap;">—</td>
-          <td>
-            
-              <span class="badge badge-sinplazo">Sin plazo</span>
-            
-          </td>
+        <tr class="fe" style="display:none">
+          <td><a class="cn" href="https://hacienda.navarra.es/sicpportal/mtoAnunciosModalidad.aspx?cod=2608121144225259B3F1" target="_blank" rel="nofollow">Contrato de obras del Proyecto de recuperación del espacio fluvial del río Ara</a></td>
+          <td><span class="org">la Directora General de Medio Ambiente</span></td>
+          <td><span class="val">493K €</span></td>
+          <td style="font-size:.8rem;white-space:nowrap;">—</td>
+          <td><span class="badge b-none">Sin plazo</span></td>
         </tr>
         
-        <tr>
-          <td>
-            <a class="contrato-link" href="https://www.contratacion.euskadi.eus/webkpe00-kpeperfi/es/contenidos/anuncio_contratacion/expjaso731505/es_doc/index.html"
-               target="_blank" rel="nofollow">Contratación de la ejecución de cubierta del centro de visitantes “El Torco” del</a>
-            
-          </td>
-          <td class="org">Fundación Valle Salado de Añana-Director</td>
-          <td class="valor">119K €</td>
-          <td style="white-space:nowrap;">—</td>
-          <td>
-            
-              <span class="badge badge-sinplazo">Sin plazo</span>
-            
-          </td>
+        <tr class="fe" style="display:none">
+          <td><a class="cn" href="https://www.contratacion.euskadi.eus/webkpe00-kpeperfi/es/contenidos/anuncio_contratacion/expjaso731505/es_doc/index.html" target="_blank" rel="nofollow">Contratación de la ejecución de cubierta del centro de visitantes “El Torco” d</a></td>
+          <td><span class="org">Fundación Valle Salado de Añana-Direct</span></td>
+          <td><span class="val">119K €</span></td>
+          <td style="font-size:.8rem;white-space:nowrap;">—</td>
+          <td><span class="badge b-none">Sin plazo</span></td>
         </tr>
         
       </tbody>
     </table>
-  </div>
-</div>
-
-<div class="seccion">
-  <h2>🏛 Organismos que más licitan en este sector</h2>
-  <div class="chips">
     
-    <span class="chip">Alcaldía del Ayuntamiento de Jacarilla · 2</span>
-    
-    <span class="chip">Sección de Asuntos Económicos de la Coma · 2</span>
-    
-    <span class="chip">Ajuntament de l&#39;Hospitalet de Llobregat · 1</span>
-    
-    <span class="chip">VISESA - Vivienda y Suelo de Euskadi, S. · 1</span>
-    
-    <span class="chip">Ajuntament de Vilabella · 1</span>
-    
-    <span class="chip">Ayuntamiento de Oiartzun-Alcalde · 1</span>
-    
-    <span class="chip">Ayuntamiento de Zeanuri-Alcaldía · 1</span>
-    
-    <span class="chip">Ayuntamiento de Portugalete -Alcalde · 1</span>
-    
-    <span class="chip">Ayuntamiento de Vitoria-Gasteiz-Concejal · 1</span>
-    
-    <span class="chip">Ayuntamiento de Vitoria-Gasteiz-Junta de · 1</span>
-    
-    <span class="chip">Ayuntamiento de Plentzia-Alcaldía · 1</span>
-    
-    <span class="chip">Ajuntament d&#39;Ivars de Noguera · 1</span>
+    <button class="btn-ver" type="button" onclick="document.querySelectorAll('.fe').forEach(f=>f.style.display='');this.style.display='none'">Ver todos los contratos (35) ↓</button>
     
   </div>
-</div>
 
+  
 
+  
+  <div class="email-cta" id="suscribirse">
+    <div style="display:flex;align-items:center;gap:.75rem;"><div class="email-icon">🔔</div><div><h4>Alertas gratuitas — Construcción</h4><p>Nuevas licitaciones de este sector cada lunes. Sin spam. Cancela cuando quieras.</p></div></div>
+    <div class="email-form"><input type="email" placeholder="email@empresa.com" id="email-input" aria-label="Correo electrónico"><button type="button" onclick="var v=document.getElementById('email-input').value;if(!v||!v.includes('@')){alert('Introduce un email válido');return;}this.textContent='✓ Apuntado';this.style.background='#059669';this.disabled=true;">Suscribirse</button></div>
+  </div>
+  
 
+  <div class="sec-header">🏛 Organismos que más licitan en este sector</div>
+  <div class="chips"><span class="chip">Alcaldía del Ayuntamiento de Jacarilla · 2</span><span class="chip">Sección de Asuntos Económicos de la Coma · 2</span><span class="chip">Ajuntament de l&#39;Hospitalet de Llobregat · 1</span><span class="chip">VISESA - Vivienda y Suelo de Euskadi, S. · 1</span><span class="chip">Ajuntament de Vilabella · 1</span><span class="chip">Ayuntamiento de Oiartzun-Alcalde · 1</span><span class="chip">Ayuntamiento de Zeanuri-Alcaldía · 1</span><span class="chip">Ayuntamiento de Portugalete -Alcalde · 1</span><span class="chip">Ayuntamiento de Vitoria-Gasteiz-Concejal · 1</span><span class="chip">Ayuntamiento de Vitoria-Gasteiz-Junta de · 1</span><span class="chip">Ayuntamiento de Plentzia-Alcaldía · 1</span><span class="chip">Ajuntament d&#39;Ivars de Noguera · 1</span></div>
 
-
-<div class="seccion">
-  <h2>ℹ Sobre este sector en la contratación pública</h2>
+  <div class="sec-header">ℹ Sobre este sector</div>
   <div class="callout">La construcción y obra pública concentra el mayor volumen económico de la contratación pública en España. Incluye obra civil, rehabilitación, urbanización y edificación de equipamientos.</div>
-</div>
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "ItemList",
-  "name": "Licitaciones de Construcci\u00f3n y Obra P\u00fablica en Espa\u00f1a",
-  "description": "Contratos de obra civil y edificaci\u00f3n publicados en PLACE",
-  "numberOfItems": 35,
-  "itemListElement": [
-    
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Obres de millora de la mobilitat de vianants al Districte Econ\u00f2mic a l\u2019Hospitalet de Llobregat en la",
-      "url": "https://contractaciopublica.cat/ca/detall-publicacio/680afe91-4b3e-4ab9-8f88-0e4911e34452/300880271"
-    },
-    
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Ejecuci\u00f3n de las obras de las promociones:\n- Lote 1: B-134 75 VPOa en la parcela RRCL-1, PERI San Ju",
-      "url": "https://www.contratacion.euskadi.eus/webkpe00-kpeperfi/es/contenidos/anuncio_contratacion/expjaso725379/es_doc/index.html"
-    },
-    
-    {
-      "@type": "ListItem",
-      "position": 3,
-      "name": "Manteniment de l\u2019edifici per assegurar-ne la seva estanquitat i evitar la degradaci\u00f3 dels seus reves",
-      "url": "https://contractaciopublica.cat/ca/detall-publicacio/77593a36-9d0e-41ef-8acb-4192c120410b/300880439"
-    },
-    
-    {
-      "@type": "ListItem",
-      "position": 4,
-      "name": "Contrato de las obras de reforma del acceso al aparcamiento Euskal Herria y de adecuaci\u00f3n del aparca",
-      "url": "https://www.contratacion.euskadi.eus/webkpe00-kpeperfi/es/contenidos/anuncio_contratacion/expjaso740624/es_doc/index.html"
-    },
-    
-    {
-      "@type": "ListItem",
-      "position": 5,
-      "name": "Obras para la reparaci\u00f3n de varios tramos en camino de Ziarsolo",
-      "url": "https://www.contratacion.euskadi.eus/webkpe00-kpeperfi/es/contenidos/anuncio_contratacion/expgebizkaia3636582/es_doc/index.html"
-    },
-    
-    {
-      "@type": "ListItem",
-      "position": 6,
-      "name": "Servicio de Montaje del alumbrado navide\u00f1o en las calles y edificios de Portugalete.",
-      "url": "https://www.contratacion.euskadi.eus/webkpe00-kpeperfi/es/contenidos/anuncio_contratacion/expjaso740638/es_doc/index.html"
-    },
-    
-    {
-      "@type": "ListItem",
-      "position": 7,
-      "name": "Obras de ejecuci\u00f3n de un vial peatonal en la E.L.M. de Armentia.",
-      "url": "https://www.contratacion.euskadi.eus/webkpe00-kpeperfi/es/contenidos/anuncio_contratacion/expjaso738215/es_doc/index.html"
-    },
-    
-    {
-      "@type": "ListItem",
-      "position": 8,
-      "name": "Mejora del alumbrado p\u00fablico Vitoria-Gasteiz (A\u00f1o 2026)",
-      "url": "https://www.contratacion.euskadi.eus/webkpe00-kpeperfi/es/contenidos/anuncio_contratacion/expjaso738006/es_doc/index.html"
-    },
-    
-    {
-      "@type": "ListItem",
-      "position": 9,
-      "name": "Contrato de obras de urbanizaci\u00f3n de instalaci\u00f3n de un aseo p\u00fablico autolimpiable en plaza Astillero",
-      "url": "https://www.contratacion.euskadi.eus/webkpe00-kpeperfi/es/contenidos/anuncio_contratacion/expgebizkaia3631964/es_doc/index.html"
-    },
-    
-    {
-      "@type": "ListItem",
-      "position": 10,
-      "name": "L\u2019objecte principal del Projecte \u00e9s l\u0027arranjament i millora dels camins asfaltats del terme municipa",
-      "url": "https://contractaciopublica.cat/ca/detall-publicacio/00b1416b-4cc1-4039-8e46-eb1109e1e2ee/300880188"
-    }
-    
-  ]
-}
-</script>
+  <div class="trust-bar">
+    <div class="trust-item">🛡 Datos oficiales PLACE</div><div class="trust-sep"></div>
+    <div class="trust-item">🔄 Actualización diaria automática</div><div class="trust-sep"></div>
+    <div class="trust-item">📖 Licencia de datos abiertos</div><div class="trust-sep"></div>
+    <div class="trust-item">🇪🇸 Gobierno de España</div>
+  </div>
 
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"ItemList","name":"Licitaciones de Construcci\u00f3n y Obra P\u00fablica en Espa\u00f1a","description":"Contratos de obra civil y edificaci\u00f3n publicados en PLACE","numberOfItems":35,"itemListElement":[{"@type":"ListItem","position":1,"name":"Obres de millora de la mobilitat de vianants al Districte Econ\u00f2mic a l\u2019Hospitalet de Llobregat en la","url":"https://contractaciopublica.cat/ca/detall-publicacio/680afe91-4b3e-4ab9-8f88-0e4911e34452/300880271"},{"@type":"ListItem","position":2,"name":"Ejecuci\u00f3n de las obras de las promociones:\n- Lote 1: B-134 75 VPOa en la parcela RRCL-1, PERI San Ju","url":"https://www.contratacion.euskadi.eus/webkpe00-kpeperfi/es/contenidos/anuncio_contratacion/expjaso725379/es_doc/index.html"},{"@type":"ListItem","position":3,"name":"Manteniment de l\u2019edifici per assegurar-ne la seva estanquitat i evitar la degradaci\u00f3 dels seus reves","url":"https://contractaciopublica.cat/ca/detall-publicacio/77593a36-9d0e-41ef-8acb-4192c120410b/300880439"},{"@type":"ListItem","position":4,"name":"Contrato de las obras de reforma del acceso al aparcamiento Euskal Herria y de adecuaci\u00f3n del aparca","url":"https://www.contratacion.euskadi.eus/webkpe00-kpeperfi/es/contenidos/anuncio_contratacion/expjaso740624/es_doc/index.html"},{"@type":"ListItem","position":5,"name":"Obras para la reparaci\u00f3n de varios tramos en camino de Ziarsolo","url":"https://www.contratacion.euskadi.eus/webkpe00-kpeperfi/es/contenidos/anuncio_contratacion/expgebizkaia3636582/es_doc/index.html"},{"@type":"ListItem","position":6,"name":"Servicio de Montaje del alumbrado navide\u00f1o en las calles y edificios de Portugalete.","url":"https://www.contratacion.euskadi.eus/webkpe00-kpeperfi/es/contenidos/anuncio_contratacion/expjaso740638/es_doc/index.html"},{"@type":"ListItem","position":7,"name":"Obras de ejecuci\u00f3n de un vial peatonal en la E.L.M. de Armentia.","url":"https://www.contratacion.euskadi.eus/webkpe00-kpeperfi/es/contenidos/anuncio_contratacion/expjaso738215/es_doc/index.html"},{"@type":"ListItem","position":8,"name":"Mejora del alumbrado p\u00fablico Vitoria-Gasteiz (A\u00f1o 2026)","url":"https://www.contratacion.euskadi.eus/webkpe00-kpeperfi/es/contenidos/anuncio_contratacion/expjaso738006/es_doc/index.html"},{"@type":"ListItem","position":9,"name":"Contrato de obras de urbanizaci\u00f3n de instalaci\u00f3n de un aseo p\u00fablico autolimpiable en plaza Astillero","url":"https://www.contratacion.euskadi.eus/webkpe00-kpeperfi/es/contenidos/anuncio_contratacion/expgebizkaia3631964/es_doc/index.html"},{"@type":"ListItem","position":10,"name":"L\u2019objecte principal del Projecte \u00e9s l\u0027arranjament i millora dels camins asfaltats del terme municipa","url":"https://contractaciopublica.cat/ca/detall-publicacio/00b1416b-4cc1-4039-8e46-eb1109e1e2ee/300880188"}]}
+  </script>
 
 </div>
 
-<footer style="max-width:1000px;margin:0 auto;padding:0 1.25rem 2rem;">
-  Datos extraídos de la <a href="https://contrataciondelestado.es" style="color:var(--azul);">
-  Plataforma de Contratación del Sector Público (PLACE)</a> — fuente oficial del Gobierno de España. ·
-  Última actualización: 12/09/2026
+
+<footer class="site-footer">
+  Datos oficiales extraídos de la
+  <a href="https://contrataciondelestado.es" rel="noopener">Plataforma de Contratación del Sector Público (PLACE)</a>
+  — Gobierno de España · Licencia de datos abiertos ·
+  Actualizado: 13/09/2026
 </footer>
 
 </body>
