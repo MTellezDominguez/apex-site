@@ -6,262 +6,151 @@
   <title>Informe Licitaciones Construcción España — Mensual | September 2026</title>
   <meta name="description" content="Contratos de obra civil y edificación del sector público. Valor total, organismos convocantes y listado completo mensual.">
   <link rel="canonical" href="https://mtellezdominguez.github.io/apex-site/reports/licitaciones-construccion-b776b81c07f24eb4/">
-  <link rel="sitemap" type="application/xml" href="/apex-site/sitemap.xml">
   <meta property="og:title" content="Informe Licitaciones Construcción España — Mensual | September 2026">
   <meta property="og:description" content="Contratos de obra civil y edificación del sector público. Valor total, organismos convocantes y listado completo mensual.">
   <meta property="og:url" content="https://mtellezdominguez.github.io/apex-site/reports/licitaciones-construccion-b776b81c07f24eb4/">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_ES">
   <meta name="robots" content="index, follow">
+  <link rel="sitemap" type="application/xml" href="https://mtellezdominguez.github.io/apex-site/sitemap.xml">
+  <link rel="alternate" type="application/rss+xml" title="LicitaEspaña RSS" href="https://mtellezdominguez.github.io/apex-site/feed.xml">
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --azul:#1f5d78;--azul-dark:#18324b;--verde:#438a72;
+      --amber:#b86f2f;--morado:#76639a;--rojo:#b84b3b;
+      --gris-50:#f4efe6;--gris-100:#eee8df;--gris-200:#e4d9c8;
+      --gris-400:#988f84;--gris-600:#5f665f;--gris-900:#243047;
+      --surface:#fbf8f2;--surface-strong:#f7f0e5;
+      --shadow:0 2px 6px rgba(91,67,39,.07),0 1px 2px rgba(91,67,39,.04);
+      --shadow-md:0 7px 18px rgba(91,67,39,.11),0 2px 5px rgba(91,67,39,.05);
+    }
+    body{font-family:system-ui,-apple-system,sans-serif;color:var(--gris-900);background:var(--gris-50);line-height:1.6;background-image:radial-gradient(circle at 4% 5%,rgba(196,122,59,.07),transparent 24rem)}
+    @keyframes rise-in{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
+    a{color:var(--azul);text-decoration:none}
+    a:hover{text-decoration:underline}
 
-    :root {
-      --azul:      #1a56db;
-      --azul-dark: #1e429f;
-      --verde:     #057a55;
-      --naranja:   #c27803;
-      --rojo:      #c81e1e;
-      --gris:      #6b7280;
-      --borde:     #e5e7eb;
-      --fondo:     #f9fafb;
-    }
+    /* Header */
+    .site-header{background:rgba(251,248,242,.95);border-bottom:1px solid var(--gris-200);padding:0 1.5rem;height:52px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:var(--shadow);backdrop-filter:blur(12px)}
+    .header-logo{display:flex;align-items:center;gap:9px;text-decoration:none}
+    .logo-icon{width:30px;height:30px;background:var(--azul);border-radius:7px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:14px;flex-shrink:0}
+    .logo-text{font-size:15px;font-weight:600;color:var(--gris-900)}
+    .logo-text span{color:var(--azul)}
+    .header-nav{display:flex;align-items:center;gap:1.25rem}
+    .header-nav a{font-size:13px;color:var(--gris-600);text-decoration:none}
+    .header-nav a:hover{color:var(--azul)}
+    .btn-alerta-nav{background:var(--azul);color:#fff !important;font-size:12px;font-weight:500;padding:6px 14px;border-radius:6px;white-space:nowrap}
+    .btn-alerta-nav:hover{background:var(--azul-dark)}
 
-    body {
-      font-family: system-ui, -apple-system, sans-serif;
-      color: #111827;
-      background: var(--fondo);
-      line-height: 1.6;
-    }
+    /* Page */
+    .page-wrap{max-width:980px;margin:0 auto;padding:2rem 1.25rem 4rem}
 
-    /* ── Cabecera ── */
-    header {
-      background: #fff;
-      border-bottom: 1px solid var(--borde);
-      padding: .75rem 1.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-    .logo {
-      font-size: .95rem;
-      font-weight: 700;
-      color: var(--azul);
-      text-decoration: none;
-    }
-    .logo span { color: #111827; font-weight: 400; }
-    nav a {
-      font-size: .85rem;
-      color: var(--gris);
-      text-decoration: none;
-      margin-left: 1.25rem;
-    }
-    nav a:hover { color: var(--azul); }
+    /* Breadcrumb */
+    .breadcrumb{font-size:13px;color:var(--gris-400);margin-bottom:1.25rem}
+    .breadcrumb a{color:var(--gris-400)}
+    .breadcrumb a:hover{color:var(--azul)}
+    .breadcrumb span{margin:0 .35rem}
 
-    /* ── Layout ── */
-    .page { max-width: 1000px; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+    /* Stat grid */
+    .stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:.75rem;margin-bottom:1.75rem}
+    .stat-card{background:var(--surface);border:1px solid var(--gris-200);border-radius:10px;padding:1rem;text-align:center;box-shadow:var(--shadow);animation:rise-in .5s ease-out both}
+    .stat-card strong{display:block;font-size:1.65rem;font-weight:700;color:var(--azul);line-height:1.1;margin-bottom:.2rem}
+    .stat-card span{font-size:.73rem;color:var(--gris-400)}
 
-    /* ── Breadcrumb ── */
-    .breadcrumb {
-      font-size: .8rem;
-      color: var(--gris);
-      margin-bottom: 1.25rem;
-    }
-    .breadcrumb a { color: var(--azul); text-decoration: none; }
-    .breadcrumb a:hover { text-decoration: underline; }
+    /* Urgency alert */
+    .alerta-urgente{background:#fff7ed;border:1px solid #fed7aa;border-left:4px solid #ea580c;border-radius:8px;padding:1rem 1.25rem;margin-bottom:1.5rem;display:flex;gap:.75rem;align-items:flex-start}
+    .alerta-icon{font-size:18px;color:#ea580c;flex-shrink:0;line-height:1.4}
+    .alerta-urgente strong{display:block;font-size:.85rem;font-weight:600;color:#9a3412;margin-bottom:.3rem}
+    .alerta-urgente ul{padding-left:1.1rem;font-size:.82rem;color:#c2410c}
+    .alerta-urgente li{margin-bottom:.25rem}
+    .alerta-urgente a{color:#9a3412;font-weight:500}
 
-    /* ── Hero ── */
-    .hero { margin-bottom: 1.75rem; }
-    .hero h1 {
-      font-size: 1.65rem;
-      font-weight: 700;
-      line-height: 1.25;
-      margin-bottom: .4rem;
-    }
-    .hero .subtitulo { font-size: .9rem; color: var(--gris); }
+    /* Section header */
+    .sec-header{display:flex;align-items:center;gap:.5rem;font-size:.85rem;font-weight:600;color:var(--gris-600);margin-bottom:.75rem;padding-bottom:.4rem;border-bottom:2px solid var(--azul)}
 
-    /* ── Stats grid ── */
-    .stat-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: .75rem;
-      margin-bottom: 2rem;
-    }
-    .stat {
-      background: #fff;
-      border: 1px solid var(--borde);
-      border-radius: 10px;
-      padding: 1rem;
-      text-align: center;
-    }
-    .stat strong {
-      display: block;
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: var(--azul);
-      line-height: 1.1;
-    }
-    .stat span { font-size: .75rem; color: var(--gris); margin-top: .2rem; display: block; }
+    /* Table */
+    .table-wrap{overflow-x:auto;border-radius:10px;border:1px solid var(--gris-200);box-shadow:var(--shadow);margin-bottom:1.5rem;background:var(--surface);animation:rise-in .55s ease-out .08s both}
+    table{width:100%;border-collapse:collapse;font-size:.855rem}
+    thead th{background:var(--azul);color:#fff;padding:.6rem .85rem;text-align:left;font-weight:500;font-size:.8rem;white-space:nowrap}
+    tbody td{padding:.6rem .85rem;border-bottom:1px solid var(--gris-100);vertical-align:middle}
+    tbody tr:last-child td{border-bottom:none}
+    tbody tr:hover td{background:#f5ede1}
+    .cn{color:var(--gris-900);font-weight:500;display:block;line-height:1.4}
+    .cn:hover{color:var(--azul);text-decoration:none}
+    .cl{font-size:.73rem;color:var(--gris-400);margin-top:2px}
+    .org{font-size:.8rem;color:var(--gris-600)}
+    .val{font-weight:600;white-space:nowrap}
+    .btn-ver{display:block;width:100%;text-align:center;background:var(--gris-100);border:none;border-top:1px solid var(--gris-200);color:var(--gris-600);font-size:.83rem;padding:.65rem;cursor:pointer;border-radius:0 0 10px 10px;transition:background .2s,color .2s}
+    .btn-ver:hover{background:#e5d8c8;color:var(--gris-900)}
 
-    /* ── Alerta urgente ── */
-    .alerta-urgente {
-      background: #fffbeb;
-      border: 1px solid #fcd34d;
-      border-left: 4px solid #d97706;
-      border-radius: 8px;
-      padding: 1rem 1.25rem;
-      margin-bottom: 1.5rem;
-    }
-    .alerta-urgente strong { color: #92400e; display: block; margin-bottom: .5rem; }
-    .alerta-urgente ul { padding-left: 1.25rem; }
-    .alerta-urgente li { font-size: .88rem; margin-bottom: .3rem; color: #78350f; }
-    .alerta-urgente a { color: #92400e; }
+    /* Badges */
+    .badge{display:inline-block;padding:2px 9px;border-radius:20px;font-size:.72rem;font-weight:600;white-space:nowrap}
+    .b-urgente{background:#fee2e2;color:#991b1b}
+    .b-proximo{background:#ffedd5;color:#9a3412}
+    .b-abierto{background:#d1fae5;color:#065f46}
+    .b-none{background:var(--gris-100);color:var(--gris-600)}
 
-    /* ── Sección ── */
-    .seccion { margin-bottom: 2rem; }
-    .seccion h2 {
-      font-size: 1rem;
-      font-weight: 600;
-      color: #374151;
-      border-bottom: 2px solid var(--azul);
-      padding-bottom: .4rem;
-      margin-bottom: 1rem;
-      display: flex;
-      align-items: center;
-      gap: .4rem;
-    }
+    /* CTA Premium */
+    .cta-premium{background:linear-gradient(135deg,#1e3a8a 0%,#1a56db 100%);color:#fff;border-radius:12px;padding:1.5rem 1.75rem;display:flex;align-items:center;justify-content:space-between;gap:1.25rem;flex-wrap:wrap;margin:1.5rem 0;box-shadow:var(--shadow-md)}
+    .cta-premium h3{font-size:.95rem;font-weight:600;margin-bottom:.25rem}
+    .cta-premium p{font-size:.83rem;opacity:.88}
+    .cta-btn{background:#f7f0e5;color:var(--azul);font-weight:700;font-size:.88rem;padding:.65rem 1.4rem;border-radius:8px;white-space:nowrap;flex-shrink:0;display:inline-block;transition:background .2s,transform .2s;box-shadow:0 3px 8px rgba(0,0,0,.12)}
+    .cta-btn:hover{background:#fff8ed;text-decoration:none;transform:translateY(-2px)}
 
-    /* ── Tabla ── */
-    .tabla-wrap { overflow-x: auto; border-radius: 10px; border: 1px solid var(--borde); }
-    table { width: 100%; border-collapse: collapse; font-size: .875rem; background: #fff; }
-    thead th {
-      background: var(--azul);
-      color: #fff;
-      padding: .6rem .9rem;
-      text-align: left;
-      font-weight: 500;
-      white-space: nowrap;
-    }
-    tbody td { padding: .6rem .9rem; border-bottom: 1px solid var(--borde); vertical-align: middle; }
-    tbody tr:last-child td { border-bottom: none; }
-    tbody tr:hover td { background: #f0f4ff; }
-    .contrato-link { color: var(--azul); text-decoration: none; font-weight: 500; }
-    .contrato-link:hover { text-decoration: underline; }
-    .org { color: var(--gris); font-size: .82rem; }
-    .valor { font-weight: 600; white-space: nowrap; }
+    /* Email CTA */
+    .email-cta{background:var(--surface);border:1px solid var(--gris-200);border-radius:10px;padding:1.25rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;box-shadow:var(--shadow);margin:1.5rem 0;animation:rise-in .55s ease-out both}
+    .email-icon{width:38px;height:38px;background:#eff6ff;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+    .email-cta h4{font-size:.88rem;font-weight:600;margin-bottom:2px}
+    .email-cta p{font-size:.78rem;color:var(--gris-400);margin:0}
+    .email-form{display:flex;gap:.5rem;flex-shrink:0}
+    .email-form input{font-size:.82rem;padding:7px 11px;border:1px solid var(--gris-200);border-radius:6px;background:var(--surface-strong);width:175px}
+    .email-form input:focus{outline:2px solid var(--azul);outline-offset:-1px}
+    .email-form button{background:var(--azul);color:#fff;border:none;border-radius:6px;padding:7px 14px;font-size:.82rem;font-weight:500;cursor:pointer;white-space:nowrap}
+    .email-form button:hover{background:var(--azul-dark)}
 
-    /* ── Badges de estado ── */
-    .badge {
-      display: inline-block;
-      padding: 2px 9px;
-      border-radius: 20px;
-      font-size: .72rem;
-      font-weight: 600;
-      white-space: nowrap;
-    }
-    .badge-urgente  { background: #fee2e2; color: #991b1b; }
-    .badge-proximo  { background: #ffedd5; color: #9a3412; }
-    .badge-abierto  { background: #d1fae5; color: #065f46; }
-    .badge-sinplazo { background: #f3f4f6; color: #6b7280; }
+    /* Chips */
+    .chips{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1.5rem}
+    .chip{background:#e8f0ee;color:var(--azul);border:1px solid #c8d8d8;border-radius:20px;padding:3px 10px;font-size:.77rem;transition:transform .15s,background .15s}.chip:hover{transform:translateY(-1px);background:#dce9e5}
 
-    /* ── Chips de organismos ── */
-    .chips { display: flex; flex-wrap: wrap; gap: .4rem; }
-    .chip {
-      background: #eff6ff;
-      color: var(--azul);
-      border: 1px solid #bfdbfe;
-      border-radius: 20px;
-      padding: 3px 10px;
-      font-size: .78rem;
-    }
+    /* Callout */
+    .callout{background:#edf3ef;border:1px solid #c8d8ce;border-radius:8px;padding:1rem 1.25rem;font-size:.87rem;color:#28594c;line-height:1.75}
 
-    /* ── Callout informativo ── */
-    .callout {
-      background: #f0f9ff;
-      border: 1px solid #bae6fd;
-      border-radius: 8px;
-      padding: 1rem 1.25rem;
-      font-size: .88rem;
-      color: #0c4a6e;
-      line-height: 1.6;
-    }
+    /* Trust bar */
+    .trust-bar{display:flex;align-items:center;justify-content:center;gap:1.25rem;flex-wrap:wrap;margin-top:1.5rem;padding-top:1.25rem;border-top:1px solid var(--gris-200)}
+    .trust-item{display:flex;align-items:center;gap:.35rem;font-size:.77rem;color:var(--gris-400)}
+    .trust-sep{width:4px;height:4px;background:var(--gris-200);border-radius:50%}
 
-    /* ── CTA premium ── */
-    .cta-premium {
-      background: linear-gradient(135deg, #1e429f 0%, #1a56db 100%);
-      color: #fff;
-      border-radius: 12px;
-      padding: 1.5rem 2rem;
-      margin: 2rem 0;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-    .cta-premium h3 { font-size: 1.05rem; margin-bottom: .3rem; }
-    .cta-premium p  { font-size: .88rem; opacity: .88; }
-    .cta-btn {
-      background: #fff;
-      color: var(--azul);
-      font-weight: 700;
-      font-size: .9rem;
-      padding: .6rem 1.4rem;
-      border-radius: 8px;
-      text-decoration: none;
-      white-space: nowrap;
-      flex-shrink: 0;
-    }
-    .cta-btn:hover { background: #eff6ff; }
+    /* Footer */
+    .site-footer{max-width:980px;margin:0 auto;padding:.5rem 1.25rem 2rem;font-size:.77rem;color:var(--gris-400);text-align:center;line-height:1.7}
+    .site-footer a{color:var(--azul)}
 
-    /* ── Footer ── */
-    footer {
-      margin-top: 3rem;
-      padding-top: 1.25rem;
-      border-top: 1px solid var(--borde);
-      font-size: .78rem;
-      color: var(--gris);
-      line-height: 1.7;
-    }
-
-    /* ── Responsive ── */
-    @media (max-width: 640px) {
-      .hero h1   { font-size: 1.3rem; }
-      .cta-premium { flex-direction: column; text-align: center; }
+    @media(max-width:680px){
+      .header-nav a:not(.btn-alerta-nav){display:none}
+      .cta-premium,.email-cta{flex-direction:column}
+      .email-form{width:100%}
+      .email-form input{flex:1;width:auto}
     }
   </style>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Licitaciones España",
-    "url": "https://mtellezdominguez.github.io/apex-site/reports/licitaciones-construccion-b776b81c07f24eb4/",
-    "description": "Contratos de obra civil y edificaci\u00f3n del sector p\u00fablico. Valor total, organismos convocantes y listado completo mensual.",
-    "publisher": {
-      "@type": "Organization",
-      "name": "Licitaciones España",
-      "url": "https://mtellezdominguez.github.io/apex-site/"
-    }
-  }
-  </script>
 </head>
 <body>
 
-<header>
-  <a class="logo" href="/apex-site/">Licitaciones<span>.es</span></a>
-  <nav>
-    <a href="/apex-site/licitaciones-tecnologia-informacion-espana/">TI</a>
-    <a href="/apex-site/licitaciones-construccion-obra-publica-espana/">Construcción</a>
-    <a href="/apex-site/licitaciones-limpieza-servicios-espana/">Limpieza</a>
-    <a href="/apex-site/licitaciones-formacion-educacion-espana/">Formación</a>
+<header class="site-header">
+  <a class="header-logo" href="https://mtellezdominguez.github.io/apex-site/">
+    <div class="logo-icon">L</div>
+    <span class="logo-text">Licita<span>España</span></span>
+  </a>
+  <nav class="header-nav">
+    <a href="https://mtellezdominguez.github.io/apex-site/licitaciones-tecnologia-informacion-espana/">TI</a>
+    <a href="https://mtellezdominguez.github.io/apex-site/licitaciones-construccion-obra-publica-espana/">Construcción</a>
+    <a href="https://mtellezdominguez.github.io/apex-site/licitaciones-limpieza-servicios-espana/">Limpieza</a>
+    <a href="https://mtellezdominguez.github.io/apex-site/licitaciones-formacion-educacion-espana/">Formación</a>
+    <a href="https://mtellezdominguez.github.io/apex-site/licitaciones-consultoria-servicios-empresariales-espana/">Consultoría</a>
+    <a class="btn-alerta-nav" href="#suscribirse">🔔 Alertas gratis</a>
   </nav>
 </header>
 
-<div class="page">
-  
+
 <div style="background:#0057b7;color:#fff;border-radius:8px;padding:1rem 1.5rem;margin-bottom:1.5rem;">
   <p style="font-size:.8rem;opacity:.8;margin:0 0 4px;">INFORME PREMIUM — Acceso exclusivo</p>
   <h1 style="color:#fff;font-size:1.6rem;margin:0 0 4px;">Informe Licitaciones Construcción España — Mensual — September 2026</h1>
@@ -270,11 +159,11 @@
 
 <div class="stat-grid">
   <div class="stat">
-    <strong>43</strong>
+    <strong>42</strong>
     <span>Contratos este mes</span>
   </div>
   <div class="stat">
-    <strong>80.2M €</strong>
+    <strong>80.1M €</strong>
     <span>Valor total licitado</span>
   </div>
   <div class="stat">
@@ -345,7 +234,7 @@
   </tbody>
 </table>
 
-<h2>Listado completo (43 contratos)</h2>
+<h2>Listado completo (42 contratos)</h2>
 <p style="font-size:.85rem;color:#555;margin-bottom:.75rem;">
   0% de contratos publicados sin importe estimado.
   Ordenados por fecha de publicación descendente.
@@ -695,29 +584,21 @@ reurbanitz</a></td>
       <td>2026-08-14</td>
     </tr>
     
-    <tr>
-      <td><a href="https://www.contratacion.euskadi.eus/webkpe00-kpeperfi/es/contenidos/anuncio_contratacion/expgebizkaia3604802/es_doc/index.html" target="_blank" rel="nofollow">Contrato de obra para pavimentación de caminos públicos de Artea</a></td>
-      <td>Ayuntamiento de Artea-Alcalde</td>
-      <td>50K €</td>
-      <td>—</td>
-      <td>2026-08-13</td>
-    </tr>
-    
   </tbody>
 </table>
 
 <p style="margin-top:2rem;font-size:.8rem;color:#888;">
   Fuente: Plataforma de Contratación del Sector Público (PLACE) — Gobierno de España.
   Este informe se actualiza automáticamente cada mes.
-  Generado: 12/09/2026 10:02.
+  Generado: 13/09/2026 11:30.
 </p>
 
-</div>
 
-<footer style="max-width:1000px;margin:0 auto;padding:0 1.25rem 2rem;">
-  Datos extraídos de la <a href="https://contrataciondelestado.es" style="color:var(--azul);">
-  Plataforma de Contratación del Sector Público (PLACE)</a> — fuente oficial del Gobierno de España. ·
-  Última actualización: 12/09/2026
+<footer class="site-footer">
+  Datos oficiales extraídos de la
+  <a href="https://contrataciondelestado.es" rel="noopener">Plataforma de Contratación del Sector Público (PLACE)</a>
+  — Gobierno de España · Licencia de datos abiertos ·
+  Actualizado: 13/09/2026
 </footer>
 
 </body>
