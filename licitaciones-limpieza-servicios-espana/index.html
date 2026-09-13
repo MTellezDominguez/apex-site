@@ -17,19 +17,22 @@
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{
-      --azul:#1a56db;--azul-dark:#1e3a8a;--verde:#059669;
-      --amber:#d97706;--morado:#7c3aed;--rojo:#dc2626;
-      --gris-50:#f9fafb;--gris-100:#f3f4f6;--gris-200:#e5e7eb;
-      --gris-400:#9ca3af;--gris-600:#4b5563;--gris-900:#111827;
-      --shadow:0 1px 3px rgba(0,0,0,.08),0 1px 2px rgba(0,0,0,.05);
-      --shadow-md:0 4px 6px rgba(0,0,0,.07),0 2px 4px rgba(0,0,0,.05);
+      --azul:#1f5d78;--azul-dark:#18324b;--verde:#438a72;
+      --amber:#b86f2f;--morado:#76639a;--rojo:#b84b3b;
+      --gris-50:#f4efe6;--gris-100:#eee8df;--gris-200:#e4d9c8;
+      --gris-400:#988f84;--gris-600:#5f665f;--gris-900:#243047;
+      --surface:#fbf8f2;--surface-strong:#f7f0e5;
+      --shadow:0 2px 6px rgba(91,67,39,.07),0 1px 2px rgba(91,67,39,.04);
+      --shadow-md:0 7px 18px rgba(91,67,39,.11),0 2px 5px rgba(91,67,39,.05);
     }
-    body{font-family:system-ui,-apple-system,sans-serif;color:var(--gris-900);background:var(--gris-50);line-height:1.6}
+    body{font-family:system-ui,-apple-system,sans-serif;color:var(--gris-900);background:var(--gris-50);line-height:1.6;background-image:radial-gradient(circle at 4% 5%,rgba(196,122,59,.07),transparent 24rem)}
+    @keyframes rise-in{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
     a{color:var(--azul);text-decoration:none}
     a:hover{text-decoration:underline}
 
     /* Header */
-    .site-header{background:#fff;border-bottom:1px solid var(--gris-200);padding:0 1.5rem;height:52px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:var(--shadow)}
+    .site-header{background:rgba(251,248,242,.95);border-bottom:1px solid var(--gris-200);padding:0 1.5rem;height:52px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:var(--shadow);backdrop-filter:blur(12px)}
     .header-logo{display:flex;align-items:center;gap:9px;text-decoration:none}
     .logo-icon{width:30px;height:30px;background:var(--azul);border-radius:7px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:14px;flex-shrink:0}
     .logo-text{font-size:15px;font-weight:600;color:var(--gris-900)}
@@ -51,7 +54,7 @@
 
     /* Stat grid */
     .stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:.75rem;margin-bottom:1.75rem}
-    .stat-card{background:#fff;border:1px solid var(--gris-200);border-radius:10px;padding:1rem;text-align:center;box-shadow:var(--shadow)}
+    .stat-card{background:var(--surface);border:1px solid var(--gris-200);border-radius:10px;padding:1rem;text-align:center;box-shadow:var(--shadow);animation:rise-in .5s ease-out both}
     .stat-card strong{display:block;font-size:1.65rem;font-weight:700;color:var(--azul);line-height:1.1;margin-bottom:.2rem}
     .stat-card span{font-size:.73rem;color:var(--gris-400)}
 
@@ -67,19 +70,19 @@
     .sec-header{display:flex;align-items:center;gap:.5rem;font-size:.85rem;font-weight:600;color:var(--gris-600);margin-bottom:.75rem;padding-bottom:.4rem;border-bottom:2px solid var(--azul)}
 
     /* Table */
-    .table-wrap{overflow-x:auto;border-radius:10px;border:1px solid var(--gris-200);box-shadow:var(--shadow);margin-bottom:1.5rem;background:#fff}
+    .table-wrap{overflow-x:auto;border-radius:10px;border:1px solid var(--gris-200);box-shadow:var(--shadow);margin-bottom:1.5rem;background:var(--surface);animation:rise-in .55s ease-out .08s both}
     table{width:100%;border-collapse:collapse;font-size:.855rem}
     thead th{background:var(--azul);color:#fff;padding:.6rem .85rem;text-align:left;font-weight:500;font-size:.8rem;white-space:nowrap}
     tbody td{padding:.6rem .85rem;border-bottom:1px solid var(--gris-100);vertical-align:middle}
     tbody tr:last-child td{border-bottom:none}
-    tbody tr:hover td{background:#f0f4ff}
+    tbody tr:hover td{background:#f5ede1}
     .cn{color:var(--gris-900);font-weight:500;display:block;line-height:1.4}
     .cn:hover{color:var(--azul);text-decoration:none}
     .cl{font-size:.73rem;color:var(--gris-400);margin-top:2px}
     .org{font-size:.8rem;color:var(--gris-600)}
     .val{font-weight:600;white-space:nowrap}
-    .btn-ver{display:block;width:100%;text-align:center;background:var(--gris-50);border:none;border-top:1px solid var(--gris-200);color:var(--gris-600);font-size:.83rem;padding:.65rem;cursor:pointer;border-radius:0 0 10px 10px}
-    .btn-ver:hover{background:var(--gris-100)}
+    .btn-ver{display:block;width:100%;text-align:center;background:var(--gris-100);border:none;border-top:1px solid var(--gris-200);color:var(--gris-600);font-size:.83rem;padding:.65rem;cursor:pointer;border-radius:0 0 10px 10px;transition:background .2s,color .2s}
+    .btn-ver:hover{background:#e5d8c8;color:var(--gris-900)}
 
     /* Badges */
     .badge{display:inline-block;padding:2px 9px;border-radius:20px;font-size:.72rem;font-weight:600;white-space:nowrap}
@@ -92,26 +95,26 @@
     .cta-premium{background:linear-gradient(135deg,#1e3a8a 0%,#1a56db 100%);color:#fff;border-radius:12px;padding:1.5rem 1.75rem;display:flex;align-items:center;justify-content:space-between;gap:1.25rem;flex-wrap:wrap;margin:1.5rem 0;box-shadow:var(--shadow-md)}
     .cta-premium h3{font-size:.95rem;font-weight:600;margin-bottom:.25rem}
     .cta-premium p{font-size:.83rem;opacity:.88}
-    .cta-btn{background:#fff;color:var(--azul);font-weight:700;font-size:.88rem;padding:.65rem 1.4rem;border-radius:8px;white-space:nowrap;flex-shrink:0;display:inline-block;transition:background .15s}
-    .cta-btn:hover{background:#eff6ff;text-decoration:none}
+    .cta-btn{background:#f7f0e5;color:var(--azul);font-weight:700;font-size:.88rem;padding:.65rem 1.4rem;border-radius:8px;white-space:nowrap;flex-shrink:0;display:inline-block;transition:background .2s,transform .2s;box-shadow:0 3px 8px rgba(0,0,0,.12)}
+    .cta-btn:hover{background:#fff8ed;text-decoration:none;transform:translateY(-2px)}
 
     /* Email CTA */
-    .email-cta{background:#fff;border:1px solid var(--gris-200);border-radius:10px;padding:1.25rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;box-shadow:var(--shadow);margin:1.5rem 0}
+    .email-cta{background:var(--surface);border:1px solid var(--gris-200);border-radius:10px;padding:1.25rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;box-shadow:var(--shadow);margin:1.5rem 0;animation:rise-in .55s ease-out both}
     .email-icon{width:38px;height:38px;background:#eff6ff;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
     .email-cta h4{font-size:.88rem;font-weight:600;margin-bottom:2px}
     .email-cta p{font-size:.78rem;color:var(--gris-400);margin:0}
     .email-form{display:flex;gap:.5rem;flex-shrink:0}
-    .email-form input{font-size:.82rem;padding:7px 11px;border:1px solid var(--gris-200);border-radius:6px;background:#fff;width:175px}
+    .email-form input{font-size:.82rem;padding:7px 11px;border:1px solid var(--gris-200);border-radius:6px;background:var(--surface-strong);width:175px}
     .email-form input:focus{outline:2px solid var(--azul);outline-offset:-1px}
     .email-form button{background:var(--azul);color:#fff;border:none;border-radius:6px;padding:7px 14px;font-size:.82rem;font-weight:500;cursor:pointer;white-space:nowrap}
     .email-form button:hover{background:var(--azul-dark)}
 
     /* Chips */
     .chips{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1.5rem}
-    .chip{background:#eff6ff;color:var(--azul);border:1px solid #bfdbfe;border-radius:20px;padding:3px 10px;font-size:.77rem}
+    .chip{background:#e8f0ee;color:var(--azul);border:1px solid #c8d8d8;border-radius:20px;padding:3px 10px;font-size:.77rem;transition:transform .15s,background .15s}.chip:hover{transform:translateY(-1px);background:#dce9e5}
 
     /* Callout */
-    .callout{background:#f0f9ff;border:1px solid #bae6fd;border-radius:8px;padding:1rem 1.25rem;font-size:.87rem;color:#0c4a6e;line-height:1.75}
+    .callout{background:#edf3ef;border:1px solid #c8d8ce;border-radius:8px;padding:1rem 1.25rem;font-size:.87rem;color:#28594c;line-height:1.75}
 
     /* Trust bar */
     .trust-bar{display:flex;align-items:center;justify-content:center;gap:1.25rem;flex-wrap:wrap;margin-top:1.5rem;padding-top:1.25rem;border-top:1px solid var(--gris-200)}
@@ -163,11 +166,12 @@
     <p style="font-size:.88rem;opacity:.88;margin:0;">Contratos de limpieza, seguridad y mantenimiento en administraciones públicas</p>
   </div>
 
+  <div class="sec-header">📊 Lectura rápida del presupuesto público</div>
   <div class="stat-grid">
     <div class="stat-card"><strong>5</strong><span>Contratos activos</span></div>
-    <div class="stat-card"><strong>8.7M €</strong><span>Valor total licitado</span></div>
-    <div class="stat-card"><strong>1.7M €</strong><span>Contrato medio</span></div>
-    <div class="stat-card"><strong style="color:#dc2626;">2</strong><span>Cierran esta semana</span></div>
+    <div class="stat-card"><strong>8.7M €</strong><span>Presupuesto publicado</span></div>
+    <div class="stat-card"><strong>1.7M €</strong><span>Referencia por contrato</span></div>
+    <div class="stat-card"><strong style="color:#dc2626;">2</strong><span>Cierres próximos</span></div>
   </div>
 
   
@@ -186,7 +190,7 @@
   </div>
   
 
-  <div class="sec-header">📋 Contratos activos — ordenados por plazo de presentación</div>
+  <div class="sec-header">📋 Oportunidades abiertas — ordenadas por fecha de cierre</div>
   <div class="table-wrap">
     <table>
       <thead><tr><th style="width:40%">Contrato</th><th>Organismo</th><th>Valor est.</th><th>Plazo límite</th><th>Estado</th></tr></thead>
@@ -246,10 +250,10 @@
   </div>
   
 
-  <div class="sec-header">🏛 Organismos que más licitan en este sector</div>
+  <div class="sec-header">🏛 Quién está comprando en este mercado</div>
   <div class="chips"><span class="chip">Agencia de Emergencias de Andalucía · 1</span><span class="chip">AGASA-Consejo de Administración · 1</span><span class="chip">Consell Comarcal del Berguedà · 1</span><span class="chip">Arratiako Udalen Mankomunitatea-Presiden · 1</span><span class="chip">ALOKABIDE - Sociedad de Alquiler S.A.-Di · 1</span></div>
 
-  <div class="sec-header">ℹ Sobre este sector</div>
+  <div class="sec-header">ℹ Cómo leer este mercado</div>
   <div class="callout">Los servicios de limpieza y mantenimiento son de los contratos más frecuentes en la administración. Se caracterizan por contratos recurrentes de duración media y accesibles para PYMEs.</div>
 
   <div class="trust-bar">

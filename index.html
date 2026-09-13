@@ -15,75 +15,78 @@
   <meta name="robots" content="index, follow">
   <style>
     *,*::before,*::after{box-sizing:border-box}
-    :root{--ink:#172033;--muted:#667085;--line:#e7ebf2;--blue:#2457d6;--navy:#101b3d;--surface:#fff;--bg:#f6f8fc}
+    :root{--ink:#243047;--muted:#6f7785;--line:#e4d9c8;--blue:#1f5d78;--navy:#18324b;--surface:#fbf8f2;--surface-strong:#f7f0e5;--bg:#f4efe6;--accent:#c47a3b;--success:#438a72}
     html{scroll-behavior:smooth}
-    body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.55}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.55;background-image:radial-gradient(circle at 8% 8%,rgba(196,122,59,.08),transparent 27rem),radial-gradient(circle at 92% 18%,rgba(31,93,120,.07),transparent 30rem)}
+    @keyframes panel-entry{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes soft-pulse{0%,100%{box-shadow:0 0 0 0 rgba(67,138,114,.16)}50%{box-shadow:0 0 0 6px rgba(67,138,114,0)}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
     a{color:inherit}
-    .topbar{height:4px;background:linear-gradient(90deg,#2457d6 0%,#5579e5 52%,#62c4a5 100%)}
-    header{background:rgba(255,255,255,.94);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10;backdrop-filter:blur(14px)}
+    .topbar{height:4px;background:linear-gradient(90deg,#1f5d78 0%,#c47a3b 52%,#438a72 100%)}
+    header{background:rgba(251,248,242,.94);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10;backdrop-filter:blur(14px)}
     .nav-inner{max-width:1160px;margin:auto;padding:1rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem}
     .brand{display:flex;align-items:center;gap:.7rem;text-decoration:none;font-weight:800;letter-spacing:-.03em;color:var(--navy)}
-    .brand-mark{width:34px;height:34px;border-radius:10px;background:var(--navy);color:#fff;display:grid;place-items:center;font-size:1.05rem;box-shadow:0 5px 14px rgba(16,27,61,.18)}
+    .brand-mark{width:34px;height:34px;border-radius:10px;background:var(--navy);color:#f7f0e5;display:grid;place-items:center;font-size:1.05rem;box-shadow:0 5px 14px rgba(24,50,75,.18)}
     .brand small{display:block;color:var(--muted);font-size:.64rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-top:-2px}
     nav{display:flex;align-items:center;gap:1.35rem;font-size:.84rem;color:var(--muted)}
     nav a{text-decoration:none} nav a:hover{color:var(--blue)}
-    .nav-cta{color:var(--blue);font-weight:700;border:1px solid #cdd9fb;padding:.48rem .8rem;border-radius:8px;background:#f8faff}
-    .hero-wrap{background:linear-gradient(180deg,#fff 0%,#f6f8fc 100%);border-bottom:1px solid var(--line)}
+    .nav-cta{color:var(--blue);font-weight:700;border:1px solid #c8d8d8;padding:.48rem .8rem;border-radius:8px;background:#f7f0e5}
+    .hero-wrap{background:linear-gradient(180deg,#fbf8f2 0%,#f1e8db 100%);border-bottom:1px solid var(--line)}
     .hero{max-width:1160px;margin:auto;padding:5.3rem 1.5rem 4.5rem;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(300px,.85fr);align-items:center;gap:4rem}
-    .eyebrow{display:inline-flex;align-items:center;gap:.45rem;color:var(--blue);background:#eef3ff;border:1px solid #d8e2ff;border-radius:99px;padding:.38rem .7rem;font-size:.73rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase}
-    .eyebrow i{width:7px;height:7px;background:#38a169;border-radius:50%;box-shadow:0 0 0 4px #d9f5e8}
+    .eyebrow{display:inline-flex;align-items:center;gap:.45rem;color:var(--blue);background:#e8f0ee;border:1px solid #c8d8d8;border-radius:99px;padding:.38rem .7rem;font-size:.73rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase}
+    .eyebrow i{width:7px;height:7px;background:var(--success);border-radius:50%;box-shadow:0 0 0 4px #d9eee6;animation:soft-pulse 2.4s ease-in-out infinite}
     h1{font-size:clamp(2.35rem,5vw,4.35rem);line-height:1.04;letter-spacing:-.065em;margin:1.2rem 0 1.25rem;max-width:700px;color:var(--navy)}
     .hero-lead{font-size:1.1rem;line-height:1.7;color:var(--muted);max-width:620px;margin:0}
     .hero-actions{display:flex;align-items:center;gap:.8rem;margin-top:2rem;flex-wrap:wrap}
     .button{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;border-radius:9px;padding:.78rem 1.05rem;text-decoration:none;font-size:.87rem;font-weight:750;transition:transform .2s,box-shadow .2s}
     .button:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(36,87,214,.18)}
-    .button-primary{background:var(--blue);color:#fff;box-shadow:0 5px 12px rgba(36,87,214,.2)}
-    .button-secondary{background:#fff;border:1px solid var(--line);color:var(--ink)}
+    .button-primary{background:var(--blue);color:#fff;box-shadow:0 5px 12px rgba(31,93,120,.2)}
+    .button-secondary{background:var(--surface);border:1px solid var(--line);color:var(--ink)}
     .hero-note{font-size:.77rem;color:var(--muted);margin-top:1rem}
     .hero-note strong{color:#344054}
-    .dashboard-card{background:var(--navy);color:#fff;border-radius:20px;padding:1.3rem;box-shadow:0 22px 55px rgba(16,27,61,.18);transform:rotate(1.5deg)}
+    .dashboard-card{background:var(--navy);color:#fff;border-radius:20px;padding:1.3rem;box-shadow:0 22px 55px rgba(24,50,75,.2);transform:none;animation:panel-entry .7s ease-out both}
     .dash-top{display:flex;justify-content:space-between;align-items:center;color:#aeb9d7;font-size:.72rem;margin-bottom:1.25rem}
-    .dash-live{display:flex;align-items:center;gap:.35rem;color:#8ce0bd;font-weight:700} .dash-live i{width:6px;height:6px;background:#6ee7b7;border-radius:50%}
+    .dash-live{display:flex;align-items:center;gap:.35rem;color:#9ee0c1;font-weight:700} .dash-live i{width:6px;height:6px;background:#76d5ad;border-radius:50%;animation:soft-pulse 2.4s ease-in-out infinite}
     .dash-title{font-size:1.15rem;font-weight:750;letter-spacing:-.025em;margin-bottom:1rem}
     .dash-stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:.65rem}
     .dash-stat{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.08);border-radius:11px;padding:.8rem}
     .dash-stat strong{display:block;font-size:1.45rem;letter-spacing:-.04em} .dash-stat span{font-size:.68rem;color:#aeb9d7}
-    .dash-list{margin-top:.7rem;background:#fff;border-radius:11px;color:var(--ink);padding:.25rem .75rem}
+    .dash-list{margin-top:.7rem;background:#f8f1e6;border-radius:11px;color:var(--ink);padding:.25rem .75rem}
     .dash-row{display:flex;align-items:center;gap:.55rem;padding:.62rem 0;border-bottom:1px solid #edf0f5;font-size:.72rem} .dash-row:last-child{border:0}
     .dash-dot{width:8px;height:8px;border-radius:50%;background:#62c4a5;flex:none} .dash-row b{margin-left:auto;font-size:.68rem;color:var(--blue)}
-    .main{max-width:1160px;margin:auto;padding:4.4rem 1.5rem}
+    .main{max-width:1160px;margin:auto;padding:4.4rem 1.5rem;background:transparent}
     .section-heading{display:flex;align-items:end;justify-content:space-between;gap:1rem;margin-bottom:1.35rem}
     .section-heading h2{font-size:1.55rem;letter-spacing:-.04em;margin:0;color:var(--navy)}
     .section-heading p{color:var(--muted);font-size:.88rem;margin:0;max-width:460px}
     .section-link{font-size:.8rem;color:var(--blue);font-weight:750;text-decoration:none;white-space:nowrap}
-    .directory-tools{background:#fff;border:1px solid var(--line);border-radius:15px;padding:1rem;margin-bottom:1rem;box-shadow:0 3px 11px rgba(16,27,61,.025)}
+    .directory-tools{background:var(--surface);border:1px solid var(--line);border-radius:15px;padding:1rem;margin-bottom:1rem;box-shadow:0 3px 11px rgba(91,67,39,.05)}
     .search-row{display:flex;align-items:center;gap:.8rem;flex-wrap:wrap}
     .search-box{position:relative;display:flex;align-items:center;flex:1 1 320px}
     .search-icon{position:absolute;left:.85rem;color:#98a2b3;font-size:1rem;pointer-events:none}
-    .search-input{width:100%;border:1px solid #d9e1ef;border-radius:9px;padding:.75rem 1rem .75rem 2.35rem;color:var(--ink);font:inherit;font-size:.88rem;outline:none;background:#fbfcfe}
-    .search-input:focus{border-color:#8ba5ed;box-shadow:0 0 0 3px #e4ebff;background:#fff}
+    .search-input{width:100%;border:1px solid #d9cdbb;border-radius:9px;padding:.75rem 1rem .75rem 2.35rem;color:var(--ink);font:inherit;font-size:.88rem;outline:none;background:#f7f0e5}
+    .search-input:focus{border-color:#8faeae;box-shadow:0 0 0 3px #dfece9;background:var(--surface)}
     .result-count{font-size:.76rem;color:var(--muted);white-space:nowrap}
     .filter-row{display:flex;align-items:center;gap:.45rem;flex-wrap:wrap;margin-top:.8rem}
     .filter-label{font-size:.73rem;color:var(--muted);font-weight:750;margin-right:.15rem}
-    .filter-chip{border:1px solid #d9e1ef;background:#fff;color:#667085;border-radius:99px;padding:.42rem .75rem;cursor:pointer;font:inherit;font-size:.75rem;font-weight:700;transition:background .15s,color .15s,border-color .15s}
-    .filter-chip:hover{border-color:#9eb2ec;color:var(--blue)}
-    .filter-chip.is-active{background:var(--blue);border-color:var(--blue);color:#fff}
+    .filter-chip{border:1px solid #d9cdbb;background:var(--surface);color:#667085;border-radius:99px;padding:.42rem .75rem;cursor:pointer;font:inherit;font-size:.75rem;font-weight:700;transition:background .15s,color .15s,border-color .15s,transform .15s}
+    .filter-chip:hover{border-color:#9eb2ac;color:var(--blue);transform:translateY(-1px)}
+    .filter-chip.is-active{background:var(--blue);border-color:var(--blue);color:#fff;box-shadow:0 4px 10px rgba(31,93,120,.18)}
     .sector-card[hidden]{display:none}
-    .filter-empty{background:#fff;border:1px dashed #cbd5e1;border-radius:15px;padding:2rem 1rem;text-align:center;color:var(--muted);margin-top:1rem}
+    .filter-empty{background:var(--surface);border:1px dashed #cdbfae;border-radius:15px;padding:2rem 1rem;text-align:center;color:var(--muted);margin-top:1rem}
     .filter-empty strong{display:block;color:var(--ink);margin-bottom:.25rem}
     .sector-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
-    .sector-card{display:flex;gap:1rem;background:var(--surface);border:1px solid var(--line);border-radius:15px;padding:1.25rem;min-height:190px;box-shadow:0 3px 11px rgba(16,27,61,.025);transition:transform .2s,box-shadow .2s,border-color .2s}
-    .sector-card:hover{transform:translateY(-3px);border-color:#cbd7fa;box-shadow:0 12px 25px rgba(16,27,61,.08)}
+    .sector-card{display:flex;gap:1rem;background:var(--surface);border:1px solid var(--line);border-radius:15px;padding:1.25rem;min-height:190px;box-shadow:0 3px 11px rgba(91,67,39,.04);transition:transform .25s,box-shadow .25s,border-color .25s;animation:panel-entry .55s ease-out both}
+    .sector-card:hover{transform:translateY(-4px);border-color:#b8ceca;box-shadow:0 14px 28px rgba(91,67,39,.1)}
     .sector-icon{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;font-size:1.3rem;font-weight:800;flex:none}
     .card-copy{min-width:0} .card-kicker{color:var(--blue);font-size:.67rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;margin:.05rem 0 .35rem}
     .sector-card h3{font-size:1.03rem;line-height:1.28;letter-spacing:-.02em;margin:0 0 .5rem} .sector-card h3 a{text-decoration:none} .sector-card h3 a:hover{color:var(--blue)}
     .sector-card p{color:var(--muted);font-size:.81rem;line-height:1.55;margin:0 0 1rem} .card-link{color:var(--blue);font-size:.78rem;font-weight:800;text-decoration:none} .card-link span{font-size:1rem;margin-left:.2rem}
-    .empty-state,.guide-placeholder{background:#fff;border:1px dashed #cbd5e1;border-radius:15px;padding:1.4rem;color:var(--muted);display:flex;flex-direction:column;gap:.2rem}
+    .empty-state,.guide-placeholder{background:var(--surface);border:1px dashed #cdbfae;border-radius:15px;padding:1.4rem;color:var(--muted);display:flex;flex-direction:column;gap:.2rem}
     .empty-state strong{color:var(--ink)} .empty-state span{font-size:.85rem}
-    .opportunity-tools{display:flex;align-items:center;justify-content:space-between;gap:.8rem;flex-wrap:wrap;background:#fff;border:1px solid var(--line);border-radius:15px;padding:1rem;margin-bottom:.8rem} .opportunity-filters{display:flex;gap:.55rem;flex-wrap:wrap} .filter-select{border:1px solid #d9e1ef;border-radius:8px;background:#fbfcfe;color:var(--ink);padding:.58rem .7rem;font:inherit;font-size:.78rem;outline:none} .filter-select:focus{border-color:#8ba5ed;box-shadow:0 0 0 3px #e4ebff} .opportunity-count{font-size:.76rem;color:var(--muted);white-space:nowrap} .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-    .opportunity-list{display:grid;gap:.65rem} .opportunity-card{display:grid;grid-template-columns:minmax(0,1fr) 140px 155px;align-items:center;gap:1rem;background:#fff;border:1px solid var(--line);border-radius:13px;padding:1rem 1.1rem;transition:transform .2s,box-shadow .2s,border-color .2s} .opportunity-card:hover{transform:translateY(-2px);border-color:#cbd7fa;box-shadow:0 9px 20px rgba(16,27,61,.07)} .opportunity-card[hidden]{display:none} .opportunity-meta{display:flex;align-items:center;gap:.6rem;color:#98a2b3;font-size:.68rem;margin-bottom:.35rem} .opportunity-tag{color:var(--blue);font-weight:750} .opportunity-main h3{font-size:.94rem;line-height:1.3;letter-spacing:-.015em;margin:0 0 .3rem} .opportunity-main h3 a{text-decoration:none} .opportunity-main h3 a:hover{color:var(--blue)} .opportunity-main p{font-size:.76rem;color:var(--muted);margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis} .opportunity-data{border-left:1px solid var(--line);padding-left:1rem} .opportunity-data strong{display:block;font-size:1rem;color:var(--navy)} .opportunity-data span,.opportunity-deadline small{display:block;color:var(--muted);font-size:.68rem;margin-top:.15rem} .opportunity-deadline{border-left:1px solid var(--line);padding-left:1rem} .deadline-badge{display:inline-block;border-radius:99px;padding:.3rem .55rem;font-size:.68rem;font-weight:800;white-space:nowrap} .deadline-urgente{background:#fee2e2;color:#991b1b} .deadline-proximo{background:#ffedd5;color:#9a3412} .deadline-abierto{background:#dcfce7;color:#166534} .deadline-sinplazo{background:#f2f4f7;color:#667085} .opportunity-empty{background:#fff;border:1px dashed #cbd5e1;border-radius:13px;padding:1.6rem;color:var(--muted);text-align:center} .opportunity-empty strong{display:block;color:var(--ink);margin-bottom:.2rem} .opportunity-empty span{font-size:.8rem}
-    .guide-placeholder{flex-direction:row;align-items:center;gap:1rem} .placeholder-icon{width:40px;height:40px;border-radius:50%;background:#eef3ff;color:var(--blue);display:grid;place-items:center;font-size:1.3rem;flex:none} .guide-placeholder strong{font-size:.9rem;color:var(--ink)} .guide-placeholder p{font-size:.78rem;margin:.15rem 0 0} .soon{margin-left:auto;background:#f2f4f7;color:#667085;border-radius:99px;padding:.3rem .65rem;font-size:.68rem;font-weight:800;white-space:nowrap}
-    .guide-list{display:grid;gap:.7rem} .guide-link{display:grid;grid-template-columns:120px 1fr auto;align-items:center;gap:1rem;text-decoration:none;background:#fff;border:1px solid var(--line);border-radius:12px;padding:.9rem 1rem;font-size:.79rem} .guide-link span:first-child{color:var(--muted)} .guide-link strong{font-size:.87rem} .guide-link .arrow{color:var(--blue);font-size:1.2rem} .guide-link:hover{border-color:#b9c8f6}
+    .opportunity-tools{display:flex;align-items:center;justify-content:space-between;gap:.8rem;flex-wrap:wrap;background:var(--surface);border:1px solid var(--line);border-radius:15px;padding:1rem;margin-bottom:.8rem} .opportunity-filters{display:flex;gap:.55rem;flex-wrap:wrap} .filter-select{border:1px solid #d9cdbb;border-radius:8px;background:#f7f0e5;color:var(--ink);padding:.58rem .7rem;font:inherit;font-size:.78rem;outline:none} .filter-select:focus{border-color:#8faeae;box-shadow:0 0 0 3px #dfece9} .opportunity-count{font-size:.76rem;color:var(--muted);white-space:nowrap} .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    .opportunity-list{display:grid;gap:.65rem} .opportunity-card{display:grid;grid-template-columns:minmax(0,1fr) 140px 155px;align-items:center;gap:1rem;background:var(--surface);border:1px solid var(--line);border-radius:13px;padding:1rem 1.1rem;transition:transform .25s,box-shadow .25s,border-color .25s;animation:panel-entry .5s ease-out both} .opportunity-card:nth-child(2){animation-delay:.06s} .opportunity-card:nth-child(3){animation-delay:.12s} .opportunity-card:nth-child(4){animation-delay:.18s} .opportunity-card:hover{transform:translateY(-3px);border-color:#b8ceca;box-shadow:0 10px 22px rgba(91,67,39,.09)} .opportunity-card[hidden]{display:none} .opportunity-meta{display:flex;align-items:center;gap:.6rem;color:#8a8379;font-size:.68rem;margin-bottom:.35rem} .opportunity-tag{color:var(--blue);font-weight:750} .opportunity-main h3{font-size:.94rem;line-height:1.3;letter-spacing:-.015em;margin:0 0 .3rem} .opportunity-main h3 a{text-decoration:none} .opportunity-main h3 a:hover{color:var(--blue)} .opportunity-main p{font-size:.76rem;color:var(--muted);margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis} .opportunity-data{border-left:1px solid var(--line);padding-left:1rem} .opportunity-data strong{display:block;font-size:1rem;color:var(--navy)} .opportunity-data span,.opportunity-deadline small{display:block;color:var(--muted);font-size:.68rem;margin-top:.15rem} .opportunity-deadline{border-left:1px solid var(--line);padding-left:1rem} .deadline-badge{display:inline-block;border-radius:99px;padding:.3rem .55rem;font-size:.68rem;font-weight:800;white-space:nowrap} .deadline-urgente{background:#f8dfd8;color:#9b3d2d} .deadline-proximo{background:#f7e8c9;color:#975b20} .deadline-abierto{background:#dceee5;color:#27664e} .deadline-sinplazo{background:#eee8df;color:#70685e} .opportunity-empty{background:var(--surface);border:1px dashed #cdbfae;border-radius:13px;padding:1.6rem;color:var(--muted);text-align:center} .opportunity-empty strong{display:block;color:var(--ink);margin-bottom:.2rem} .opportunity-empty span{font-size:.8rem}
+    .guide-placeholder{flex-direction:row;align-items:center;gap:1rem;background:var(--surface)} .placeholder-icon{width:40px;height:40px;border-radius:50%;background:#e8f0ee;color:var(--blue);display:grid;place-items:center;font-size:1.3rem;flex:none} .guide-placeholder strong{font-size:.9rem;color:var(--ink)} .guide-placeholder p{font-size:.78rem;margin:.15rem 0 0} .soon{margin-left:auto;background:#eee8df;color:#70685e;border-radius:99px;padding:.3rem .65rem;font-size:.68rem;font-weight:800;white-space:nowrap}
+    .guide-list{display:grid;gap:.7rem} .guide-link{display:grid;grid-template-columns:120px 1fr auto;align-items:center;gap:1rem;text-decoration:none;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:.9rem 1rem;font-size:.79rem} .guide-link span:first-child{color:var(--muted)} .guide-link strong{font-size:.87rem} .guide-link .arrow{color:var(--blue);font-size:1.2rem} .guide-link:hover{border-color:#b9c8b8;transform:translateX(3px)}
     .trust-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:4rem;padding:1.45rem 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
     .trust-item{display:flex;align-items:flex-start;gap:.65rem} .trust-icon{color:var(--blue);font-weight:900;font-size:1.1rem} .trust-item strong{display:block;font-size:.8rem} .trust-item span{display:block;color:var(--muted);font-size:.74rem;margin-top:.15rem}
     footer{background:var(--navy);color:#b8c2de;padding:2.4rem 1.5rem} .footer-inner{max-width:1160px;margin:auto;display:flex;justify-content:space-between;gap:2rem;align-items:flex-start} footer strong{color:#fff} footer p{font-size:.75rem;max-width:470px;line-height:1.7;margin:.6rem 0 0} .footer-meta{font-size:.72rem;text-align:right;color:#8f9cbd} footer a{color:#d5def6;text-decoration:none} footer a:hover{color:#fff}
@@ -101,22 +104,22 @@
   <section class="hero-wrap"><div class="hero">
     <div>
       <span class="eyebrow"><i></i> Actualizado diariamente</span>
-      <h1>Encuentra tu próxima oportunidad pública.</h1>
-      <p class="hero-lead">Licitaciones y contratos del sector público español, organizados por sectores para que puedas detectar oportunidades relevantes sin perder tiempo.</p>
+      <h1>Detecta dónde está el negocio público.</h1>
+      <p class="hero-lead">Licitaciones y contratos del sector público español, organizados por sectores para que puedas descubrir volumen, presupuesto y plazos antes de decidir dónde competir.</p>
       <div class="hero-actions"><a class="button button-primary" href="#sectores">Explorar sectores <span>→</span></a><a class="button button-secondary" href="https://contrataciondelestado.es" target="_blank" rel="noopener">Fuente oficial ↗</a></div>
       <p class="hero-note"><strong>Fuente:</strong> Plataforma de Contratación del Sector Público · Datos abiertos del Gobierno de España</p>
     </div>
     <div class="dashboard-card" aria-label="Resumen de la plataforma">
       <div class="dash-top"><span>Panel de oportunidades</span><span class="dash-live"><i></i>En directo</span></div>
-      <div class="dash-title">Una vista clara de la contratación pública</div>
-      <div class="dash-stat-grid"><div class="dash-stat"><strong>143</strong><span>Contratos activos</span></div><div class="dash-stat"><strong>5</strong><span>Sectores activos</span></div><div class="dash-stat"><strong>1.1B €</strong><span>Valor total</span></div><div class="dash-stat"><strong class="hero-stat-red">26</strong><span>Cierran esta semana</span></div></div>
-      <div class="dash-list"><div class="dash-row"><span class="dash-dot"></span><span>Plazos ordenados por urgencia</span><b>OK</b></div><div class="dash-row"><span class="dash-dot"></span><span>Importes y organismos visibles</span><b>OK</b></div><div class="dash-row"><span class="dash-dot"></span><span>Enlace directo al anuncio</span><b>OK</b></div></div>
+      <div class="dash-title">La contratación pública, ordenada para decidir</div>
+      <div class="dash-stat-grid"><div class="dash-stat"><strong>143</strong><span>Volumen activo</span></div><div class="dash-stat"><strong>5</strong><span>Sectores monitorizados</span></div><div class="dash-stat"><strong>1.1B €</strong><span>Presupuesto publicado</span></div><div class="dash-stat"><strong class="hero-stat-red">26</strong><span>Cierres próximos</span></div></div>
+      <div class="dash-list"><div class="dash-row"><span class="dash-dot"></span><span>Plazos ordenados para priorizar</span><b>OK</b></div><div class="dash-row"><span class="dash-dot"></span><span>Presupuestos y organismos visibles</span><b>OK</b></div><div class="dash-row"><span class="dash-dot"></span><span>Acceso directo al anuncio oficial</span><b>OK</b></div></div>
     </div>
   </div></section>
 
   <main class="main">
     <section id="sectores">
-      <div class="section-heading"><div><h2>Explora por sector</h2><p>Accede a contratos activos, importes estimados, organismos y fechas límite en cada categoría.</p></div><a class="section-link" href="https://mtellezdominguez.github.io/apex-site/sitemap.xml">Ver mapa del sitio →</a></div>
+      <div class="section-heading"><div><h2>El mercado que tienes delante</h2><p>Una lectura rápida del volumen público activo para detectar dónde merece la pena mirar primero.</p></div><a class="section-link" href="https://mtellezdominguez.github.io/apex-site/sitemap.xml">Ver mapa del sitio →</a></div>
       <div class="directory-tools" role="search" aria-label="Buscar sectores">
         <div class="search-row">
           <label class="search-box"><span class="search-icon" aria-hidden="true">⌕</span><input class="search-input" id="sector-search" type="search" placeholder="Buscar tecnología, obras, limpieza..." autocomplete="off"></label>
@@ -174,7 +177,7 @@
     </section>
 
     <section id="oportunidades" style="margin-top:4.3rem">
-      <div class="section-heading"><div><h2>Últimas oportunidades</h2><p>Licitaciones activas consultadas desde la base de datos y enlazadas al anuncio original.</p></div><span class="section-link">Datos en directo del pipeline →</span></div>
+      <div class="section-heading"><div><h2>Oportunidades con recorrido</h2><p>Contratos activos ordenados para que puedas valorar volumen, esfuerzo y tiempo de respuesta.</p></div><span class="section-link">Actividad económica en directo →</span></div>
       <div class="opportunity-tools" role="group" aria-label="Filtrar oportunidades"><div class="opportunity-filters"><label><span class="sr-only">Filtrar por plazo</span><select class="filter-select" id="deadline-filter"><option value="all">Todos los plazos</option><option value="7">Cierra en 7 días</option><option value="30">Cierra en 8–30 días</option><option value="open">Más de 30 días</option><option value="unknown">Sin plazo publicado</option></select></label><label><span class="sr-only">Filtrar por importe</span><select class="filter-select" id="amount-filter"><option value="all">Cualquier importe</option><option value="low">Menos de 100.000 €</option><option value="medium">100.000 € – 1M €</option><option value="high">Más de 1M €</option><option value="unknown">Importe no publicado</option></select></label></div><span class="opportunity-count" id="opportunity-count" aria-live="polite">12 oportunidades</span></div>
       <div class="opportunity-list"><article class="opportunity-card" data-days="12" data-amount="111540.0">
           <div class="opportunity-main">
@@ -278,7 +281,7 @@ tancaments laterals, per a la realització de la 20a Trobada dels Amics del Cast
     </section>
 
     <section id="metodo" style="margin-top:4.3rem">
-      <div class="section-heading"><div><h2>Más que un listado</h2><p>Información útil para pasar de la búsqueda a la decisión con menos fricción.</p></div></div>
+      <div class="section-heading"><div><h2>Convierte datos públicos en decisiones</h2><p>Información útil para pasar de la búsqueda a una primera valoración con menos fricción.</p></div></div>
       <div class="trust-strip" style="margin-top:0;border-top:0">
         <div class="trust-item"><span class="trust-icon">◷</span><div><strong>Plazos destacados</strong><span>Identifica primero las oportunidades que cierran antes.</span></div></div>
         <div class="trust-item"><span class="trust-icon">⌁</span><div><strong>Datos de origen público</strong><span>Información trazable y enlazada al anuncio original.</span></div></div>
@@ -286,14 +289,14 @@ tancaments laterals, per a la realització de la 20a Trobada dels Amics del Cast
       </div>
     </section>
 
-    <section style="margin-top:4.3rem"><div class="section-heading"><div><h2>Guías y comparativas</h2><p>Contenido práctico para elegir herramientas y recursos con criterio.</p></div></div><div class="guide-list"><div class="guide-placeholder">
+    <section style="margin-top:4.3rem">      <div class="section-heading"><div><h2>Recursos para competir mejor</h2><p>Contenido práctico para elegir herramientas y recursos con criterio.</p></div></div><div class="guide-list"><div class="guide-placeholder">
           <div class="placeholder-icon">◌</div>
           <div><strong>Guías de compra en preparación</strong><p>Estamos preparando comparativas prácticas con precios y características verificadas.</p></div>
           <span class="soon">Próximamente</span>
         </div></div></section>
   </main>
 
-  <footer><div class="footer-inner"><div><strong>Licitaciones España</strong><p>Un punto de partida más claro para explorar la contratación pública y tomar mejores decisiones.</p></div><div class="footer-meta">Última actualización: 13/09/2026 09:44<br><a href="https://contrataciondelestado.es" target="_blank" rel="noopener">Plataforma de Contratación del Sector Público ↗</a><br>Datos abiertos · España</div></div></footer>
+  <footer><div class="footer-inner"><div><strong>Licitaciones España</strong><p>Un punto de partida más claro para explorar la contratación pública y tomar mejores decisiones.</p></div><div class="footer-meta">Última actualización: 13/09/2026 11:07<br><a href="https://contrataciondelestado.es" target="_blank" rel="noopener">Plataforma de Contratación del Sector Público ↗</a><br>Datos abiertos · España</div></div></footer>
   <script>
     (() => {
       const cards = Array.from(document.querySelectorAll('.sector-card[data-sector]'));
